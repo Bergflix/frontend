@@ -36,36 +36,36 @@ class App extends React.Component {
     componentDidMount() {
         // set loading to false, if database is loaded
         let newState = {loading: false};
-        let loadLists = db => {
-            return new Promise((resolve, reject) => {
-                getLatestList(db).then(data => {
-                    newState.listNew = data;
-                    newState.featured = data.splice(0, 1)[0];
-                    return getFilmList(db);
-                }).then(data => {
-                    newState.listFilms = data;
-                    return getSeriesList(db);
-                }).then(data => {
-                    newState.listSeries = data;
-                    resolve();
-                }).catch(e => {
-                    reject(e);
-                });
+        //Init local database
+        let db = new PouchDB("videos");
+
+        let loadLists = () => {
+            getLatestList(db).then(data => {
+                newState.listNew = data;
+                newState.featured = data.splice(0, 1)[0];
+                return getFilmList(db);
+            }).then(data => {
+                newState.listFilms = data;
+                return getSeriesList(db);
+            }).then(data => {
+                newState.listSeries = data;
+                // set the new state
+                this.setState(newState);
+            }).catch(e => {
+                console.log(e);
             });
         };
 
-        //Init local database
-        let db = new PouchDB("videos");
-        // Load all the different lists
-        loadLists(db).then(() => {
-            // set the new state
-            this.setState(newState);
-        }).catch(e => console.log(e));
+        if(navigator.onLine){
+            // Init database-Replication from remote
+            db.replicate.from(config.db + "videos").on("complete", () => {
+                loadLists(db);
+            });
+        }else{
+            // Load all the different lists
+            loadLists(db);
+        }
 
-        // Init database-Replication from remote
-        db.replicate.from(config.db + "videos").on("complete", () => {
-            loadLists(db).then(()=>{}).catch(e => console.log(e));
-        });
     }
 
     render() {
