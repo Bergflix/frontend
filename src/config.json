@@ -1,0 +1,8 @@
+{
+  "db": "https://couchdb.bergflix.de/",
+  "streaming": {
+    "pattern": "http",
+    "host": "5.252.225.124",
+    "port": 8080
+  }
+}

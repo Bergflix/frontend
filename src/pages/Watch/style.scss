@@ -1,0 +1,21 @@
+#watch-container {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.video-container {
+  margin-left: 5rem;
+  width: calc(100% - 5rem);
+  height: 100%;
+
+  #video {
+    width: 100%;
+    height: 100%;
+  }
+}

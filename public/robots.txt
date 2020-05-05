@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /watch/
+Disallow: /party/*
+Disallow: /content/
+Disallow: /libs/
+Disallow: /fonts/
+Disallow: /webfonts/
+Disallow: /.htaccess

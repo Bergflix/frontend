@@ -1,0 +1,17 @@
+/* TEAM */
+Designer: Nikasukee
+Location: Germany
+
+Developer: Lyxt
+Location: Germany
+
+Developer: Maxi
+Location: Germany
+
+/* THANKS */
+Name: HerrBergmann
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript, Progressive Web App (PWA)
+Components: ReactJS
+Software: node.js, npm, git, GitHub, Discord, PhpStorm, Sublime

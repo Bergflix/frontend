@@ -1,0 +1,20 @@
+#nf-container {
+  width: 100%;
+
+  #nf-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    text-align: center;
+
+    p {
+      font-size: 1rem;
+      &#ops {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+    }
+  }
+}

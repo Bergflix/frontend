@@ -1,0 +1,34 @@
+{
+  "short_name": "Bergflix",
+  "name": "Bergflix",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "orientation": "any",
+  "description": "A brand new experience to watch HerrBergmann",
+  "categories": ["videos", "streaming", "bergmann"],
+  "lang": "de-DE",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "screenshots": [],
+  "serviceworker": {
+    "src": "/offline.js",
+    "scope": "/",
+    "type": "",
+    "update_via_cache": "none"
+  },
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "content/imgs/bergflix_logo_short_black.png",
+      "type": "image/png",
+      "sizes": "500x500"
+    }
+  ]
+}

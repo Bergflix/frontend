@@ -1,0 +1,84 @@
+:root {
+  font-family: "Euclid Circular A", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: black;
+  color: white;
+}
+
+#container {
+  width: 100%;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#page-container {
+  width: 100%;
+  min-height: 100%;
+
+  .page {
+    width: inherit;
+    min-height: 100%;
+    position: absolute;
+  }
+}
+
+/* simple - enter transition */
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-appear-active,
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms linear 150ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150ms linear;
+}
+
+/* Background Animation */
+.background-appear,
+.background-enter {
+  opacity: 0;
+}
+.background-appear-active,
+.background-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-out 150ms;
+}
+.background-exit {
+  opacity: 1;
+}
+.background-exit-active {
+  opacity: 0;
+  transition: opacity 150ms ease-in;
+}
