@@ -20,11 +20,11 @@ class ListPage extends React.Component {
                 <div id={"list-title"}>
                     <span>{this.props.title}</span>
                 </div>
-                <div id={"list-list"}>
+                <div id={"list"}>
                     {this.props.list.map(item => (
                         <Link key={item._id} className={"list-item"} to={`/${this.props.type}/${item.hash}`}>
-                            <img alt={"Thumbnail"} src={item.thumbnail} />
-                            <span>{item.title}</span>
+                            <img className={"item-image"} alt={"Thumbnail"} src={item.thumbnail} />
+                            <span className={"item-title"}>{item.title}</span>
                         </Link>
                     ))}
                 </div>
