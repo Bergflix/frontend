@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.scss";
 import {Link} from "react-router-dom";
-import Loading from "../../components/Loading";
+import Loading from "../Loading";
 
-class ListPage extends React.Component {
+class ElementList extends React.Component {
     componentDidMount(){
-        this.props.setBackground("");
+        this.props.setBackground && this.props.setBackground("");
     }
 
     render() {
@@ -33,4 +33,4 @@ class ListPage extends React.Component {
     }
 }
 
-export default ListPage;
+export default ElementList;

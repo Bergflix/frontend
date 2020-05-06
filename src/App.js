@@ -4,7 +4,7 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 import Home from "./pages/Home";
 import SinglePage from "./pages/SinglePage";
-import ListPage from "./pages/ListPage";
+import ElementList from "./components/ElementList";
 import NotFound from "./pages/NotFound";
 import StreamHub from "./pages/StreamHub";
 
@@ -91,8 +91,8 @@ class App extends React.Component {
                                     <Switch location={location}>
                                         <Route path={"/"} exact component={() => <Home setBackground={this.setBackground} featured={this.state.featured} list={this.state.listNew}/>} />
 
-                                        <Route path={"/filme"} component={() => <ListPage type={"filme"} setBackground={this.setBackground} title={"Filme"} list={this.state.listFilms}/>} />
-                                        <Route path={"/serien"} component={() => <ListPage type={"serien"} setBackground={this.setBackground} title={"Serien"} list={this.state.listSeries}/>} />
+                                        <Route path={"/filme"} component={() => <ElementList type={"filme"} setBackground={this.setBackground} title={"Filme"} list={this.state.listFilms}/>} />
+                                        <Route path={"/serien"} component={() => <ElementList type={"serien"} setBackground={this.setBackground} title={"Serien"} list={this.state.listSeries}/>} />
 
                                         <Route path={"/search"} component={() => <SinglePage page={{title: "Suche", text: "Was suchst du?"}} />} />
 
