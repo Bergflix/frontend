@@ -16,7 +16,7 @@
     input {
       position: absolute;
       top: 0;
-      width: 100%;
+      width: -webkit-fill-available;
       height: 5rem;
       padding: 0 1rem;
       margin: 0;

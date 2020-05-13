@@ -25,8 +25,7 @@ class Search extends React.Component {
                     <input type={"text"} value={this.state.query} placeholder={"Suchen..."}
                            autoComplete={"off"} spellCheck={"false"} autoCorrect={"off"}
                            onChange={e => this.setState({query: e.target.value})}
-                           onBlur={e => this.search(e.target.value)}
-                           onKeyDown={e => e.key === "Enter" && e.target.blur()}/>
+                           onKeyDown={e => e.key === "Enter" && this.search(e.target.value)}/>
                 </div>
                 <div id={"result-list"}>
                     <ElementList title={""} list={[]}/>
@@ -36,7 +35,7 @@ class Search extends React.Component {
     }
 
     search(str){
-        console.log(`Searching for ${str}`);
+        this.props.history.push(`/suche/${str}`);
     }
 }
 
