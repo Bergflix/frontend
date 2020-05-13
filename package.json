@@ -1,6 +1,6 @@
 {
-  "name": "bergflix_page",
-  "version": "0.1.0",
+  "name": "main-website",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.5.0",
@@ -26,8 +26,7 @@
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "tippy.js": "^6.2.3",
-    "uuid": "^8.0.0",
-    "yt-player": "^3.4.3"
+    "uuid": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -15,8 +15,7 @@ class RoomPage extends React.Component {
             pause: true
         };
 
-        let s = config.streaming;
-        this.socket = io.connect(s.pattern + "://" + s.host + (s.port > 0 ? ":" + s.port : "") + "/");
+        this.socket = io.connect(config.backend);
         this.socket.emit("ehlo", {room: this.props.room});
     }
 

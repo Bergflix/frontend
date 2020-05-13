@@ -22,7 +22,7 @@ class ElementList extends React.Component {
                 </div>
                 <div id={"list"}>
                     {this.props.list.map(item => (
-                        <Link key={item._id} className={"list-item"} to={`/${this.props.type}/${item.hash}`}>
+                        <Link key={item._id} className={"list-item"} to={`/${item.type}/${item.hash}`}>
                             <img className={"item-image"} alt={"Thumbnail"} src={item.thumbnail} />
                             <span className={"item-title"}>{item.title}</span>
                         </Link>

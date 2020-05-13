@@ -4,14 +4,15 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 import Home from "./pages/Home";
 import SinglePage from "./pages/SinglePage";
-import ElementList from "./components/ElementList";
 import NotFound from "./pages/NotFound";
 import StreamHub from "./pages/StreamHub";
+import Search from "./pages/Search";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackgroundImage from "./components/BackgroundImage";
 import Loading from "./components/Loading";
+import ElementList from "./components/ElementList";
 
 import config from "./config.json";
 import {getFilmList, getLatestList, getSeriesList} from "./misc";
@@ -94,7 +95,7 @@ class App extends React.Component {
                                         <Route path={"/filme"} component={() => <ElementList type={"filme"} setBackground={this.setBackground} title={"Filme"} list={this.state.listFilms}/>} />
                                         <Route path={"/serien"} component={() => <ElementList type={"serien"} setBackground={this.setBackground} title={"Serien"} list={this.state.listSeries}/>} />
 
-                                        <Route path={"/search"} component={() => <SinglePage page={{title: "Suche", text: "Was suchst du?"}} />} />
+                                        <Route path={["/suche/:query", "/suche"]} component={() => <Search setBackground={this.setBackground} />} />
 
                                         <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
                                         <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
