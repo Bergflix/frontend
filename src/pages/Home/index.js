@@ -1,7 +1,7 @@
 import React from 'react';
 import "./style.scss";
 import Loading from "../../components/Loading";
-import ElementList from "../../components/ElementList";
+//import ElementList from "../../components/ElementList";
 import {Link} from "react-router-dom";
 import {v4 as uuid} from "uuid";
 
@@ -46,7 +46,7 @@ class Home extends React.Component {
                         <Link to={`/${this.props.featured.type}/${this.props.featured.hash}`}>Details</Link>
                     </div>
                 </div>
-                <ElementList title={"Neuerscheinungen"} list={this.props.list} />
+                {/* <ElementList title={"Neuerscheinungen"} list={this.props.list} /> */}
             </div>
         );
     }
