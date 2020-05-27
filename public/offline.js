@@ -55,6 +55,6 @@ self.addEventListener("push", e => {
 
     self.registration.showNotification("Bergflix", {
         body: "Bergflix test notification",
-        icon: "https://share.bergflix.de/bergflix/bergflix_logo_short_white.png"
+        icon: "https://share.bergflix.de/logo/light.png"
     });
 });
