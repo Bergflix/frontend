@@ -2,17 +2,24 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 import YouTube from "react-youtube";
 import "./style.scss";
-import {getElementByHash} from "../../misc";
+import {getElementByKey} from "../../misc";
 
 class Watch extends React.Component {
     state = {
-        ytid: ""
+        type: "",
+        ytid: "",
+        title: "",
+        date: "",
+        producer: "",
+        thumbnail: "",
+        description: "",
+        parts: ""
     };
     constructor(props) {
         super(props);
 
-        let hash = props.match.params.hash;
-        getElementByHash(hash).then(data => {
+        let key = props.match.params.key;
+        getElementByKey(key).then(data => {
             this.setState({
                 type: data.type,
                 ytid: data.ytid,
@@ -21,7 +28,6 @@ class Watch extends React.Component {
                 producer: data.producer,
                 thumbnail: data.thumbnail,
                 description: data.description,
-                original: data.original,
                 parts: data.parts
             });
         });

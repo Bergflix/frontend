@@ -6,13 +6,13 @@ import {Link, NavLink} from "react-router-dom";
 class Header extends React.Component {
     navItems = [{
         title: "Filme",
-        href: "/filme"
+        href: "/movies"
     },{
         title: "Serien",
-        href: "/serien"
+        href: "/series"
     },{
         title: "Suche",
-        href: "/suche"
+        href: "/search"
     },{
         title: "Party",
         href: "/party"

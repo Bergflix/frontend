@@ -1,4 +1,3 @@
 {
-  "db": "https://couchdb.bergflix.de/",
   "backend": "https://backend.bergflix.de/"
 }

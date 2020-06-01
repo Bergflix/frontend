@@ -4,7 +4,7 @@ import "./style.scss";
 class NotFound extends React.Component {
 
     componentDidMount() {
-        this.props.setBackground("https://share.bergflix.de/imgs/bergi.png");
+        this.props.setBackground && this.props.setBackground("https://share.bergflix.de/imgs/bergi.png");
     }
 
     render() {

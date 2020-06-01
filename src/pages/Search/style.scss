@@ -20,7 +20,7 @@
       height: 5rem;
       padding: 0 1rem;
       margin: 0;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.8);
       border: none;
       border-bottom: rgba(255, 255, 255, 0.4) solid 7px;
       background-color: transparent;
@@ -32,7 +32,6 @@
 
       &:focus {
         border-bottom-color: rgba(255, 255, 255, 0.8);
-        color: rgba(255, 255, 255, 0.8);
       }
     }
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import {CSSTransition, TransitionGroup} from "react-transition-group";
+import {v4 as uuid} from "uuid";
 
 import Home from "./pages/Home";
 import SinglePage from "./pages/SinglePage";
@@ -14,63 +15,26 @@ import BackgroundImage from "./components/BackgroundImage";
 import Loading from "./components/Loading";
 import ElementList from "./components/ElementList";
 
-import config from "./config.json";
-import {getFilmList, getLatestList, getSeriesList} from "./misc";
-
-import {v4 as uuid} from "uuid";
-
-import PouchDB from "pouchdb";
-import PouchDBFind from "pouchdb-find";
-PouchDB.plugin(PouchDBFind);
+import DB from "./classes/db";
 
 
 
 class App extends React.Component {
     // Load the Database for the Video-Elements
     state = {
-        loading: true,
         background: "",
-        featured: {},
-        listNew: []
+        d: null
     };
 
     componentDidMount() {
-        // set loading to false, if database is loaded
-        let newState = {loading: false};
-        //Init local database
-        let db = new PouchDB("videos");
-
-        let loadLists = () => {
-            getLatestList(db).then(data => {
-                newState.listNew = data;
-                newState.featured = data.splice(0, 1)[0];
-                return getFilmList(db);
-            }).then(data => {
-                newState.listFilms = data;
-                return getSeriesList(db);
-            }).then(data => {
-                newState.listSeries = data;
-                // set the new state
-                this.setState(newState);
-            }).catch(e => {
-                console.log(e);
-            });
-        };
-
-        if(navigator.onLine){
-            // Init database-Replication from remote
-            db.replicate.from(config.db + "videos").on("complete", () => {
-                loadLists(db);
-            });
-        }else{
-            // Load all the different lists
-            loadLists(db);
-        }
-
+        let app = this;
+        DB.onLoad(() => {
+            app.setState({d: new Date()});
+        });
     }
 
     render() {
-        if(this.state.loading){
+        if(!DB.loaded){
             return (
                 <Loading />
             );
@@ -90,17 +54,18 @@ class App extends React.Component {
                             <CSSTransition appear={true} key={location.key} timeout={450} classNames={"fade"}>
                                 <div className={"page"}>
                                     <Switch location={location}>
-                                        <Route path={"/"} exact component={() => <Home setBackground={this.setBackground} featured={this.state.featured} list={this.state.listNew}/>} />
+                                        <Route path={"/"} exact component={() => <Redirect to={"/home"}/>} />
+                                        <Route path={"/home"} component={() => <Home setBackground={this.setBackground}/>} />
 
-                                        <Route path={"/filme"} component={() => <ElementList type={"filme"} setBackground={this.setBackground} title={"Filme"} list={this.state.listFilms}/>} />
-                                        <Route path={"/serien"} component={() => <ElementList type={"serien"} setBackground={this.setBackground} title={"Serien"} list={this.state.listSeries}/>} />
+                                        <Route path={"/movies"} component={() => <ElementList type={"movies"} setBackground={this.setBackground} title={"Filme"}/>} />
+                                        <Route path={"/series"} component={() => <ElementList type={"series"} setBackground={this.setBackground} title={"Serien"}/>} />
 
-                                        <Route path={["/suche/:query", "/suche"]} component={() => <Search setBackground={this.setBackground} />} />
+                                        <Route path={["/search/:query", "/search"]} component={() => <Search setBackground={this.setBackground} />} />
 
                                         <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
                                         <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
 
-                                        <Route path={"/upload"} component={() => <Redirect to={"/"} />} />
+                                        <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
                                         <Route path={["/party/:room", "/party"]} component={() => <StreamHub setBackground={this.setBackground} />} />
 
                                         <Route path={"/"} component={() => <NotFound setBackground={this.setBackground} />} />
