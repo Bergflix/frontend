@@ -7,6 +7,11 @@ class PartyJoin extends React.Component {
         this.props.setBackground && this.props.setBackground("https://share.bergflix.de/imgs/captain_pineapple.png");
     }
 
+    join = e => {
+        e.preventDefault();
+        this.props.history.push(`/party/room/${this.props.match.params.room}`);
+    }
+
     render() {
         let dialogContainer = content => (
             <div id={"party-container"}>
@@ -17,10 +22,8 @@ class PartyJoin extends React.Component {
         );
 
         return dialogContainer(
-            <form id={"join-form"} onSubmit={this.joinRoom}>
+            <form id={"join-form"} onSubmit={this.join}>
                 <h3>Party beitreten</h3>
-                <label>Name:</label>
-                <input name={"partyName"} autoComplete={"off"} spellCheck={"false"} autoCorrect={"off"} required={true}/>
                 <label>Passwort (optional):</label>
                 <input name={"partyPassword"} autoComplete={"off"} spellCheck={"false"} autoCorrect={"off"}/>
                 <div className={"btn-bar"}>

@@ -18,7 +18,6 @@ class PartyRoom extends React.Component {
         };
 
         this.socket = io.connect(config.backend);
-        this.socket.emit("ehlo", {room: this.state.room});
     }
 
     componentDidMount() {
