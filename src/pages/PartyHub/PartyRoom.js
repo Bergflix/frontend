@@ -1,9 +1,10 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import io from "socket.io-client";
 import YouTube from "react-youtube";
 const config = require("../../config.json");
 
-class RoomPage extends React.Component {
+class PartyRoom extends React.Component {
     constructor(props) {
         super(props);
 
@@ -32,7 +33,7 @@ class RoomPage extends React.Component {
                         modestbranding: 0,
                         showinfo: 0
                     }}} onReady={this.readyHandling} onPlay={this.playHandling} onPause={this.pauseHandling} onPlaybackRateChange={this.playbackHandling} />
-                <button id={"leaveRoomBtn"} type={"button"}>Leave Room</button>
+                <Link to={"/party"} type={"button"}>Party verlassen</Link>
             </div>
         );
     }
@@ -91,4 +92,4 @@ class RoomPage extends React.Component {
     }
 }
 
-export default RoomPage;
+export default PartyRoom;

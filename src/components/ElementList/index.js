@@ -3,7 +3,6 @@ import "./style.scss";
 import {Link} from "react-router-dom";
 import Loading from "../Loading";
 import DB from "../../classes/db";
-import NotFound from "../../pages/NotFound";
 
 class ElementList extends React.Component {
     state = {

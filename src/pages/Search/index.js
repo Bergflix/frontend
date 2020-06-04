@@ -1,11 +1,8 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-
 import ElementList from "../../components/ElementList";
-
 import "./style.scss";
 import DB from "../../classes/db";
-import NotFound from "../NotFound";
 
 class Search extends React.Component {
     constructor(props) {
