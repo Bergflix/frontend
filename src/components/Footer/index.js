@@ -7,19 +7,19 @@ class Footer extends React.Component {
     mobileNavItems = [{
         title: "Serien",
         icon: "far fa-square",
-        href: "/serien"
+        href: "/series"
     },{
         title: "Filme",
         icon: "fas fa-video",
-        href: "/filme"
+        href: "/movies"
     },{
         title: "Home",
         icon: "fas fa-home",
-        href: "/"
+        href: "/home"
     },{
         title: "Suche",
         icon: "fas fa-search",
-        href: "/suche"
+        href: "/search"
     },{
         title: "Party",
         icon: "fas fa-users",

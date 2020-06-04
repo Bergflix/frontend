@@ -3,14 +3,14 @@
   width: calc(100% - 2rem);
 
   @media only screen and (min-width: 600px){
-    padding: 5rem 2rem 0 2rem;
+    padding: 7rem 2rem 0 2rem;
     width: calc(100% - 4rem);
   }
 
   #search-bar {
     font-size: 4rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin: 1rem 0 6rem;
     position: relative;
 
     input {

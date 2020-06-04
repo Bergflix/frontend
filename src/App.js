@@ -16,6 +16,9 @@ import Loading from "./components/Loading";
 import ElementList from "./components/ElementList";
 
 import DB from "./classes/db";
+import PartyRoom from "./pages/PartyHub/PartyRoom";
+import PartyCreate from "./pages/PartyHub/PartyCreate";
+import PartyJoin from "./pages/PartyHub/PartyJoin";
 
 
 
@@ -28,9 +31,7 @@ class App extends React.Component {
 
     componentDidMount() {
         let app = this;
-        console.log("app loading");
         DB.onLoad(() => {
-            console.log("app loaded");
             app.setState({d: new Date()});
         });
     }
@@ -68,7 +69,11 @@ class App extends React.Component {
                                         <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
 
                                         <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
-                                        <Route path={["/party/:room", "/party"]} component={() => <PartyHub setBackground={this.setBackground} />} />
+
+                                        <Route path={"/party/room/:room"} component={() => <PartyRoom setBackground={this.setBackground}/>} />
+                                        <Route path={"/party/create"} component={() => <PartyCreate setBackground={this.setBackground}/>}/>
+                                        <Route path={"/party/join/:room"} component={() => <PartyJoin setBackground={this.setBackground}/>}/>
+                                        <Route path={"/party"} component={() => <PartyHub setBackground={this.setBackground} />} />
 
                                         <Route path={"/"} component={() => <NotFound setBackground={this.setBackground} />} />
                                     </Switch>

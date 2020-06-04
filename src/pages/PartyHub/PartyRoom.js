@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
 import io from "socket.io-client";
 import YouTube from "react-youtube";
 const config = require("../../config.json");
@@ -9,7 +9,8 @@ class PartyRoom extends React.Component {
         super(props);
 
         this.state = {
-            video: "pupdeq1MoVw"
+            video: "pupdeq1MoVw",
+            room: props.match.params.room
         };
         this.emit = {
             play: true,
@@ -17,9 +18,12 @@ class PartyRoom extends React.Component {
         };
 
         this.socket = io.connect(config.backend);
-        this.socket.emit("ehlo", {room: this.props.room});
+        this.socket.emit("ehlo", {room: this.state.room});
     }
 
+    componentDidMount() {
+        this.props.setBackground && this.props.setBackground("");
+    }
 
     render() {
         return (
@@ -76,8 +80,6 @@ class PartyRoom extends React.Component {
         e.target.setPlaybackRate(1);
     };
 
-
-
     getEmitPlay(){
         return this.emit.play;
     }
@@ -92,4 +94,4 @@ class PartyRoom extends React.Component {
     }
 }
 
-export default PartyRoom;
+export default withRouter(PartyRoom);

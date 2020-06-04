@@ -9,17 +9,13 @@ class DB {
     loadListeners = [];
 
     constructor() {
-        console.log("Create DB");
         this.db = new PouchDB("bergflix");
         if(navigator.onLine){
-            console.log("replicate db");
             this.db.replicate.from("https://data.bergflix.de/").on("complete", () => {
-                console.log("db replicated");
                 this.loaded = true;
                 this.loadListeners.forEach(func => func());
             }).on("error", console.error);
         }else{
-            console.log("DB loaded");
             this.loaded = true;
             this.loadListeners.forEach(func => func());
         }

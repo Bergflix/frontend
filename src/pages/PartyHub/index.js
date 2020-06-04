@@ -1,32 +1,44 @@
 import React from "react";
 import {withRouter, Link} from "react-router-dom";
-import crypto from "crypto";
-import PartyRoom from "./PartyRoom";
+import "./style.scss";
+import PartyCreate from "./PartyCreate";
 
 class PartyHub extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            room: props.match.params.room
-        };
+    componentDidMount() {
+        this.props.setBackground && this.props.setBackground("https://share.bergflix.de/imgs/captain_pineapple.png");
     }
 
-    componentDidMount() {
-        this.props.setBackground("");
+    createRoom(e){
+        e.preventDefault();
+
+        // Raum eröffnen, falls möglich
+    }
+    joinRoom(e){
+        e.preventDefault();
     }
 
     render() {
-        if(this.state.room){
-            return (
-                <PartyRoom room={this.state.room} />
-            );
-        }
-
-        return (
+        let dialogContainer = content => (
             <div id={"party-container"}>
-                <span id={"party-title"}>Bergflix Party</span>
-                <Link to={"/party/"+crypto.randomBytes(6).toString("hex")} >Party erstellen</Link>
+                <div id={"dialog"}>
+                    {content}
+                </div>
+            </div>
+        );
+
+        return dialogContainer(
+            <div id={"welcome-dialog"}>
+                <div className={"title"}>
+                    <p className={"welcome"}>Willkommen beim</p>
+                    <p className={"logo"}>Bergflix<span className={"red"}>. Partymodus</span></p>
+                </div>
+                <div className={"buttons"}>
+                    <p className={"quest"}>Was möchtest du tun?</p>
+                    <div className={"btn-bar"}>
+                        <Link to={"/party/create"} >Party erstellen</Link>
+                        <Link to={"/party/join"} >Party beitreten</Link>
+                    </div>
+                </div>
             </div>
         );
     }

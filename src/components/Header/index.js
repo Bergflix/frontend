@@ -5,6 +5,9 @@ import {Link, NavLink} from "react-router-dom";
 
 class Header extends React.Component {
     navItems = [{
+        title: "Home",
+        href: "/home"
+    },{
         title: "Filme",
         href: "/movies"
     },{
