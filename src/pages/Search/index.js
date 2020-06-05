@@ -25,7 +25,8 @@ class Search extends React.Component {
         return (
             <div id={"search-container"}>
                 <div id={"search-bar"}>
-                    <input type={"text"} value={this.state.query} placeholder={"Suchen..."}
+                    <p>Suchen...</p>
+                    <input type={"text"} value={this.state.query}
                            autoComplete={"off"} spellCheck={"false"} autoCorrect={"off"}
                            onChange={e => this.search(e.target.value)}/>
                 </div>

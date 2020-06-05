@@ -6,7 +6,7 @@ class BackgroundImage extends React.Component {
         return (
             <span id={"background"} style={{
                 backgroundImage: `linear-gradient(100deg, rgba(0, 0, 0, 0.95) 5%, transparent 25%),
-                                  linear-gradient(170deg, rgba(0, 0, 0, 0.95) 5%, transparent 20%),
+                                  linear-gradient(170deg, rgba(0, 0, 0, 0.95) 15%, transparent 30%),
                                   url(${this.props.image})`
             }} />
         );

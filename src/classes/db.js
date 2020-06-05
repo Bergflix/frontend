@@ -56,7 +56,7 @@ class DB {
         let data = await this.db.find({
             selector: {
                 title: {
-                    "$regex": title
+                    "$regex": RegExp(title, "i")
                 }
             }
         });
