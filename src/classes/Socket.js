@@ -5,7 +5,7 @@ class Socket {
     socket;
 
     constructor() {
-        this.socket = io.connect("http://192.168.178.74:8080" || "https://backend.bergflix.de");
+        this.socket = io.connect("https://backend.bergflix.de");
         this.partySocket = new PartySocket(this.socket);
     }
 
