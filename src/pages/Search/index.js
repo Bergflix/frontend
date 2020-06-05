@@ -2,7 +2,7 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 import ElementList from "../../components/ElementList";
 import "./style.scss";
-import DB from "../../classes/db";
+import DB from "../../classes/DB";
 
 class Search extends React.Component {
     constructor(props) {

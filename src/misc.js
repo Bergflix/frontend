@@ -1,10 +1,8 @@
-import io from "socket.io-client";
-import config from "./config.json";
 import crypto from "crypto";
+import Socket from "./classes/Socket";
 
 export function createPartyRoom(name, password){
     let id = crypto.randomBytes(6).toString("hex");
-    let socket = io.connect(config.backend);
-    socket.emit("ehlo", {room: id});
+    Socket.partyHandler.emit("create", {id, name, password});
     return id;
 }

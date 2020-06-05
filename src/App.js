@@ -15,7 +15,8 @@ import BackgroundImage from "./components/BackgroundImage";
 import Loading from "./components/Loading";
 import ElementList from "./components/ElementList";
 
-import DB from "./classes/db";
+import DB from "./classes/DB";
+import Socket from "./classes/Socket";
 import PartyRoom from "./pages/PartyHub/PartyRoom";
 import PartyCreate from "./pages/PartyHub/PartyCreate";
 import PartyJoin from "./pages/PartyHub/PartyJoin";
@@ -33,6 +34,7 @@ class App extends React.Component {
         let app = this;
         DB.onLoad(() => {
             app.setState({d: new Date()});
+            Socket.conn();
         });
     }
 

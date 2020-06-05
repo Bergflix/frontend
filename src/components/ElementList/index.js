@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import {Link} from "react-router-dom";
 import Loading from "../Loading";
-import DB from "../../classes/db";
+import DB from "../../classes/DB";
 
 class ElementList extends React.Component {
     state = {

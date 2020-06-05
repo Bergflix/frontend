@@ -1,12 +1,13 @@
 import React from "react";
 import {withRouter, Link} from "react-router-dom";
-import io from "socket.io-client";
 import YouTube from "react-youtube";
-const config = require("../../config.json");
+import Socket from "../../classes/Socket";
 
 class PartyRoom extends React.Component {
     constructor(props) {
         super(props);
+
+        this.socket = Socket.socket;
 
         this.state = {
             video: "pupdeq1MoVw",
@@ -16,8 +17,6 @@ class PartyRoom extends React.Component {
             play: true,
             pause: true
         };
-
-        this.socket = io.connect(config.backend);
     }
 
     componentDidMount() {

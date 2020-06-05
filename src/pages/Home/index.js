@@ -3,7 +3,7 @@ import "./style.scss";
 import Loading from "../../components/Loading";
 import {Link} from "react-router-dom";
 import {v4 as uuid} from "uuid";
-import DB from "../../classes/db";
+import DB from "../../classes/DB";
 
 class Home extends React.Component {
     state = {

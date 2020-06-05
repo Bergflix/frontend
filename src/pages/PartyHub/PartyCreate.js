@@ -1,7 +1,7 @@
 import React from "react";
 import {withRouter, Redirect} from "react-router-dom";
 import "./style.scss";
-import {createPartyRoom} from "../../misc";
+import Socket from "../../classes/Socket";
 
 class PartyCreate extends React.Component {
     state = {
@@ -27,6 +27,13 @@ class PartyCreate extends React.Component {
         this.setState({[input] : event.target.value});
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.state.step === 3 && !this.state.room){
+            let room = Socket.partySocket.createRoom(this.state.name, this.state.password);
+            this.setState({room});
+        }
+    }
+
     render() {
         let dialogContainer = content => (
             <div id={"party-container"}>
@@ -39,14 +46,13 @@ class PartyCreate extends React.Component {
         switch(this.state.step){
             case 1: return dialogContainer(<PartyNameForm nextStep={this.nextStep} handleChange={this.handleChange} values={this.state} />);
             case 2: return dialogContainer(<PartyPasswordForm prevStep={this.prevStep} nextStep={this.nextStep} handleChange={this.handleChange} values={this.state} />);
-            case 3:
-                if(!this.state.room){
-                    let room = createPartyRoom(this.state.name, this.state.password);
-                    this.setState({room});
-                }
-                return dialogContainer(<Invite prevStep={this.prevStep} nextStep={this.nextStep} room={this.state.room}/>);
+            case 3: return dialogContainer(<Invite prevStep={this.prevStep} nextStep={this.nextStep} room={this.state.room}/>);
             default: return <Redirect to={`/party/room/${this.state.room}`}/>;
         }
+    }
+
+    updateRoom(room){
+        !this.state.room && this.setState({room});
     }
 }
 
