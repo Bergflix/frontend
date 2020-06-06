@@ -37,7 +37,7 @@ class PartyCreate extends React.Component {
     render() {
         let dialogContainer = content => (
             <div id={"party-container"}>
-                <div id={"dialog"}>
+                <div className={"dialog"}>
                     {content}
                 </div>
             </div>

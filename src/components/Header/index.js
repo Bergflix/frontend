@@ -6,7 +6,11 @@ import {Link, NavLink} from "react-router-dom";
 class Header extends React.Component {
     navItems = [{
         title: "Home",
-        href: "/home"
+        href: "/home",
+        icon: ""
+    },{
+        title: "Suche",
+        href: "/search"
     },{
         title: "Filme",
         href: "/movies"
@@ -14,17 +18,19 @@ class Header extends React.Component {
         title: "Serien",
         href: "/series"
     },{
-        title: "Suche",
-        href: "/search"
-    },{
         title: "Party",
         href: "/party"
     }];
     render() {
         return (
             <div id={"header-container"}>
-                <Link id={"logo"} to={"/"}>Bergflix<span id={"logoDot"}>.</span></Link>
                 <ul id={"head-nav"}>
+                    <li className={"nav-logo nav-item"}>
+                        <Link id={"logo"} to={"/"}>
+                            <span>Bergflix</span>
+                            <span id={"logoDot"}>.</span>
+                        </Link>
+                    </li>
                     {this.navItems.map(item => (
                         <li key={uuid()} className={"nav-item"}>
                             <NavLink className={"nav-link"} to={item.href}>{item.title}</NavLink>

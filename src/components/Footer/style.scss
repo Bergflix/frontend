@@ -16,29 +16,29 @@
     height: 100%;
     line-height: 100%;
     width: 100%;
-    justify-content: space-evenly;
 
     .nav-item {
-      width: 20%;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
 
       .nav-link {
+        flex-grow: 1;
+        display: flex;
         color: white;
-        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         &.active {
           color: #f40f3a;
         }
 
         i {
-          position: relative;
-          top: 0.4rem;
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 1.5rem;
+          font-size: 1.3rem;
         }
-        p {
-          width: 100%;
-          margin-top: 0.6rem;
+        span {
+          font-size: 0.8rem;
         }
       }
     }

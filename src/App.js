@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import SinglePage from "./pages/SinglePage";
 import NotFound from "./pages/NotFound";
 import PartyHub from "./pages/PartyHub";
-import Search from "./pages/Search";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -20,6 +19,7 @@ import Socket from "./classes/Socket";
 import PartyRoom from "./pages/PartyHub/PartyRoom";
 import PartyCreate from "./pages/PartyHub/PartyCreate";
 import PartyJoin from "./pages/PartyHub/PartyJoin";
+import Search from "./pages/Search";
 
 
 
@@ -62,13 +62,14 @@ class App extends React.Component {
                                         <Route path={"/"} exact component={() => <Redirect to={"/home"}/>} />
                                         <Route path={"/home"} component={() => <Home setBackground={this.setBackground}/>} />
 
-                                        <Route path={"/movies"} component={() => <ElementList type={"movies"} setBackground={this.setBackground} title={"Filme"}/>} />
-                                        <Route path={"/series"} component={() => <ElementList type={"series"} setBackground={this.setBackground} title={"Serien"}/>} />
+                                        <Route path={"/search/:query"} component={() => <ElementList type={"search"} setBackground={this.setBackground} />} />
+                                        <Route path={"/search"} component={() => <Search setBackground={this.setBackground} />} />
 
-                                        <Route path={["/search/:query", "/search"]} component={() => <Search setBackground={this.setBackground} />} />
+                                        <Route path={"/movies/:id"} component={() => <Redirect to={"/movies"}/>} />
+                                        <Route path={"/movies"} component={() => <ElementList type={"movies"} setBackground={this.setBackground}/>} />
 
-                                        <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
-                                        <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
+                                        <Route path={"/movies/:id"} component={() => <Redirect to={"/series"}/>} />
+                                        <Route path={"/series"} component={() => <ElementList type={"series"} setBackground={this.setBackground}/>} />
 
                                         <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
 
@@ -76,6 +77,9 @@ class App extends React.Component {
                                         <Route path={"/party/create"} component={() => <PartyCreate setBackground={this.setBackground}/>}/>
                                         <Route path={"/party/join/:room"} component={() => <PartyJoin setBackground={this.setBackground}/>}/>
                                         <Route path={"/party"} component={() => <PartyHub setBackground={this.setBackground} />} />
+
+                                        <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
+                                        <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
 
                                         <Route path={"/"} component={() => <NotFound setBackground={this.setBackground} />} />
                                     </Switch>

@@ -6,11 +6,11 @@ import {NavLink} from "react-router-dom";
 class Footer extends React.Component {
     mobileNavItems = [{
         title: "Serien",
-        icon: "far fa-square",
+        icon: "fas fa-tv",
         href: "/series"
     },{
         title: "Filme",
-        icon: "fas fa-video",
+        icon: "fas fa-tape",
         href: "/movies"
     },{
         title: "Home",
@@ -33,7 +33,7 @@ class Footer extends React.Component {
                         <li key={uuid()} className={"nav-item"}>
                             <NavLink className={"nav-link"} exact to={item.href}>
                                 <i className={item.icon} />
-                                <p>{item.title}</p>
+                                <span>{item.title}</span>
                             </NavLink>
                         </li>
                     ))}
