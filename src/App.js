@@ -20,7 +20,6 @@ import PartyRoom from "./pages/PartyHub/PartyRoom";
 import PartyCreate from "./pages/PartyHub/PartyCreate";
 import PartyJoin from "./pages/PartyHub/PartyJoin";
 import Search from "./pages/Search";
-import Test from "./pages/Test";
 
 
 
@@ -81,8 +80,6 @@ class App extends React.Component {
 
                                         <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
                                         <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
-
-                                        <Route path={"/test"} component={() => <Test />}/>
 
                                         <Route path={"/"} component={() => <NotFound setBackground={this.setBackground} />} />
                                     </Switch>

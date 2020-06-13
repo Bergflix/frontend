@@ -7,16 +7,21 @@ import DB from "../../classes/DB";
 
 class Home extends React.Component {
     state = {
-        list: []
+        list: [],
+        featured: {}
     }
 
     constructor(props) {
         super(props);
 
         DB.getLatestList(5).then(data => {
-            this.setState({list: data});
+            this.setState({list: data, featured: data[0]});
             props.setBackground && props.setBackground(this.state.list[0].thumbnail);
         })
+    }
+
+    replaceLogo(element){
+        element.outerHTML = `<p class="logo" style="font-size: 5rem;">${this.state.featured.title}</p>`;
     }
 
     render() {
@@ -26,13 +31,12 @@ class Home extends React.Component {
             );
         }
 
-        let featured = this.state.list[0];
-        let date = new Date(featured.date.created);
+        let date = new Date(this.state.featured.date.created);
 
         let info, len;
-        switch(featured.type){
+        switch(this.state.featured.type){
             case "series":
-                info = `Serie - ${date.getFullYear()} - ${len = featured.seasons.length} Staffel ${len !== 1 ? "n" : ""}`;
+                info = `Serie - ${date.getFullYear()} - ${len = this.state.featured.seasons.length} Staffel ${len !== 1 ? "n" : ""}`;
                 break;
             case "movies":
             default:
@@ -41,18 +45,16 @@ class Home extends React.Component {
 
         return (
             <div id={"home-container"}>
-                <div id={"featured-details"}>
-                    <img className={"logo"} src={featured.logo} alt={"Element Logo"}/><br />
-                    <div className={"info"}>{info}</div>
-                    <ul className={"tag-list"}>
-                        {featured.tags.map(tag => (
-                            <li key={uuid()} className={"tag-list-item"}><Link to={`/search/${tag}`}>{tag}</Link></li>
-                        ))}
-                    </ul>
-                    <div className={"description"}>{featured.description}</div>
-                    <div className={"controls"}>
-                        <Link to={`/${featured.type}/${featured.key}`}>Jetzt anschauen</Link>
-                    </div>
+                <img className={"logo"} src={this.state.featured.logo} alt={"Element Logo"} onError={e => this.replaceLogo(e.target)}/>
+                <div className={"info"}>{info}</div>
+                <ul className={"tag-list"}>
+                    {this.state.featured.tags.map(tag => (
+                        <li key={uuid()} className={"tag-list-item"}><Link to={`/search/${tag}`}>{tag}</Link></li>
+                    ))}
+                </ul>
+                <div className={"description"}>{this.state.featured.description}</div>
+                <div className={"controls"}>
+                    <Link to={`/${this.state.featured.type}/${this.state.featured.key}`}>Jetzt anschauen</Link>
                 </div>
             </div>
         );

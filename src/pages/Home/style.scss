@@ -5,76 +5,21 @@
   padding-left: 2rem;
   width: calc(100% - 2rem);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  #featured-details {
-    height: 74%;
-
-    .logo {
-      margin-top: 30vh;
-      width: 430px;
-      height: 200px;
-    }
-
-    .info {
-      display: inline-block;
-    }
-
-    .tag-list {
-      display: inline-flex;
-
-      .tag-list-item {
-        margin-left: 2rem;
-
-        a {
-          color: #aaa;
-
-          &:hover {
-            color: white;
-          }
-        }
-      }
-    }
-
-    .description {
-      margin-top: 1rem;
-      width: 30%;
-    }
-
-    .controls {
-      margin-top: 2rem;
-
-      a {
-        color: white;
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 0.5rem 1.5rem;
-        margin-right: 1rem;
-      }
-    }
-  }
-  #list-container {
-    position: relative;
+  .logo {
+    margin: 0;
     padding: 0;
+  }
 
-    #list {
-      grid-template-columns: repeat(2, 1fr);
+  .tag-list {
+    display: flex;
+    flex-direction: row;
 
-      @media only screen and (min-width: 600px){
-        grid-template-columns: repeat(3, 1fr);
-      }
-      @media only screen and (min-width: 900px){
-        grid-template-columns: repeat(5, 1fr);
-      }
-
-      .list-item {
-        .item-title {
-          font-size: 1rem;
-        }
-        &:hover  {
-          .item-title {
-            font-size: 2rem;
-          }
-        }
-      }
+    .tag-list-item {
+      padding: 0 1rem 0 0;
     }
   }
 }
