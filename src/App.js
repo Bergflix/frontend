@@ -68,7 +68,7 @@ class App extends React.Component {
                                         <Route path={"/movies/:id"} component={() => <Redirect to={"/movies"}/>} />
                                         <Route path={"/movies"} component={() => <ElementList type={"movies"} setBackground={this.setBackground}/>} />
 
-                                        <Route path={"/series/:id"} component={() => <Redirect to={"/series"}/>} /> // TODO 
+                                        <Route path={"/series/:id"} component={() => <Redirect to={"/series"}/>} />
                                         <Route path={"/series"} component={() => <ElementList type={"series"} setBackground={this.setBackground}/>} />
 
                                         <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
