@@ -22,7 +22,7 @@ class Search extends React.Component {
                 <div className={"dialog"}>
                     <form id={"search-form"} onSubmit={e => this.submit(e)}>
                         <h3>Suchbegriff:</h3>
-                        <input value={this.state.query} onChange={e => this.setState({query: e.target.value})} />
+                        <input type={"search"} value={this.state.query} onChange={e => this.setState({query: e.target.value})} />
                         <button type={"submit"}>Suchen</button>
                     </form>
                 </div>

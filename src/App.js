@@ -15,7 +15,7 @@ import Loading from "./components/Loading";
 import ElementList from "./components/ElementList";
 
 import DB from "./classes/DB";
-import Socket from "./classes/Socket";
+import User from "./classes/User";
 import PartyRoom from "./pages/PartyHub/PartyRoom";
 import PartyCreate from "./pages/PartyHub/PartyCreate";
 import PartyJoin from "./pages/PartyHub/PartyJoin";
@@ -24,17 +24,17 @@ import Search from "./pages/Search";
 
 
 class App extends React.Component {
-    // Load the Database for the Video-Elements
+
     state = {
-        background: "",
-        d: null
+        background: ""
     };
 
     componentDidMount() {
+        // Load the Database for the Video-Elements
         let app = this;
         DB.onLoad(() => {
-            app.setState({d: new Date()});
-            Socket.conn();
+            User.conn();
+            app.forceUpdate();
         });
     }
 
@@ -68,7 +68,7 @@ class App extends React.Component {
                                         <Route path={"/movies/:id"} component={() => <Redirect to={"/movies"}/>} />
                                         <Route path={"/movies"} component={() => <ElementList type={"movies"} setBackground={this.setBackground}/>} />
 
-                                        <Route path={"/movies/:id"} component={() => <Redirect to={"/series"}/>} />
+                                        <Route path={"/series/:id"} component={() => <Redirect to={"/series"}/>} /> // TODO 
                                         <Route path={"/series"} component={() => <ElementList type={"series"} setBackground={this.setBackground}/>} />
 
                                         <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />

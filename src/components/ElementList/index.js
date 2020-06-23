@@ -57,7 +57,6 @@ class ElementList extends React.Component {
                         let urlPart;
                         switch(item.type){
                             case "series": urlPart = "series"; break;
-                            case "movie":
                             default: urlPart = "movies"; break;
                         }
                         return (

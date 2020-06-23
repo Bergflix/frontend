@@ -1,7 +1,7 @@
 import React from "react";
 import {withRouter, Link} from "react-router-dom";
 import YouTube from "react-youtube";
-import Socket from "../../classes/Socket";
+import Socket from "../../classes/User";
 
 class PartyRoom extends React.Component {
     constructor(props) {

@@ -22,7 +22,8 @@ class DB {
     }
 
     onLoad(func){
-        this.loadListeners.push(func);
+        if(this.loaded) func();
+        else this.loadListeners.push(func);
     }
 
     async getLatestList(limit){

@@ -1,7 +1,7 @@
 import React from "react";
 import {withRouter, Redirect} from "react-router-dom";
 import "./style.scss";
-import Socket from "../../classes/Socket";
+import Socket from "../../classes/User";
 
 class PartyCreate extends React.Component {
     state = {

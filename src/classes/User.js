@@ -1,7 +1,7 @@
 import io from "socket.io-client";
 import PartySocket from "./PartySocket";
 
-class Socket {
+class User {
     socket;
 
     constructor() {
@@ -18,4 +18,4 @@ class Socket {
     }
 }
 
-export default new Socket();
+export default new User();
