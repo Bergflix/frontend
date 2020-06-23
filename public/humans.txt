@@ -3,7 +3,7 @@ Designer: Nikasukee
 Location: Germany
 
 Developer: Lyxt
-Location: Germany
+Location: Austria
 
 Developer: Maxi
 Location: Germany
