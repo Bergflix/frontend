@@ -20,7 +20,7 @@ class Search extends React.Component {
         return (
             <div id={"search-container"}>
                 <div className={"dialog"}>
-                    <form id={"search-form"} onSubmit={e => this.submit(e)}>
+                    <form id={"search-form"} onSubmit={e => this.submit(e)} autoFocus={true}>
                         <h3>Suchbegriff:</h3>
                         <input type={"search"} value={this.state.query} onChange={e => this.setState({query: e.target.value})} />
                         <button type={"submit"}>Suchen</button>
