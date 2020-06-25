@@ -3,6 +3,11 @@ import PartySocket from "./PartySocket";
 
 class User {
     socket;
+    partySocket;
+
+    name;
+    email;
+
 
     constructor() {
         this.socket = io.connect("https://backend.bergflix.de");
@@ -14,7 +19,14 @@ class User {
     }
 
     login(){
-        this.socket.emit("login", {user: "Test", password: "Test"});
+        // Basic auth und Token auth sollten möglich sein. (Token auth für "angemeldet bleiben")
+        this.socket.emit("login", {
+            auth: "Basic",
+            data: {
+                name: "test@bergflix.de",
+                password: "geheim"
+            }
+        });
     }
 }
 
