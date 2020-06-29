@@ -14,8 +14,8 @@ import BackgroundImage from "./components/BackgroundImage";
 import Loading from "./components/Loading";
 import ElementList from "./components/ElementList";
 
-import DB from "./classes/DB";
 import User from "./classes/User";
+import Backend from "./classes/Backend";
 import PartyRoom from "./pages/PartyHub/PartyRoom";
 import PartyCreate from "./pages/PartyHub/PartyCreate";
 import PartyJoin from "./pages/PartyHub/PartyJoin";
@@ -30,16 +30,16 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        // Load the Database for the Video-Elements
         let app = this;
-        DB.onLoad(() => {
+        // Load the Database for the Video-Elements
+        Backend.onLoad(() => {
             User.conn();
             app.forceUpdate();
         });
     }
 
     render() {
-        if(!DB.loaded){
+        if(!Backend.loaded){
             return (
                 <Loading />
             );

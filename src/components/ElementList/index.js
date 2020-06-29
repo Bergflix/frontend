@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import {withRouter, Link} from "react-router-dom";
 import Loading from "../Loading";
-import DB from "../../classes/DB";
+import Backend from "../../classes/Backend";
 
 class ElementList extends React.Component {
     state = {
@@ -16,13 +16,14 @@ class ElementList extends React.Component {
 
         let promise;
         switch(props.type){
-            case "series": promise = DB.getSeriesList(); break;
-            case "movies": promise = DB.getMovieList(); break;
-            case "search": promise = DB.getElementsByTitle(props.match.params.query); break;
-            default: promise = DB.getLatestList(8);
+            case "series": promise = Backend.getList("series", 6); break;
+            case "movies": promise = Backend.getList("movies", 6); break;
+            case "search": promise = Backend.find(props.match.params.query); break;
+            default: promise = Backend.getList("all", 6);
         }
 
         promise.then(data => {
+            console.log(data);
             this.setState({loading: false, empty: !data.length, list: data});
         });
     }

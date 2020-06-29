@@ -3,7 +3,7 @@ import "./style.scss";
 import Loading from "../../components/Loading";
 import {Link} from "react-router-dom";
 import {v4 as uuid} from "uuid";
-import DB from "../../classes/DB";
+import Backend from "../../classes/Backend";
 
 class Home extends React.Component {
     state = {
@@ -14,7 +14,8 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        DB.getLatestList(5).then(data => {
+        Backend.getList("all", 5).then(data => {
+            console.log(data);
             this.setState({list: data, featured: data[0]});
             props.setBackground && props.setBackground(this.state.list[0].thumbnail);
         })
