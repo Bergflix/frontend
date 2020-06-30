@@ -14,9 +14,8 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        Backend.getList("all", 5).then(data => {
-            console.log(data);
-            this.setState({list: data, featured: data[0]});
+        Backend.getList("media", 5).then(data => {
+            this.setState({list: data.response, featured: data.response[0]});
             props.setBackground && props.setBackground(this.state.list[0].thumbnail);
         })
     }

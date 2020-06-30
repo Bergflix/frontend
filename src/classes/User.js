@@ -10,12 +10,12 @@ class User {
 
 
     constructor() {
-        this.socket = io.connect("https://backend.bergflix.de");
-        this.partySocket = new PartySocket(this.socket);
+        //this.socket = io.connect("https://backend.bergflix.de");
+        //this.partySocket = new PartySocket(this.socket);
     }
 
     conn(){
-        this.socket.emit("conn", {});
+        //this.socket.emit("conn", {});
     }
 
     login(){

@@ -19,12 +19,11 @@ class ElementList extends React.Component {
             case "series": promise = Backend.getList("series", 6); break;
             case "movies": promise = Backend.getList("movies", 6); break;
             case "search": promise = Backend.find(props.match.params.query); break;
-            default: promise = Backend.getList("all", 6);
+            default: promise = Backend.getList("media", 6);
         }
 
         promise.then(data => {
-            console.log(data);
-            this.setState({loading: false, empty: !data.length, list: data});
+            this.setState({loading: false, empty: !data.size, list: data.response});
         });
     }
 
@@ -61,7 +60,7 @@ class ElementList extends React.Component {
                             default: urlPart = "movies"; break;
                         }
                         return (
-                            <Link key={item._id} className={"list-item"} to={`/${urlPart}/${item.key}`}>
+                            <Link key={item.key} className={"list-item"} to={`/${urlPart}/${item.key}`}>
                                 <img className={"item-image"} alt={"Thumbnail"} src={item.thumbnail} />
                                 <span className={"item-title"}>{item.title}</span>
                             </Link>

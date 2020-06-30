@@ -9,7 +9,6 @@ class Backend {
     constructor() {
         axios.get(Backend.baseUrl)
             .then(r => {
-                console.log(r);
                 this.loaded = true;
                 this.loadListeners.forEach(func => func.call());
             })
@@ -22,11 +21,11 @@ class Backend {
     }
 
     async getList(type, limit = 0, start = 0) {
-        return await axios.get(Backend.baseUrl + type + "?sort=date" + (limit ? "&limit="+limit : "") + (start ? "&start="+start : ""));
+        return (await axios.get(Backend.baseUrl + type + "?sort=date" + (limit ? "&limit="+limit : "") + (start ? "&start="+start : ""))).data;
     }
 
     async find(title) {
-        return await axios.get(Backend.baseUrl + "all?title=" + title);
+        return (await axios.get(Backend.baseUrl + "media?title=" + title)).data;
     }
 }
 
