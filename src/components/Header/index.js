@@ -9,9 +9,6 @@ class Header extends React.Component {
         href: "/home",
         icon: ""
     },{
-        title: "Suche",
-        href: "/search"
-    },{
         title: "Filme",
         href: "/movies"
     },{
@@ -36,6 +33,16 @@ class Header extends React.Component {
                             <NavLink className={"nav-link"} to={item.href}>{item.title}</NavLink>
                         </li>
                     ))}
+                    <li className={"nav-search nav-item"} style={{marginLeft: "auto"}}>
+                        <span>
+                            Search bar
+                        </span>
+                    </li>
+                    <li className={"nav-profile nav-item"}>
+                        <span>
+                            Profile
+                        </span>
+                    </li>
                 </ul>
             </div>
         );
