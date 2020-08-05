@@ -2,17 +2,15 @@ import axios from "axios";
 
 class Backend {
 
-    static baseUrl = "https://backend.bergflix.de/";
+    static baseUrl = "/backend/";
     loaded = false;
     loadListeners = [];
 
     constructor() {
-        axios.get(Backend.baseUrl)
-            .then(r => {
+        axios.get(Backend.baseUrl).then(() => {
                 this.loaded = true;
                 this.loadListeners.forEach(func => func.call());
-            })
-            .catch(e => console.error(e));
+            }).catch(e => console.error(e));
     }
 
     onLoad(func){
