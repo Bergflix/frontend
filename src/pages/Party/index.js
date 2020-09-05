@@ -6,7 +6,9 @@ class Party extends React.Component {
     }
 
     render() {
-        return (<React.Fragment/>);
+        return (
+            <div/>
+        );
     }
 }
 
