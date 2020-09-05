@@ -6,6 +6,7 @@ import {v4 as uuid} from "uuid";
 import Home from "./pages/Home";
 import SinglePage from "./pages/SinglePage";
 import NotFound from "./pages/NotFound";
+import Party from "./pages/Party";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -66,7 +67,7 @@ class App extends React.Component {
 
                                         <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
 
-                                        <Route path={"/party"} component={() => window.location.assign("//party.bergflix.de")} />
+                                        <Route path={"/party"} component={() => <Party />} />
 
                                         <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
                                         <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
