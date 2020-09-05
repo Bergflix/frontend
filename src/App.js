@@ -6,7 +6,6 @@ import {v4 as uuid} from "uuid";
 import Home from "./pages/Home";
 import SinglePage from "./pages/SinglePage";
 import NotFound from "./pages/NotFound";
-import PartyHub from "./pages/PartyHub";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -14,13 +13,8 @@ import BackgroundImage from "./components/BackgroundImage";
 import Loading from "./components/Loading";
 import ElementList from "./components/ElementList";
 
-import User from "./classes/User";
 import Backend from "./classes/Backend";
-import PartyRoom from "./pages/PartyHub/PartyRoom";
-import PartyCreate from "./pages/PartyHub/PartyCreate";
-import PartyJoin from "./pages/PartyHub/PartyJoin";
 import Search from "./pages/Search";
-
 
 
 class App extends React.Component {
@@ -33,7 +27,6 @@ class App extends React.Component {
         let app = this;
         // Load the Database for the Video-Elements
         Backend.onLoad(() => {
-            User.conn();
             app.forceUpdate();
         });
     }
@@ -58,7 +51,7 @@ class App extends React.Component {
                         <TransitionGroup id={"page-container"}>
                             <CSSTransition appear={true} key={location.key} timeout={450} classNames={"fade"}>
                                 <div className={"page"}>
-                                    <Switch location={location}>
+                                    <Switch className={"switch"} location={location}>
                                         <Route path={"/"} exact component={() => <Redirect to={"/home"}/>} />
                                         <Route path={"/home"} component={() => <Home setBackground={this.setBackground}/>} />
 
@@ -73,10 +66,7 @@ class App extends React.Component {
 
                                         <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
 
-                                        <Route path={"/party/room/:room"} component={() => <PartyRoom setBackground={this.setBackground}/>} />
-                                        <Route path={"/party/create"} component={() => <PartyCreate setBackground={this.setBackground}/>}/>
-                                        <Route path={"/party/join/:room"} component={() => <PartyJoin setBackground={this.setBackground}/>}/>
-                                        <Route path={"/party"} component={() => <PartyHub setBackground={this.setBackground} />} />
+                                        <Route path={"/party"} component={() => window.location.assign("//party.bergflix.de")} />
 
                                         <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
                                         <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />
@@ -93,11 +83,7 @@ class App extends React.Component {
         );
     }
 
-    setBackground = (src) => {
-        if(this.state.background !== src) {
-            this.setState({background: src});
-        }
-    };
+    setBackground = src => this.state.background !== src && this.setState({background: src});
 }
 
 export default App;
