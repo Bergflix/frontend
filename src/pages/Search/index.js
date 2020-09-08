@@ -3,30 +3,18 @@ import {withRouter} from "react-router-dom";
 import "./style.scss";
 
 class Search extends React.Component {
-    state = {
-        query: ""
-    }
 
     componentDidMount() {
         this.props.setBackground && this.props.setBackground("");
     }
 
-    submit(e){
-        e.preventDefault();
-        this.props.history.push(`/search/${this.state.query}`);
-    }
-
     render() {
+        let urlParams = new URLSearchParams(this.props.location.search);
+        let query = urlParams.get("q");
+        console.log(query);
+
         return (
-            <div id={"search-container"}>
-                <div className={"dialog"}>
-                    <form id={"search-form"} onSubmit={e => this.submit(e)} autoFocus={true}>
-                        <h3>Suchbegriff:</h3>
-                        <input type={"search"} value={this.state.query} onChange={e => this.setState({query: e.target.value})} />
-                        <button type={"submit"}>Suchen</button>
-                    </form>
-                </div>
-            </div>
+            <p>{query}</p>
         );
     }
 }

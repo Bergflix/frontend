@@ -11,20 +11,6 @@
     padding: 1rem;
   }
 
-  #logo {
-    display: inline-block;
-    height: 100%;
-    float: left;
-    font-size: 2rem;
-    font-weight: 800;
-    color: white;
-    width: 130px;
-
-    #logoDot {
-      color: #f40f3a;
-    }
-  }
-
   #head-nav {
     display: inline-flex;
     height: 100%;
@@ -54,18 +40,13 @@
 
       &.nav-logo {
         display: flex !important;
+      }
 
-        #logo {
-          display: flex;
-          font-size: 2rem;
-          font-weight: 800;
-          color: white;
-          align-items: center;
-          padding-right: 1rem;
+      &.nav-profile {
+        margin-left: 2rem;
 
-          #logoDot {
-            color: #f40f3a;
-          }
+        > svg {
+          margin: auto;
         }
       }
     }

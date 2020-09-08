@@ -56,7 +56,6 @@ class App extends React.Component {
                                         <Route path={"/"} exact component={() => <Redirect to={"/home"}/>} />
                                         <Route path={"/home"} component={() => <Home setBackground={this.setBackground}/>} />
 
-                                        <Route path={"/search/:query"} component={() => <ElementList type={"search"} setBackground={this.setBackground} />} />
                                         <Route path={"/search"} component={() => <Search setBackground={this.setBackground} />} />
 
                                         <Route path={"/movies/:id"} component={() => <Redirect to={"/movies"}/>} />

@@ -41,6 +41,14 @@ ul {
   padding: 0;
 }
 
+svg {
+  background: transparent;
+}
+svg * {
+  fill: white;
+  stroke: transparent;
+}
+
 #page-container {
   width: 100%;
   height: fit-content;
