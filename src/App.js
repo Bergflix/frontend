@@ -6,16 +6,15 @@ import {v4 as uuid} from "uuid";
 import Home from "./pages/Home";
 import SinglePage from "./pages/SinglePage";
 import NotFound from "./pages/NotFound";
-import Party from "./pages/Party";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackgroundImage from "./components/BackgroundImage";
 import Loading from "./components/Loading";
-import ElementList from "./components/ElementList";
 
 import Backend from "./classes/Backend";
 import Search from "./pages/Search";
+import Watch from "./pages/Watch";
 
 
 class App extends React.Component {
@@ -57,16 +56,13 @@ class App extends React.Component {
                                         <Route path={"/home"} component={() => <Home setBackground={this.setBackground}/>} />
 
                                         <Route path={"/search"} component={() => <Search setBackground={this.setBackground} />} />
+                                        <Route path={"/movies"} component={() => <Search type={"movie"} setBackground={this.setBackground}/>} />
+                                        <Route path={"/series"} component={() => <Search type={"series"} setBackground={this.setBackground}/>} />
 
-                                        <Route path={"/movies/:id"} component={() => <Redirect to={"/movies"}/>} />
-                                        <Route path={"/movies"} component={() => <ElementList type={"movies"} setBackground={this.setBackground}/>} />
-
-                                        <Route path={"/series/:id"} component={() => <Redirect to={"/series"}/>} />
-                                        <Route path={"/series"} component={() => <ElementList type={"series"} setBackground={this.setBackground}/>} />
+                                        <Route path={"/watch/:key"} component={() => <Watch setBackground={this.setBackground}/>} />
+                                        <Route path={"/watch"} component={() => <Redirect to={"/home"}/>} />
 
                                         <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
-
-                                        <Route path={"/party"} component={() => <Party />} />
 
                                         <Route path={"/download"} component={() => <SinglePage page={{title: "Herunterladen", text: "App installieren"}} />} />
                                         <Route path={"/about"} component={() => <SinglePage page={{title: "Über Bergflix", text: "Informativer Text folgt hier"}} />} />

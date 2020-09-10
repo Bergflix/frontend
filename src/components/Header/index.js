@@ -1,16 +1,15 @@
 import React from 'react';
 import {v4 as uuid} from 'uuid';
 import "./style.scss";
-import {NavLink} from "react-router-dom";
-import TextField from "../../components/Controls/TextField";
+import {withRouter, NavLink} from "react-router-dom";
+import SearchField from "../../components/Controls/SearchField";
 import Logo from "../Elements/Logo";
 import Icon from "../Elements/Icon";
 
 class Header extends React.Component {
     navItems = [{
         title: "Home",
-        href: "/home",
-        icon: ""
+        href: "/home"
     },{
         title: "Filme",
         href: "/movies"
@@ -19,12 +18,8 @@ class Header extends React.Component {
         href: "/series"
     },{
         title: "Party",
-        href: "/party"
+        href: "https://party.bergflix.de"
     }];
-
-    state = {
-        search: ""
-    }
 
     render() {
         return (
@@ -39,7 +34,7 @@ class Header extends React.Component {
                         </li>
                     ))}
                     <li className={"nav-search nav-item"} style={{marginLeft: "auto"}}>
-                        <TextField label={"Durchsuchen"} value={this.state.search} onChange={({target}) => this.setState({search: target.value})} />
+                        <SearchField label={"Durchsuchen"} onSubmit={({query}) => this.props.history.push(`/search?q=${query}`)} />
                     </li>
                     <li className={"nav-profile nav-item"}>
                         <Icon type={"user"} />
@@ -50,4 +45,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);

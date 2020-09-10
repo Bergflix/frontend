@@ -1,21 +1,15 @@
 #watch-container {
   width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  min-height: 100vh;
 }
 
 .video-container {
-  margin-left: 5rem;
-  width: calc(100% - 5rem);
-  height: 100%;
+  margin: 5rem auto 0 auto;
+  width: 80vw;
+  height: 80vh;
 
   #video {
-    width: 100%;
-    height: 100%;
+    width: inherit;
+    height: inherit;
   }
 }
