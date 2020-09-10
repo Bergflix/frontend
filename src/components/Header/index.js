@@ -42,7 +42,7 @@ class Header extends React.Component {
                         <TextField label={"Durchsuchen"} value={this.state.search} onChange={({target}) => this.setState({search: target.value})} />
                     </li>
                     <li className={"nav-profile nav-item"}>
-                        <Icon type={"profile"} />
+                        <Icon type={"user"} />
                     </li>
                 </ul>
             </div>
