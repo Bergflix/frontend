@@ -9,16 +9,16 @@ import Icon from "../Elements/Icon";
 class Header extends React.Component {
     navItems = [{
         title: "Home",
-        href: "/home"
+        href: "home"
     },{
         title: "Filme",
-        href: "/movies"
+        href: "movies"
     },{
         title: "Serien",
-        href: "/series"
+        href: "series"
     },{
         title: "Party",
-        href: "https://party.bergflix.de"
+        href: "party"
     }];
 
     render() {
