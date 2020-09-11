@@ -2,12 +2,12 @@ import React from "react";
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
-import Home from "../../pages/Home";
-import SignUp from "../../pages/SignUp";
-import Search from "../../pages/Search";
-import Watch from "../../pages/Watch";
-import SinglePage from "../../pages/SinglePage";
-import NotFound from "../../pages/NotFound";
+import Home from "./Home";
+import SignUp from "./SignUp";
+import Search from "./Search";
+import Watch from "./Watch";
+import SinglePage from "./SinglePage";
+import NotFound from "./NotFound";
 
 class Pages extends React.Component {
 

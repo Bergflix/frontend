@@ -7,7 +7,7 @@ import BackgroundImage from "./components/BackgroundImage";
 import Loading from "./components/Loading";
 
 import Backend from "./classes/Backend";
-import Pages from "./components/Pages";
+import Pages from "./pages";
 
 
 class App extends React.Component {
