@@ -1,10 +1,9 @@
 import React from "react";
-import {withRouter} from "react-router-dom";
+import {withRouter, Redirect} from "react-router-dom";
 import YouTube from "react-youtube";
 import "./style.scss";
 import Backend from "../../classes/Backend";
 import Loading from "../../components/Loading";
-import NotFound from "../NotFound";
 
 class Watch extends React.Component {
     state = {
@@ -34,7 +33,7 @@ class Watch extends React.Component {
 
     render() {
         if(this.state.loading) return <Loading/>;
-        if(this.state.error) return <NotFound setBackground={this.props.setBackground} />;
+        if(this.state.error) return <Redirect to={"/home"} />;
 
         return (
             <div id={"watch-container"}>
