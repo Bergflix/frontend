@@ -86,21 +86,3 @@ svg * {
   opacity: 0;
   transition: opacity 150ms linear;
 }
-
-/* Background Animation */
-.background-appear,
-.background-enter {
-  opacity: 0;
-}
-.background-appear-active,
-.background-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-out 150ms;
-}
-.background-exit {
-  opacity: 1;
-}
-.background-exit-active {
-  opacity: 0;
-  transition: opacity 150ms ease-in;
-}

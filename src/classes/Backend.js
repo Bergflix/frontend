@@ -13,7 +13,7 @@ class Backend {
             }).catch(e => console.error(e));
     }
 
-    onLoad(func){
+    onLoad(func) {
         if(this.loaded) func.call();
         else this.loadListeners.push(func);
     }
