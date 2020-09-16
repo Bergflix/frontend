@@ -21,7 +21,7 @@ class Footer extends React.Component {
     },{
         title: "Favoriten",
         icon: "bookmark",
-        href: "/lists/favorites"
+        href: "/favorites"
     },{
         title: "Einstellungen",
         icon: "settings",
@@ -35,7 +35,7 @@ class Footer extends React.Component {
                     {this.mobileNavItems.map(item => (
                         <li key={uuid()} className={"nav-item"}>
                             <NavLink className={"nav-link"} exact to={item.href}>
-                                <Icon type={item.icon} />
+                                <Icon type={item.icon} clickable={true} />
                             </NavLink>
                         </li>
                     ))}

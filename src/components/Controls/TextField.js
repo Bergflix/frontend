@@ -8,12 +8,12 @@ class TextField extends React.Component {
             <label className={"control"}>
                 <span>{this.props.label || "Text field"}</span>
                 <input
-                    id={this.props.id || ""}
                     className={this.props.className || ""}
                     type={this.props.type || "text"}
                     name={this.props.name || ""}
                     onChange={this.props.onChange || (()=>{})}
                     value={this.props.value || ""}
+                    autoComplete={this.props.autoComplete || ""}
                 />
             </label>
         );

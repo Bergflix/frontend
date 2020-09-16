@@ -9,7 +9,7 @@ class ElementList extends React.Component {
 
         return (
             <div id={"list-container"}>
-                <div id={"list"}>
+                <div className={"list"}>
                     {this.props.list.map(item => (
                         <Link key={item.key} className={"list-item"} to={`/watch/${item.key}`}>
                             <img className={"item-image"} alt={"Thumbnail"} src={item.thumbnail} />

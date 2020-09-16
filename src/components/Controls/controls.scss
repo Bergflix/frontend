@@ -1,3 +1,5 @@
+@import "../../styles/colors";
+
 .control {
   display: inline-block;
   position: relative;
@@ -9,12 +11,12 @@
     text-align: left;
     font-size: .75rem;
     font-weight: bold;
-    color: #868686;
+    color: $text-secondary;
   }
 
   > input {
-    background: #262626;
-    color: #fff;
+    background: $background-light;
+    color: $text-primary;
     border-radius: 6px;
     border: none;
     box-shadow: none;

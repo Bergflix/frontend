@@ -1,13 +1,8 @@
+@import "../../styles/colors";
+
 #list-container {
-  padding: 5rem 1rem;
-  width: calc(100% - 2rem);
-
-  @media only screen and (min-width: 600px) {
-    padding: 5rem 2rem 0 2rem;
-    width: calc(100% - 4rem);
-  }
-
-  #list {
+  .list {
+    margin-top: 2rem;
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr;
@@ -39,7 +34,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: white;
+        color: $text-primary;
         white-space: nowrap;
         opacity: 0;
         font-size: 2rem;
@@ -62,13 +57,5 @@
         }
       }
     }
-  }
-}
-
-#no-result {
-  width: 100%;
-
-  .dialog {
-
   }
 }

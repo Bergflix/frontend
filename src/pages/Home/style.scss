@@ -1,14 +1,8 @@
 #background {
   filter: brightness(.75);
 }
-#home-container {
-  padding-left: 2rem;
-  width: calc(100% - 2rem);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
+#home-container {
   .logo {
     margin: 0;
     padding: 0;

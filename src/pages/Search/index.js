@@ -12,6 +12,8 @@ class Search extends React.Component {
         list: []
     }
 
+    mounted = false;
+
     constructor(props) {
         super(props);
 
@@ -19,10 +21,11 @@ class Search extends React.Component {
         Backend.find({
             title: urlParams.get("q") || this.props.title,
             type: urlParams.get("t") || this.props.type
-        }).then(({response}) => this.setState({loading: false, list: response}));
+        }).then(({response}) => this.mounted && this.setState({loading: false, list: response}));
     }
 
     componentDidMount() {
+        this.mounted = true;
         this.props.setBackground && this.props.setBackground("");
     }
 

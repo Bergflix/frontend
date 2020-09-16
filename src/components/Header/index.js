@@ -5,8 +5,14 @@ import {withRouter, NavLink} from "react-router-dom";
 import SearchField from "../../components/Controls/SearchField";
 import Logo from "../Elements/Logo";
 import Icon from "../Elements/Icon";
+import Sidebar from "../Sidebar";
 
 class Header extends React.Component {
+
+    state = {
+        sidebar: false
+    }
+
     navItems = [{
         title: "Home",
         href: "/home"
@@ -20,6 +26,10 @@ class Header extends React.Component {
         title: "Party",
         href: "/party"
     }];
+
+    toggleSidebar() {
+        this.setState({sidebar: !this.state.sidebar});
+    }
 
     render() {
         return (
@@ -36,10 +46,11 @@ class Header extends React.Component {
                     <li className={"nav-search nav-item"} style={{marginLeft: "auto"}}>
                         <SearchField label={"Durchsuchen"} onSubmit={({query}) => this.props.history.push(`/search?q=${query}`)} />
                     </li>
-                    <li className={"nav-profile nav-item"}>
-                        <Icon type={"user"} />
+                    <li className={"nav-profile nav-item"} onClick={() => this.toggleSidebar()}>
+                        <Icon type={"slider"} clickable={true} />
                     </li>
                 </ul>
+                <Sidebar open={this.state.sidebar} toggle={() => this.toggleSidebar()} userIsLoggedIn={this.props.userIsLoggedIn} />
             </div>
         );
     }

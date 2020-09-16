@@ -10,9 +10,9 @@ class NotFound extends React.Component {
     render() {
         return (
             <div id={"nf-container"}>
-                <span id={"nf-title"}>
+                <span className={"nf-title"}>
                     404
-                    <p id={"ops"}>Ooops!</p>
+                    <p className={"ops"}>Ooops!</p>
                     <p>Diese Seite wurde nicht gefunden.</p>
                 </span>
             </div>

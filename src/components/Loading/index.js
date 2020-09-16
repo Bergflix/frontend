@@ -4,9 +4,7 @@ import "./style.scss";
 class Loading extends React.Component {
     render() {
         return (
-            <div id={"loading-container"}>
-                <div className={"loading-spinner"} />
-            </div>
+            <div id={"loading-container"} />
         );
     }
 }

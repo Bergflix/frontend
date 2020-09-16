@@ -1,0 +1,44 @@
+@import "../../styles/colors";
+
+.logo-wrapper {
+  display: flex;
+  height: 100%;
+  float: left;
+  font-size: 2rem;
+  font-weight: 800;
+  color: $text-primary;
+  width: 100%;
+  align-items: center;
+  padding-right: 1rem;
+
+  #logoDot {
+    color: $primary;
+  }
+}
+
+.icon-wrapper {
+  width: 24px;
+  height: 24px;
+  display: inline;
+
+  svg {
+    background: transparent;
+    margin: auto;
+    vertical-align: middle;
+    width: inherit;
+    height: inherit;
+
+    * {
+      fill: $icon-primary;
+      stroke: transparent;
+    }
+  }
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover svg * {
+      fill: $primary;
+    }
+  }
+}
