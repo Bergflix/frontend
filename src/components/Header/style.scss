@@ -10,8 +10,7 @@
   line-height: 3rem;
   vertical-align: middle;
   z-index: 10;
-  background-color: $background-dark;
-  box-shadow: rgba(0, 0, 0, 0.73) 0 16px 10px -10px;
+  background: transparent;
 
   #head-nav {
     margin-left: 2rem;
@@ -39,7 +38,6 @@
 
         &:hover {
           color: $primary;
-          background-color: $background-light;
         }
         &.active {
           color: $primary;

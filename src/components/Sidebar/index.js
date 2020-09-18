@@ -3,11 +3,18 @@ import "./style.scss";
 import Icon from "../Elements/Icon";
 import {Link, NavLink} from "react-router-dom";
 import {v4 as uuid} from "uuid";
+import TextField from "../Controls/TextField";
 
 class Sidebar extends React.Component {
 
+    state = {
+        name: "",
+        email: "",
+        password: ""
+    }
+
     lists = {
-        "logged-in": [{
+        main: [{
             icon: "user",
             href: "/profile",
             title: "Mein Profil"
@@ -28,19 +35,6 @@ class Sidebar extends React.Component {
             href: "/signout",
             title: "Abmelden"
         }],
-        "logged-out": [{
-            icon: "user-add",
-            href: "/signup",
-            title: "Registrieren / Anmelden"
-        },{
-            icon: "settings",
-            href: "/settings",
-            title: "Einstellungen"
-        },{
-            icon: "info",
-            href: "/help",
-            title: "Hilfe & Feedback"
-        }],
         footer: [{
             href: "/discord",
             title: "Discord"
@@ -58,7 +52,7 @@ class Sidebar extends React.Component {
             title: "Impressum"
         },{
             href: "/privacypolicy",
-            title: "Datenschutzbestimmungen"
+            title: "Datenschutz"
         }]
     };
 
@@ -90,14 +84,21 @@ class Sidebar extends React.Component {
                     <Icon className={"close"} type={"close"} clickable={true} onClick={this.props.toggle}/>
                 </div>
                 <ul id={"sidebar-menu"}>
-                    {this.lists[this.props.userIsLoggedIn ? "logged-in" : "logged-out"].map(item => (
+                    {this.props.userIsLoggedIn ? this.lists["main"].map(item => (
                         <li key={uuid()}>
                             <NavLink to={item.href} onClick={this.props.toggle}>
                                 <Icon type={item.icon} />
                                 <span>{item.title}</span>
                             </NavLink>
                         </li>
-                    ))}
+                    )) : (
+                        <form>
+                            <TextField label={"Name"} autoComplete={"username"} value={this.state.name} onChange={({target}) => this.setState({name: target.value})} />
+                            <TextField label={"Email Adresse"} value={this.state.email} onChange={({target}) => this.setState({email: target.value})} type={"email"} />
+                            <TextField label={"Passwort"} autoComplete={"new-password"} value={this.state.password} onChange={({target}) => this.setState({password: target.value})} type={"password"} />
+                            <button type={"button"}>Registrieren</button>
+                        </form>
+                    )}
                 </ul>
                 <ul id={"sidebar-footer"}>
                     {this.lists.footer.map(item => (
