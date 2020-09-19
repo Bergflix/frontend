@@ -84,7 +84,7 @@ class Sidebar extends React.Component {
                     <Icon className={"close"} type={"close"} clickable={true} onClick={this.props.toggle}/>
                 </div>
                 <ul id={"sidebar-menu"}>
-                    {this.props.userIsLoggedIn ? this.lists["main"].map(item => (
+                    {this.props.userIsLoggedIn ? this.lists.main.map(item => (
                         <li key={uuid()}>
                             <NavLink to={item.href} onClick={this.props.toggle}>
                                 <Icon type={item.icon} />

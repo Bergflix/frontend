@@ -49,12 +49,12 @@ self.addEventListener('fetch', function(e) {
     );
 });
 
-self.addEventListener("push", e => {
+self.addEventListener("push", () => {
     //let data = e.data.json();
     console.log("Push received...");
 
     self.registration.showNotification("Bergflix", {
         body: "Bergflix test notification",
-        icon: "https://share.bergflix.de/logo/light.png"
+        icon: "https://cdn.bergflix.de/logo/light.png"
     });
 });
