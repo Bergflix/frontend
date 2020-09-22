@@ -4,7 +4,7 @@ body {
   background-color: $background-dark;
 }
 
-#background {
+.background {
   background-size: cover;
   background-position-x: center;
   background-repeat: no-repeat;
@@ -15,6 +15,14 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: -10;
+
+  &:last-of-type {
+    background: linear-gradient(100deg, rgba(0,0,0, 0.95) 0, transparent 14rem),
+                linear-gradient(-80deg, rgba(0,0,0, 0.95) 0, transparent 14rem),
+                linear-gradient(180deg, rgba(0,0,0, 0.95) 0, transparent 14rem),
+                // linear-gradient(10deg, #f40f3a 1rem, transparent 7rem),
+                // linear-gradient(-5deg, #f40f3a 1rem, transparent 8rem),
+    }
 }
 
 /* Background Animation */

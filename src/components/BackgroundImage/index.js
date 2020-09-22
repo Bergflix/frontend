@@ -8,14 +8,10 @@ class BackgroundImage extends React.Component {
         return (
             <TransitionGroup id={"background-container"}>
                 <CSSTransition appear={true} key={uuid()} timeout={450} classNames={"background"}>
-                    <span id={"background"} style={{
-                        backgroundImage:  `linear-gradient(100deg, rgba(0,0,0, 0.95) 0, transparent 14rem),`
-                                        + `linear-gradient(-80deg, rgba(0,0,0, 0.95) 0, transparent 14rem),`
-                                        + `linear-gradient(180deg, rgba(0,0,0, 0.95) 0, transparent 14rem),`
-                                        // + `linear-gradient(10deg, #f40f3a 1rem, transparent 7rem),`
-                                        // + `linear-gradient(-5deg, #f40f3a 1rem, transparent 8rem),`
-                                        + `url(${this.props.image})`
-                    }} />
+                    <React.Fragment>
+                        <span className={"background"} style={{backgroundImage:  `url(${this.props.image})`}} />
+                        <span className={"background"} />
+                    </React.Fragment>
                 </CSSTransition>
             </TransitionGroup>
         );
