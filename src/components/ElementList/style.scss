@@ -21,12 +21,12 @@
       position: relative;
       box-shadow: rgba(0, 0, 0, 0.69) 0 26px 30px -10px, rgba(0, 0, 0, 0.73) 0 16px 10px -10px;
       border-radius: 5px;
-      transition: all 200ms ease;
+      transition: all 600ms ease;
 
       .item-image {
         width: 100%;
-        transition: filter 200ms ease;
-        filter: brightness(.9);
+        transition: filter 600ms ease;
+        filter: brightness(.8);
         border-radius: inherit;
       }
       .item-title {
@@ -40,20 +40,23 @@
         font-size: 2rem;
         font-weight: bolder;
         text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5), -10px 10px 5px rgba(0, 0, 0, 0.5);
-        transition: all 200ms ease;
+        transition: all 600ms ease;
       }
 
       &:hover {
         width: 95%;
         height: calc(95% - 5px);
         box-shadow: rgba(0, 0, 0, 0.8) 0 40px 58px -16px, rgba(0, 0, 0, 0.72) 0 30px 22px -10px;
+        transition: all 200ms ease;
 
         img {
-          filter: brightness(.7) blur(2px);
+          filter: none;
+          transition: filter 200ms ease;
         }
         span {
           opacity: 1;
           font-size: 3rem;
+          transition: all 200ms ease;
         }
       }
     }

@@ -1,19 +1,56 @@
-#background {
+@import "../../styles/colors";
+
+.background {
   filter: brightness(.75);
 }
 
 #home-container {
+  position: absolute;
+  top: 50%;
+  transform: translate(1rem, -50%);
+
   .logo {
     margin: 0;
     padding: 0;
+    max-height: 10rem;
+  }
+  .info {
+    margin: .5rem 0;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: flex-start;
+
+    span {
+      margin-right: 2rem;
+
+      &:nth-child(2) {
+        border-radius: 3px;
+        border: white solid 2px;
+        padding: 0 .5rem;
+        color: $primary;
+        margin-top: -0.1rem;
+      }
+    }
   }
 
-  .tag-list {
-    display: flex;
-    flex-direction: row;
+  .description {
+    color: $text-light;
+  }
 
-    .tag-list-item {
-      padding: 0 1rem 0 0;
+  .controls {
+    a {
+      display: inline-block;
+      background-color: $background-darker-alpha;
+      padding: .5rem 1rem;
+      margin-top: 1rem;
+      border-radius: 3px;
+      line-height: 1.5rem;
+      height: 1.5rem;
+
+      i {
+        margin-right: .5rem;
+        fill: white;
+      }
     }
   }
 }

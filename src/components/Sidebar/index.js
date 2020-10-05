@@ -75,6 +75,8 @@ class Sidebar extends React.Component {
     }
 
     render() {
+        return(<React.Fragment/>);
+
         return (
             <div id={"sidebar-container"} className={this.props.open ? "" : "hide"}>
                 <div id={"sidebar-header"} >
