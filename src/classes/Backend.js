@@ -2,15 +2,21 @@ import axios from "axios";
 
 class Backend {
 
-    static baseUrl = "https://europe-west1-bergflix.cloudfunctions.net/backend/";
+    static axios;
     loaded = false;
     loadListeners = [];
 
     constructor() {
-        axios.get(Backend.baseUrl).then(() => {
-                this.loaded = true;
-                this.loadListeners.forEach(func => func.call());
-            }).catch(e => console.error(e));
+        Backend.axios = axios.create({
+            baseURL: !process.env.NODE_ENV || process.env.NODE_ENV === "development"
+                ? "http://localhost:5001/bergflix/europe-west1/backend/"
+                : "https://europe-west1-bergflix.cloudfunctions.net/backend/"
+        });
+
+        Backend.axios.get("").then(() => {
+            this.loaded = true;
+            this.loadListeners.forEach(func => func.call(this));
+        }).catch(e => console.log("DB-ERROR", e));
     }
 
     onLoad(func) {
@@ -20,15 +26,15 @@ class Backend {
 
     async get(key = "") {
         try {
-            return (await axios.get(Backend.baseUrl + "media/" + key)).data;
-        } catch(err) {
-            return {error: true, response: err};
+            return (await Backend.axios.get(`media/${key}`)).data;
+        } catch(e) {
+            return {error: true, response: e};
         }
     }
 
     async getList(type, limit = 0, start = 0) {
         try {
-            return (await axios.get(Backend.baseUrl + type + "?sort=date" + (limit ? "&limit="+limit : "") + (start ? "&start="+start : ""))).data;
+            return (await Backend.axios.get(`${type}?sort=date${limit?`&limit=${limit}`:``}${start?`&start=${start}`:``}`)).data;
         } catch(err) {
             return {error: true, response: err};
         }
@@ -41,7 +47,7 @@ class Backend {
         let list = [];
         keys.forEach(prop => query[prop] && list.push(prop + "=" + query[prop]));
         try {
-            return (await axios.get(Backend.baseUrl + "media?" + list.join("&"))).data;
+            return (await Backend.axios.get(`media?${list.join("&")}`)).data;
         } catch(err) {
             return {error: true, response: err};
         }
