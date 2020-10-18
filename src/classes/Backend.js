@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Backend {
 
-    static baseUrl = "/backend/";
+    static baseUrl = "https://europe-west1-bergflix.cloudfunctions.net/backend/";
     loaded = false;
     loadListeners = [];
 
