@@ -6,6 +6,7 @@ import './style.scss';
 import * as serviceWorker from './serviceWorker';
 
 import * as firebase from "firebase/app";
+import "firebase/performance";
 import "firebase/analytics";
 
 // Init Firebase
@@ -19,6 +20,9 @@ firebase.initializeApp({
     appId: "1:916166332578:web:c19c17ba0472d5963707fb",
     measurementId: "G-9VRVMYV8CW"
 });
+// Init performance monitoring
+firebase.performance();
+// Init analytics monitoring
 firebase.analytics();
 
 // Render ReactApp
