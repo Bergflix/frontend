@@ -1,4 +1,5 @@
 @import "../../styles/colors";
+@import "../../styles/screensize.scss";
 
 #footer-container {
   position: fixed;
@@ -9,7 +10,7 @@
   z-index: 10;
   background: $background-dark;
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: $mobile-width) {
     display: none;
   }
 
