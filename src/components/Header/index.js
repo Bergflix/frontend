@@ -1,7 +1,7 @@
 import React from 'react';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 import "./style.scss";
-import {withRouter, NavLink} from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import SearchField from "../../components/Controls/SearchField";
 import Logo from "../Elements/Logo";
 import Icon from "../Elements/Icon";
@@ -16,19 +16,19 @@ class Header extends React.Component {
     navItems = [{
         title: "Home",
         href: "/home"
-    },{
+    }, {
         title: "Filme",
         href: "/movies"
-    },{
+    }, {
         title: "Serien",
         href: "/series"
-    },{
+    }, {
         title: "Party",
         href: "/party"
     }];
 
     toggleSidebar() {
-        this.setState({sidebar: !this.state.sidebar});
+        this.setState({ sidebar: !this.state.sidebar });
     }
 
     render() {
@@ -43,8 +43,8 @@ class Header extends React.Component {
                             <NavLink className={"nav-link"} to={item.href}>{item.title}</NavLink>
                         </li>
                     ))}
-                    <li className={"nav-search nav-item"} style={{marginLeft: "auto"}}>
-                        <SearchField label={"Durchsuchen"} onSubmit={({query}) => this.props.history.push(`/search?q=${query}`)} />
+                    <li className={"nav-search nav-item"} style={{ marginLeft: "auto" }}>
+                        <SearchField label={"Durchsuchen"} onSubmit={({ query }) => this.props.history.push(`/media?q=${query}`)} />
                     </li>
                     <li className={"nav-profile nav-item"} onClick={() => this.toggleSidebar()}>
                         <Icon type={"slider"} clickable={true} />

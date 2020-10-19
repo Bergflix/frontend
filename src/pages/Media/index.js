@@ -1,5 +1,5 @@
 import React from "react";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./style.scss";
 import Backend from "../../classes/Backend";
 import Loading from "../../components/Loading";
@@ -20,8 +20,8 @@ class Search extends React.Component {
         let urlParams = new URLSearchParams(this.props.location.search);
         Backend.find({
             title: urlParams.get("q") || this.props.title,
-            type: urlParams.get("t") || this.props.type
-        }).then(({response}) => this.mounted && this.setState({loading: false, list: response}));
+            type: urlParams.get("type") || this.props.type
+        }).then(({ response }) => this.mounted && this.setState({ loading: false, list: response }));
     }
 
     componentDidMount() {
@@ -30,9 +30,9 @@ class Search extends React.Component {
     }
 
     render() {
-        if(this.state.loading) return <Loading/>;
+        if (this.state.loading) return <Loading />;
 
-        if(!this.state.list.length) return (
+        if (!this.state.list.length) return (
             <div id={"no-result"}>
                 <div className={"dialog"}>
                     <h3>Kein Ergebnis</h3>
