@@ -2,6 +2,7 @@
 @import "../../styles/screensize.scss";
 
 #footer-container {
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -10,8 +11,8 @@
   z-index: 10;
   background: $background-dark;
 
-  @media only screen and (min-width: $mobile-width) {
-    display: none;
+  @media only screen and (max-width: $tablet-width + 1) { //max-width because else if a device is exactly the width and 'min-width' would be used, then no navigation would be displayed at all
+    display: block;
   }
 
   #foot-nav {

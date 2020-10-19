@@ -22,7 +22,7 @@ class Home extends React.Component {
   }
 
   replaceLogo(element) {
-    element.outerHTML = `<p class="logo" style="font-size: 5rem;">${this.state.featured.title}</p>`;
+    element.outerHTML = `<p class="logo">${this.state.featured.title}</p>`;
   }
 
   render() {

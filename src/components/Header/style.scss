@@ -28,7 +28,7 @@
       text-align: center;
       display: flex;
 
-      @media only screen and (max-width: $mobile-width){
+      @media only screen and (max-width: $tablet-width){
         display: none;
       }
 
