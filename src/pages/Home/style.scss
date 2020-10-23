@@ -61,6 +61,7 @@
 
   .description {
     color: $text-light;
+    width: 50%;
   }
 
   .controls {
@@ -101,6 +102,10 @@
     .logo {
       max-width: 80%;
       font-size: 4em;
+    }
+
+    .description {
+      display: none;
     }
 
     .controls {
