@@ -1,32 +1,30 @@
 import React from 'react';
-import './style.scss';
-import Loading from '../../components/Loading';
 import { Link } from 'react-router-dom';
 import Backend from '../../classes/Backend';
+
+import './style.scss';
+
+import Loading from '../../components/Loading';
 import Icon from '../../components/Elements/Icon';
 import BOLogo from '../../components/Elements/BOLogo';
 
 class Home extends React.Component {
   state = {
-    list: [],
-    featured: {},
+    featured: null,
   };
 
   constructor(props) {
     super(props);
 
     Backend.getList('media', 5).then((data) => {
-      this.setState({ list: data.response, featured: data.response[0] });
-      props.setBackground && props.setBackground(this.state.list[0].thumbnail);
+      let featured = data.response[0];
+      this.setState({featured});
+      props.setBackground && props.setBackground(featured.thumbnail);
     });
   }
 
-  replaceLogo(element) {
-    element.outerHTML = `<p class="logo">${this.state.featured.title}</p>`;
-  }
-
   render() {
-    if (!this.state.list.length) return <Loading />;
+    if (!this.state.featured) return <Loading />;
 
     let date = new Date(this.state.featured.date);
     let year = date.getFullYear();
@@ -41,7 +39,7 @@ class Home extends React.Component {
           className={'logo'}
           src={this.state.featured.logo}
           alt={'Element Logo'}
-          onError={(e) => this.replaceLogo(e.target)}
+          onError={(e) => e.target.outerHTML = `<p class="logo">${this.state.featured.title}</p>`}
         />
         <div className={'info'}>
           <span>{year}</span>
