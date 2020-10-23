@@ -28,7 +28,7 @@ class Home extends React.Component {
   render() {
     if (!this.state.list.length) return <Loading />;
 
-    let date = new Date(this.state.featured.date.created);
+    let date = new Date(this.state.featured.date);
     let year = date.getFullYear();
     let { age, type, genre } = this.state.featured;
 
