@@ -47,7 +47,7 @@ class Home extends React.Component {
           <span>{year}</span>
           <span>{age}+</span>
           <span>{renderedType}</span> {/*TODO: Implement length of time into the src? */}
-          <span/>
+          <span />
           <span>{genre}</span>
         </div>
         <div className={'info-2'}>
