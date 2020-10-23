@@ -61,7 +61,7 @@
 
   .description {
     color: $text-light;
-    width: 50%;
+    width: 40%;
   }
 
   .controls {
@@ -96,6 +96,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .logo {
+      text-align: center;
+    }
+
+    .description {
+      width: 80%;
+      text-align: center;
+    }
   }
 
   @media only screen and (max-width: $handy-width) {
