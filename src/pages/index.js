@@ -6,6 +6,7 @@ import Home from "./Home";
 import SignUp from "./SignUp";
 import Media from "./Media";
 import Watch from "./Watch";
+import PartySoon from "./PartySoon";
 import SinglePage from "./SinglePage";
 import NotFound from "./NotFound";
 import LinkOut from "../components/Elements/LinkOut";
@@ -34,6 +35,8 @@ class Pages extends React.Component {
                             <Route path={"/watch"} component={() => <Redirect to={"/home"} />} />
 
                             <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
+
+                            <Route path={"/party"} component={() => <PartySoon setBackground={setBackground} />} />
 
                             <Route path={"/download"} component={() => <SinglePage page={{ title: "Herunterladen", text: "App installieren" }} />} />
                             <Route path={"/about"} component={() => <SinglePage page={{ title: "Über Bergflix", text: "Informativer Text folgt hier" }} />} />
