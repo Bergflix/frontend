@@ -56,11 +56,11 @@ class Home extends React.Component {
         </div>
         <div className={'description'}>{this.state.featured.description}</div>
         <div className={'controls'}>
-          <Link to={`/watch/${this.state.featured.key}`}>
+          <Link to={`/watch/${this.state.featured.id}`}>
             <Icon type={'play'} />
             <span>Jetzt anschauen</span>
           </Link>
-          <Link to={`/info/${this.state.featured.key}`}>
+          <Link to={`/media/${this.state.featured.id}`}>
             <Icon type={'arrow'} />
             <span>Weitere Infos</span>
           </Link>
