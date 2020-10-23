@@ -1,25 +1,21 @@
 {
   "name": "main-website",
   "version": "0.4.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.8",
-    "@types/youtube": "0.0.39",
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
     "express": "^4.17.1",
     "firebase": "^7.24.0",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.14.0",
-    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "react-transition-group": "^4.4.1",
     "react-youtube": "^7.13.0",
-    "redux": "^4.0.5",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.1",
     "uuid": "^8.3.1"
@@ -44,5 +40,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "private": true
 }
