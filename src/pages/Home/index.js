@@ -18,7 +18,7 @@ class Home extends React.Component {
 
     Backend.getList('media', 5).then((data) => {
       let featured = data.response[0];
-      this.setState({featured});
+      this.setState({ featured });
       props.setBackground && props.setBackground(featured.thumbnail);
     });
   }
@@ -44,7 +44,7 @@ class Home extends React.Component {
         <div className={'info'}>
           <span>{year}</span>
           <span>{age}+</span>
-          <span>{renderedType}</span> {/*TODO: Implement length of time into the src? */}
+          <span>{renderedType}</span> {/*TODO: Implement length of time into the backend? */}
           <span />
           <span>{genre}</span>
         </div>
