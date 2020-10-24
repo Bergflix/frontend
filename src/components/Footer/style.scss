@@ -35,13 +35,15 @@
         align-items: center;
 
         &.active {
-          color: $primary;
-          fill: $primary;
+          .nav-icon svg path {
+              fill: $primary;
+          }
         }
 
         i {
           font-size: 1.3rem;
         }
+
         span {
           font-size: 0.8rem;
         }
