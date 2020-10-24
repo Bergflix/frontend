@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Backend from '../../classes/Backend';
 
-import './style.scss';
-
 import Loading from '../../components/Loading';
 import Icon from '../../components/Elements/Icon';
 import BOLogo from '../../components/Elements/BOLogo';
+import './style.scss';
 
 class Home extends React.Component {
   state = {
