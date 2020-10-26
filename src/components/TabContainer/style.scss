@@ -1,0 +1,35 @@
+@import '../../styles/colors.scss';
+
+.tab-container {
+    .tab-header {
+        .tab {
+            font-size: 20px;
+            font-weight: 500;
+            color: $text-secondary;
+            transition: color 0.2s ease;
+            margin-right: 20px;
+            padding: 5px 1px 1px 1px;
+            cursor: pointer;
+
+            // Remove Selection Option //
+            -webkit-touch-callout: none; // iOS Safari
+            -webkit-user-select: none; // Safari
+            -khtml-user-select: none; // Konqueror HTML
+            -moz-user-select: none; // Old versions of Firefox
+            -ms-user-select: none; // Internet Explorer/Edge
+            user-select: none; // Chrome, Edge, Opera and Firefox (Non-prefixed version)
+
+            &:hover {
+                color: $text-primary;
+            }
+        }
+
+        .tab-active {
+            color: $text-primary;
+            border-bottom: 2px solid $primary;
+        }
+    }
+    .tab-content {
+        margin-top: 15px;
+    }
+}
