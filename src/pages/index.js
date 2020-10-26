@@ -23,7 +23,7 @@ class Pages extends React.Component {
                 <CSSTransition appear={true} key={location.key} timeout={450} classNames={"fade"}>
                     <div className={"page"}>
                         <Switch className={"switch"} location={location}>
-                            <Route path={"/"} exact component={() => <Redirect to={"/home"} />} />
+                            <Route path={"/"} exact component={() => <Redirect from={"*"} to={"/home"} />} />
                             <Route path={"/home"} component={() => <Home setBackground={setBackground} />} />
                             <Route path={"/signup"} component={() => <SignUp setBackground={setBackground} />} />
 
@@ -32,9 +32,9 @@ class Pages extends React.Component {
                             <Route path={"/media"} component={() => <Media setBackground={setBackground} />} />
 
                             <Route path={"/watch/:key"} component={() => <Watch setBackground={setBackground} />} />
-                            <Route path={"/watch"} component={() => <Redirect to={"/home"} />} />
+                            <Route path={"/watch"} component={() => <Redirect from={"*"} to={"/home"} />} />
 
-                            <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect to={"/"} />} />
+                            <Route path={["/upload", "/upload/:ytid"]} component={() => <Redirect from={"*"} to={"/"} />} />
 
                             <Route path={"/party"} component={() => <PartySoon setBackground={setBackground} />} />
 

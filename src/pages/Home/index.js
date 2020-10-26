@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import Backend from '../../classes/Backend';
 
 import Loading from '../../components/Loading';
@@ -23,17 +24,27 @@ class Home extends React.Component {
   }
 
   render() {
-    if (!this.state.featured) return <Loading />;
+    let featured = this.state.featured;
+    if (!featured) return <Loading />;
 
-    let date = new Date(this.state.featured.date);
+    let date = new Date(featured.date);
     let year = date.getFullYear();
-    let { age, type, genre } = this.state.featured;
+    let { title, age, type, genre } = featured;
 
     //TODO: Maybe a better implementation of this xD
-    let renderedType = type === 'movie' ? "Film" : "Serie";
+    let renderedType;
+    switch(type) {
+        case "movies": renderedType = "Film"; break;
+        case "series": renderedType = "Serie"; break;
+        default: renderedType = "NaN";
+    }
 
     return (
       <div id={'home-container'}>
+        <Helmet>
+            <title>Bergflix - Home</title>
+            <meta name={"description"} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
+        </Helmet>
         <img
           className={'logo'}
           src={this.state.featured.logo}
@@ -43,7 +54,7 @@ class Home extends React.Component {
         <div className={'info'}>
           <span>{year}</span>
           <span>{age}+</span>
-          <span>{renderedType}</span> {/*TODO: Implement length of time into the src? */}
+          <span>{renderedType}</span> {/* TODO: Implement length of video into the src? */}
           <span />
           <span>{genre}</span>
         </div>

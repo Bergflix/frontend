@@ -12,6 +12,7 @@
     "react": "^16.14.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "react-transition-group": "^4.4.1",

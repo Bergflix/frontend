@@ -37,7 +37,8 @@ class Search extends React.Component {
                 <div className={"dialog"}>
                     <h3>Kein Ergebnis</h3>
                 </div>
-            </div>);
+            </div>
+        );
 
         return <ElementList list={this.state.list} />;
     }
