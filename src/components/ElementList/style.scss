@@ -1,17 +1,21 @@
 @import "../../styles/colors";
+@import "../../styles/screensize";
 
 #list-container {
   .list {
     margin-top: 2rem;
     display: grid;
     gap: 2rem;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
 
-    @media only screen and (min-width: 600px){
+    // Kleiner als Tablet
+    @media only screen and (max-width: $tablet-width) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @media only screen and (min-width: 900px){
-      grid-template-columns: repeat(4, 1fr);
+    // Kleiner als Mobile
+    @media only screen and (max-width: $mobile-width) {
+      grid-template-columns: 1fr;
+      margin-bottom: 5rem;
     }
 
     .list-item {

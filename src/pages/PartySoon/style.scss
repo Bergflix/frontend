@@ -17,7 +17,7 @@
       font-size: 5rem;
       font-weight: 600;
     }
-    
+
     p {
       font-size: 1rem;
       margin: 0;
@@ -36,7 +36,7 @@
       width: 70%;
     }
 
-    @media only screen and (max-width: $handy-width) {
+    @media only screen and (max-width: $mobile-width) {
       display: flex;
       flex-direction: column;
 

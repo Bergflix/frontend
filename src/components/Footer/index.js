@@ -7,25 +7,20 @@ import Icon from "../Elements/Icon";
 class Footer extends React.Component {
 
     mobileNavItems = [{
-        title: "Filme",
-        icon: "video",
-        href: "/media"
-    }, {
-        title: "Party",
         icon: "users",
         href: "/party"
     }, {
-        title: "Home",
+        icon: "search",
+        href: "/search"
+    }, {
         icon: "home",
         href: "/home"
     }, {
-        title: "Favoriten",
-        icon: "bookmark",
-        href: "/favorites"
+        icon: "video",
+        href: "/media"
     }, {
-        title: "Einstellungen",
-        icon: "settings",
-        href: "/settings"
+        icon: "user",
+        href: "/profile"
     }];
 
     render() {

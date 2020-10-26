@@ -112,7 +112,7 @@
         }
     }
 
-    @media only screen and (max-width: $handy-width) {
+    @media only screen and (max-width: $mobile-width) {
         .logo {
             max-width: 80%;
             font-size: 4em;
