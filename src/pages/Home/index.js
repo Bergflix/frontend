@@ -18,7 +18,7 @@ class Home extends React.Component {
 
     Backend.getList('media', 5).then((data) => {
       let featured = data.response[0];
-      this.setState({featured});
+      this.setState({ featured });
       props.setBackground && props.setBackground(featured.thumbnail);
     });
   }

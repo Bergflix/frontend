@@ -1,7 +1,7 @@
 import React from 'react';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 import "./style.scss";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icon from "../Elements/Icon";
 
 class Footer extends React.Component {
@@ -10,19 +10,19 @@ class Footer extends React.Component {
         title: "Filme",
         icon: "video",
         href: "/media"
-    },{
+    }, {
         title: "Party",
         icon: "users",
         href: "/party"
-    },{
+    }, {
         title: "Home",
         icon: "home",
         href: "/home"
-    },{
+    }, {
         title: "Favoriten",
         icon: "bookmark",
         href: "/favorites"
-    },{
+    }, {
         title: "Einstellungen",
         icon: "settings",
         href: "/settings"
@@ -35,7 +35,7 @@ class Footer extends React.Component {
                     {this.mobileNavItems.map(item => (
                         <li key={uuid()} className={"nav-item"}>
                             <NavLink className={"nav-link"} exact to={item.href}>
-                                <Icon type={item.icon} clickable={true} />
+                                <Icon type={item.icon} className={"nav-icon"} clickable={true} />
                             </NavLink>
                         </li>
                     ))}
