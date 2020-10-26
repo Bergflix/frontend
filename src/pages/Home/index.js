@@ -31,7 +31,6 @@ class Home extends React.Component {
     let year = date.getFullYear();
     let { title, age, type, genre } = featured;
 
-    //TODO: Maybe a better implementation of this xD
     let renderedType;
     switch(type) {
         case "movies": renderedType = "Film"; break;
