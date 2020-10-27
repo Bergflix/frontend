@@ -66,6 +66,34 @@
         width: 40%;
     }
 
+    .timeline {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        margin-top: 1rem;
+
+        span {
+            margin-right: 5px;
+
+            &:first-child {
+                width: 200px;
+                height: 2px;
+                background-color: $background-darker-alpha;
+
+                &::before {
+                    width: 20px;
+                    height: 2px;
+                    background-color: $primary;
+                }
+            }
+
+            &:nth-child(2) {
+                font-weight: 400;
+            }
+        }
+    }
+
     .controls {
         a {
             display: inline-block;
@@ -95,6 +123,39 @@
 
     .seasons {
         margin-top: 30px;
+
+        .season-list {
+            display: flex;
+            flex-direction: row;
+
+            .part {
+                display: flex;
+                flex-direction: column;
+
+                margin-right: 20px;
+
+                .thumbnail {
+                    height: 200px;
+                    border-radius: 6px;
+                    filter: brightness(0.75);
+                    transition: filter 0.3s ease;
+
+                    &:hover {
+                        filter: none;
+                    }
+                }
+
+                .title {
+                    margin-top: 5px;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
     }
 
     @media only screen and (max-width: $tablet-width) {

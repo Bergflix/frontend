@@ -34,6 +34,7 @@ class Info extends Component {
 
         let renderedType;
         let renderSeasons = false;
+        let seasonIndex = 0;
         switch (type) {
             case 'movies':
                 renderedType = 'Film';
@@ -67,6 +68,12 @@ class Info extends Component {
                     {/*TODO: Make an if statement*/}
                 </div>
                 <div className={'description'}>{this.state.media.description}</div>
+                {!renderSeasons && (
+                    <div className={'timeline'}>
+                        <span />
+                        <span>150min</span>
+                    </div>
+                )}
                 <div className={'controls'}>
                     <Link to={`/watch/${this.state.media.id}`}>
                         <Icon type={'play'} />
@@ -76,11 +83,28 @@ class Info extends Component {
                 {renderSeasons && (
                     <div className={'seasons'}>
                         <TabContainer>
-                            <div label="Staffel 1"> Test 1 </div>
-                            <div label="Staffel 2"> Test 2 </div>
+                            {content.seasons.map((season) => {
+                                return (
+                                    <div label={season.name}>
+                                        <div className={'season-list'}>
+                                            {season.parts.map((part) => {
+                                                return (
+                                                    <Link className={'part'} to={`/watch/${content.id}/${part.ytid}`}>
+                                                        <img className={'thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
+                                                        <span className={'title'}>
+                                                            {++seasonIndex}. {part.title}
+                                                        </span>
+                                                    </Link>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </TabContainer>
                     </div>
                 )}
+                <div></div>
             </div>
         );
     }
