@@ -9,11 +9,11 @@ class Backend {
     constructor() {
         Backend.axios = axios.create({
             baseURL: !process.env.NODE_ENV || process.env.NODE_ENV === "development"
-                ? "http://localhost:5001/bergflix/europe-west1/"
-                : "https://europe-west1-bergflix.cloudfunctions.net/"
+                ? "http://localhost:5001/bergflix/europe-west1/backend/"
+                : "https://europe-west1-bergflix.cloudfunctions.net/backend/"
         });
 
-        Backend.axios.get("backend").then(() => {
+        Backend.axios.get("").then(() => {
             this.loaded = true;
             this.loadListeners.forEach(func => func.call(this));
         }).catch(e => console.log("DB-ERROR", e));
