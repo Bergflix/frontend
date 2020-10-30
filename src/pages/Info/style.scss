@@ -5,17 +5,30 @@
     filter: brightness(0.75);
 }
 
-#info-container {
+.serie-align {
     position: absolute;
     left: 5rem;
     bottom: 3rem;
-    //transform: translate(1rem, -50%);
+
+    @media only screen and (max-width: $laptop-width) {
+        left: 3rem;
+        bottom: 2rem;
+    }
+}
+
+.movie-align {
+    position: absolute;
+    top: 40%;
+    transform: translate(1rem, -50%);
+}
+
+#info-container {
     width: calc(100% - 100px); //Fix for overflow which occurrs because 1rem to the right
 
     .logo {
         margin: 0;
         padding: 0;
-        max-height: 15rem;
+        max-width: 515px;
         font-size: 5rem;
     }
 
@@ -124,6 +137,8 @@
     .seasons {
         margin-top: 30px;
 
+        //TODO: Scroll buttons
+
         .season-list {
             display: flex;
             flex-direction: row;
@@ -134,15 +149,36 @@
 
                 margin-right: 20px;
 
+                $part-width: 355.55px;
+                width: $part-width;
+
+                &:hover {
+                    .thumbnail {
+                        filter: none;
+                    }
+
+                    .watch-indicator {
+                        filter: none;
+                    }
+                }
+
                 .thumbnail {
-                    height: 200px;
+                    width: $part-width;
                     border-radius: 6px;
                     filter: brightness(0.75);
                     transition: filter 0.3s ease;
+                }
 
-                    &:hover {
-                        filter: none;
-                    }
+                .watch-indicator {
+                    width: 0;
+                    height: 4px;
+                    margin-top: -4px;
+                    border-radius: 2px;
+                    background-color: $primary;
+                    filter: brightness(0.75);
+                    transition: filter 0.3s ease;
+
+                    z-index: 1;
                 }
 
                 .title {
@@ -153,6 +189,29 @@
 
                 &:last-child {
                     margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: $laptop-width) and (min-width: $tablet-width) {
+        .logo {
+            max-width: 30%;
+        }
+
+        .description {
+            width: 60%;
+        }
+
+        .seasons {
+            .season-list {
+                .part {
+                    $laptop-part-width: 280px;
+                    width: $laptop-part-width;
+
+                    .thumbnail {
+                        width: $laptop-part-width;
+                    }
                 }
             }
         }
@@ -170,6 +229,8 @@
         justify-content: center;
 
         .logo {
+            max-width: 100%;
+            width: 70%;
             text-align: center;
         }
 
@@ -177,16 +238,36 @@
             width: 80%;
             text-align: center;
         }
+
+        .seasons {
+            .season-list {
+                .part {
+                    //TODO: make a grid
+                    $tablet-part-width: 330px;
+                    width: $tablet-part-width;
+
+                    .thumbnail {
+                        width: $tablet-part-width;
+                    }
+                }
+            }
+        }
     }
 
     @media only screen and (max-width: $handy-width) {
+        margin-top: 100px;
+
+        position: relative;
+        left: 0;
+        transform: none;
+
         .logo {
             max-width: 80%;
             font-size: 4em;
         }
 
         .description {
-            display: none;
+            width: 100%;
         }
 
         .controls {
@@ -197,6 +278,24 @@
 
             a {
                 margin-right: 0;
+            }
+        }
+
+        .seasons {
+            display: flex;
+            flex-direction: column;
+
+            .season-list {
+                flex-direction: column;
+
+                .part {
+                    margin-right: 0;
+                    margin-bottom: 20px;
+
+                    .thumbnail {
+                        width: 100%;
+                    }
+                }
             }
         }
     }

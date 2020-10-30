@@ -33,6 +33,7 @@ class Info extends Component {
         let { title, age, type, genre } = content;
 
         let renderedType;
+        let hasBegun = true;
         let renderSeasons = false;
         let seasonIndex = 0;
         switch (type) {
@@ -48,7 +49,7 @@ class Info extends Component {
         }
 
         return (
-            <div id={'info-container'}>
+            <div id={'info-container'} className={renderSeasons ? 'serie-align' : 'movie-align'}>
                 <Helmet>
                     <title>
                         Bergflix - {renderedType} - {title}
@@ -75,10 +76,23 @@ class Info extends Component {
                     </div>
                 )}
                 <div className={'controls'}>
-                    <Link to={`/watch/${this.state.media.id}`}>
-                        <Icon type={'play'} />
-                        <span>Abspielen</span>
-                    </Link>
+                    {hasBegun ? (
+                        <React.Fragment>
+                            <Link to={`/watch/${this.state.media.id}`}>
+                                <Icon type={'play'} />
+                                <span>Weiterschauen</span>
+                            </Link>
+                            <Link to={`/watch/${this.state.media.id}`}>
+                                <Icon type={'refresh'} />
+                                <span>Neustarten</span>
+                            </Link>
+                        </React.Fragment>
+                    ) : (
+                        <Link to={`/watch/${this.state.media.id}`}>
+                            <Icon type={'play'} />
+                            <span>Abspielen</span>
+                        </Link>
+                    )}
                 </div>
                 {renderSeasons && (
                     <div className={'seasons'}>
@@ -91,8 +105,9 @@ class Info extends Component {
                                                 return (
                                                     <Link className={'part'} to={`/watch/${content.id}/${part.ytid}`}>
                                                         <img className={'thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
+                                                        <span className={'watch-indicator'} style={{ width: `${75}%` } /*TODO: Add length calculation*/} />
                                                         <span className={'title'}>
-                                                            {++seasonIndex}. {part.title}
+                                                            {++seasonIndex}. {part.title} Hier ist noch ein wenig Text, um zu gucken ob der Wrapped
                                                         </span>
                                                     </Link>
                                                 );
