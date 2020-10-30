@@ -56,6 +56,7 @@ class Info extends Component {
                     </title>
                     <meta name={'description'} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
                 </Helmet>
+                DE
                 <img className={'logo'} src={this.state.media.logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
                 <div className={'info'}>
                     <span>{year}</span>
@@ -107,7 +108,7 @@ class Info extends Component {
                                                         <img className={'thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
                                                         <span className={'watch-indicator'} style={{ width: `${75}%` } /*TODO: Add length calculation*/} />
                                                         <span className={'title'}>
-                                                            {++seasonIndex}. {part.title} Hier ist noch ein wenig Text, um zu gucken ob der Wrapped
+                                                            {++seasonIndex}. {part.title}
                                                         </span>
                                                     </Link>
                                                 );
