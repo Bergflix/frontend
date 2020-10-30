@@ -56,7 +56,6 @@ class Info extends Component {
                     </title>
                     <meta name={'description'} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
                 </Helmet>
-                DE
                 <img className={'logo'} src={this.state.media.logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
                 <div className={'info'}>
                     <span>{year}</span>
