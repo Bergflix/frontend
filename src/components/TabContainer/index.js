@@ -17,7 +17,7 @@ class TabContainer extends Component {
                 <div className={'tab-header'}>
                     {this.props.children.map((child) => {
                         return (
-                            <span className={'tab' + (child === this.state.activeChild ? ' tab-active' : '')} onClick={() => this.onTabClick(child)}>
+                            <span key={child.props.label} className={'tab' + (child === this.state.activeChild ? ' tab-active' : '')} onClick={() => this.onTabClick(child)}>
                                 {child.props.label}
                             </span>
                         );

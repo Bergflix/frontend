@@ -99,13 +99,13 @@ class Info extends Component {
                         <TabContainer>
                             {content.seasons.map((season) => {
                                 return (
-                                    <div label={season.name}>
+                                    <div key={season.name} label={season.name}>
                                         <div className={'season-list'}>
                                             {season.parts.map((part) => {
                                                 return (
-                                                    <Link className={'part'} to={`/watch/${content.id}/${part.ytid}`}>
+                                                    <Link key={part.ytid} className={'part'} to={`/watch/${content.id}/${part.ytid}`}>
                                                         <img className={'thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
-                                                        <span className={'watch-indicator'} style={{ width: `${75}%` } /*TODO: Add length calculation*/} />
+                                                        <span className={'watch-indicator'} style={{ width: `${65}%` } /*TODO: Add length calculation*/} />
                                                         <span className={'title'}>
                                                             {++seasonIndex}. {part.title}
                                                         </span>
