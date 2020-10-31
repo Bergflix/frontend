@@ -1,0 +1,105 @@
+@import '../../styles/colors.scss';
+@import '../../styles/screensize.scss';
+
+.season-container {
+    position: relative;
+    width: 96%;
+
+    @media only screen and (max-width: $laptop-width) {
+        width: 100%;
+    }
+
+    .nav-button {
+        position: absolute;
+        transform: translate(-50%, 50%);
+        z-index: 2;
+
+        padding: 10px;
+        border-radius: 50px;
+        background-color: $background-dark;
+
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: $background-darker;
+
+            svg path {
+                fill: $primary;
+            }
+        }
+    }
+
+    .nav-button-deactivated {
+        display: none;
+    }
+
+    .nav-list {
+        display: inline-grid;
+        gap: 1rem;
+        grid-template-columns: repeat(5, 1fr);
+
+        .part {
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+
+            &:hover {
+                .thumbnail {
+                    filter: none;
+                }
+
+                .watch-indicator {
+                    filter: none;
+                }
+            }
+
+            .thumbnail {
+                width: 100%;
+                border-radius: 6px;
+                filter: brightness(0.75);
+                transition: filter 0.3s ease;
+            }
+
+            .watch-indicator {
+                width: 0;
+                height: 4px;
+                margin-top: -4px;
+                border-radius: 2px;
+                background-color: $primary;
+                filter: brightness(0.75);
+                transition: filter 0.3s ease;
+
+                z-index: 1;
+            }
+
+            .title {
+                margin-top: 5px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+
+        // TABLET VERSION
+        @media only screen and (max-width: $tablet-width) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        // MOBILE VERSION
+        @media only screen and (max-width: $handy-width) {
+            grid-template-columns: 1fr;
+
+            .part {
+                &:last-child {
+                    //Temporary fix for navbar
+                    margin-bottom: 30px;
+                }
+
+                .thumbnail {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
