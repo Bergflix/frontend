@@ -35,7 +35,6 @@ class Info extends Component {
         let renderedType;
         let hasBegun = true;
         let renderSeasons = false;
-        let seasonIndex = 0;
         switch (type) {
             case 'movies':
                 renderedType = 'Film';
@@ -98,6 +97,7 @@ class Info extends Component {
                     <div className={'seasons'}>
                         <TabContainer>
                             {content.seasons.map((season) => {
+                                let partIndex = 0;
                                 return (
                                     <div key={season.name} label={season.name}>
                                         <div className={'season-list'}>
@@ -107,7 +107,7 @@ class Info extends Component {
                                                         <img className={'thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
                                                         <span className={'watch-indicator'} style={{ width: `${65}%` } /*TODO: Add length calculation*/} />
                                                         <span className={'title'}>
-                                                            {++seasonIndex}. {part.title}
+                                                            {++partIndex}. {part.title}
                                                         </span>
                                                     </Link>
                                                 );
