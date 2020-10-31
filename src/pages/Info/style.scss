@@ -9,7 +9,7 @@
 .serie-align {
     position: absolute;
     left: 5rem;
-    bottom: 3rem;
+    top: 4rem;
 
     @media only screen and (max-height: $laptop-height) {
         left: 3rem;
@@ -141,54 +141,6 @@
         margin-top: 30px;
 
         //TODO: Scroll buttons
-        .season-list {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: repeat(5, 1fr);
-
-            .part {
-                display: flex;
-                flex-direction: column;
-
-                $part-width: 355.55px;
-                max-width: $part-width;
-
-                &:hover {
-                    .thumbnail {
-                        filter: none;
-                    }
-
-                    .watch-indicator {
-                        filter: none;
-                    }
-                }
-
-                .thumbnail {
-                    max-width: $part-width;
-                    border-radius: 6px;
-                    filter: brightness(0.75);
-                    transition: filter 0.3s ease;
-                }
-
-                .watch-indicator {
-                    width: 0;
-                    height: 4px;
-                    margin-top: -4px;
-                    border-radius: 2px;
-                    background-color: $primary;
-                    filter: brightness(0.75);
-                    transition: filter 0.3s ease;
-
-                    z-index: 1;
-                }
-
-                .title {
-                    margin-top: 5px;
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-            }
-        }
     }
 
     // LAPTOP VERSION (for devices with a 720p Screen)

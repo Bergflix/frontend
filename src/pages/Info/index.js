@@ -7,6 +7,7 @@ import './style.scss';
 
 import Loading from '../../components/Loading';
 import TabContainer from '../../components/TabContainer';
+import SeasonList from '../../components/SeasonList';
 import BOLogo from '../../components/Elements/BOLogo';
 import Icon from '../../components/Elements/Icon';
 
@@ -100,19 +101,7 @@ class Info extends Component {
                                 let partIndex = 0;
                                 return (
                                     <div key={season.name} label={season.name}>
-                                        <div className={'season-list'}>
-                                            {season.parts.map((part) => {
-                                                return (
-                                                    <Link key={part.ytid} className={'part'} to={`/watch/${content.id}/${part.ytid}`}>
-                                                        <img className={'thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
-                                                        <span className={'watch-indicator'} style={{ width: `${65}%` } /*TODO: Add length calculation*/} />
-                                                        <span className={'title'}>
-                                                            {++partIndex}. {part.title}
-                                                        </span>
-                                                    </Link>
-                                                );
-                                            })}
-                                        </div>
+                                        <SeasonList page={0} serieId={content.id} content={season.parts} />
                                     </div>
                                 );
                             })}
