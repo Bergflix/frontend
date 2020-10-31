@@ -5,23 +5,26 @@
     filter: brightness(0.75);
 }
 
+// POSITIONIERUNG FÜR SERIEN
 .serie-align {
     position: absolute;
     left: 5rem;
     bottom: 3rem;
 
-    @media only screen and (max-width: $laptop-width) {
+    @media only screen and (max-height: $laptop-height) {
         left: 3rem;
         bottom: 2rem;
     }
 }
 
+// POSITIONIERUNG FÜR FILME
 .movie-align {
     position: absolute;
     top: 40%;
     transform: translate(1rem, -50%);
 }
 
+// MAIN ATTRIBUTE
 #info-container {
     width: calc(100% - 100px); //Fix for overflow which occurrs because 1rem to the right
 
@@ -138,19 +141,17 @@
         margin-top: 30px;
 
         //TODO: Scroll buttons
-
         .season-list {
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(5, 1fr);
 
             .part {
                 display: flex;
                 flex-direction: column;
 
-                margin-right: 20px;
-
                 $part-width: 355.55px;
-                width: $part-width;
+                max-width: $part-width;
 
                 &:hover {
                     .thumbnail {
@@ -163,7 +164,7 @@
                 }
 
                 .thumbnail {
-                    width: $part-width;
+                    max-width: $part-width;
                     border-radius: 6px;
                     filter: brightness(0.75);
                     transition: filter 0.3s ease;
@@ -186,15 +187,14 @@
                     font-size: 16px;
                     font-weight: 500;
                 }
-
-                &:last-child {
-                    margin-right: 0;
-                }
             }
         }
     }
 
-    @media only screen and (max-width: $laptop-width) and (min-width: $tablet-width) {
+    // LAPTOP VERSION (for devices with a 720p Screen)
+    @media only screen and (max-height: $laptop-height) {
+        width: 80%;
+
         .logo {
             max-width: 30%;
         }
@@ -217,10 +217,13 @@
         }
     }
 
+    // TABLET VERSION
     @media only screen and (max-width: $tablet-width) {
+        margin-top: 200px;
+        position: relative;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0%);
         width: 100%;
 
         display: flex;
@@ -241,8 +244,9 @@
 
         .seasons {
             .season-list {
+                grid-template-columns: repeat(2, 1fr);
+
                 .part {
-                    //TODO: make a grid
                     $tablet-part-width: 330px;
                     width: $tablet-part-width;
 
@@ -254,12 +258,14 @@
         }
     }
 
+    // MOBILE VERSION
     @media only screen and (max-width: $handy-width) {
         margin-top: 100px;
 
-        position: relative;
-        left: 0;
-        transform: none;
+        position: relative; // So scrolling is normal
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);
 
         .logo {
             max-width: 80%;
@@ -286,11 +292,15 @@
             flex-direction: column;
 
             .season-list {
-                flex-direction: column;
+                grid-template-columns: 1fr;
 
                 .part {
                     margin-right: 0;
-                    margin-bottom: 20px;
+
+                    &:last-child {
+                        //Temporary fix for navbar
+                        margin-bottom: 30px;
+                    }
 
                     .thumbnail {
                         width: 100%;
