@@ -2,64 +2,49 @@
 @import '../../styles/screensize.scss';
 
 .season-container {
-    position: relative;
-    width: 96%;
+    display: inline-grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
 
-    @media only screen and (max-width: $laptop-width) {
-        width: 100%;
-    }
-
-    .nav-button {
-        position: absolute;
-        transform: translate(-50%, 50%);
-        z-index: 2;
-
-        padding: 10px;
-        border-radius: 50px;
+    .part {
         background-color: $background-dark;
-
-        cursor: pointer;
-        transition: all 0.2s ease;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        justify-self: center;
+        justify-content: center;
+        transition: all 0.15s ease;
 
         &:hover {
             background-color: $background-darker;
 
-            svg path {
-                fill: $primary;
+            .part-preview * {
+                filter: none;
+            }
+
+            .part-info {
+                .part-title {
+                    color: $primary;
+                }
             }
         }
-    }
 
-    .nav-button-deactivated {
-        display: none;
-    }
+        .part-preview {
+            flex: 3;
 
-    .nav-list {
-        display: inline-grid;
-        gap: 1rem;
-        grid-template-columns: repeat(5, 1fr);
-
-        .part {
             display: flex;
             flex-direction: column;
 
             width: 100%;
 
-            &:hover {
-                .thumbnail {
-                    filter: none;
-                }
-
-                .watch-indicator {
-                    filter: none;
-                }
+            * {
+                transition: all 0.15s ease;
+                filter: brightness(0.75);
             }
 
-            .thumbnail {
+            .part-thumbnail {
                 width: 100%;
-                border-radius: 6px;
-                filter: brightness(0.75);
-                transition: filter 0.3s ease;
             }
 
             .watch-indicator {
@@ -69,35 +54,59 @@
                 border-radius: 2px;
                 background-color: $primary;
                 filter: brightness(0.75);
-                transition: filter 0.3s ease;
 
                 z-index: 1;
             }
+        }
 
-            .title {
-                margin-top: 5px;
-                font-size: 16px;
-                font-weight: 500;
+        .part-info {
+            flex: 5;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            * {
+                padding-left: 20px;
             }
-        }
 
-        // TABLET VERSION
-        @media only screen and (max-width: $tablet-width) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+            .part-title {
+                font-size: 20px;
+                transition: all 0.15s ease;
+            }
 
-        // MOBILE VERSION
-        @media only screen and (max-width: $handy-width) {
-            grid-template-columns: 1fr;
+            .part-description {
+                width: 90%;
 
-            .part {
-                &:last-child {
-                    //Temporary fix for navbar
-                    margin-bottom: 30px;
-                }
+                font-size: 14px;
+                font-weight: 300;
+            }
 
-                .thumbnail {
-                    width: 100%;
+            .part-tags {
+                display: flex;
+                align-items: center;
+
+                span {
+                    padding-left: 0;
+
+                    display: inline-block;
+                    color: $text-secondary;
+
+                    &:first-child {
+                        font-weight: 500;
+                    }
+
+                    &:nth-child(2) {
+                        background-color: $text-secondary;
+                        margin: auto 0.5em;
+                        width: 1px;
+                        height: 1em;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
                 }
             }
         }
