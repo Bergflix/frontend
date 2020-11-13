@@ -8,13 +8,8 @@
 // POSITIONIERUNG FÜR SERIEN
 .serie-align {
     position: absolute;
-    left: 5rem;
+    left: 3rem;
     top: 4rem;
-
-    @media only screen and (max-height: $laptop-height) {
-        left: 3rem;
-        bottom: 2rem;
-    }
 }
 
 // POSITIONIERUNG FÜR FILME
@@ -97,6 +92,7 @@
                 height: 2px;
                 background-color: $background-darker-alpha;
 
+                border-radius: 8px;
                 &::before {
                     width: 20px;
                     height: 2px;
@@ -139,13 +135,11 @@
 
     .seasons {
         margin-top: 30px;
-
-        //TODO: Scroll buttons
     }
 
     // LAPTOP VERSION (for devices with a 720p Screen)
     @media only screen and (max-height: $laptop-height) {
-        width: 80%;
+        width: 92%;
 
         .logo {
             max-width: 30%;
@@ -156,16 +150,6 @@
         }
 
         .seasons {
-            .season-list {
-                .part {
-                    $laptop-part-width: 280px;
-                    width: $laptop-part-width;
-
-                    .thumbnail {
-                        width: $laptop-part-width;
-                    }
-                }
-            }
         }
     }
 

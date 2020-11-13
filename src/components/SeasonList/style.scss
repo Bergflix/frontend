@@ -9,16 +9,29 @@
     .part {
         background-color: $background-dark;
         width: 100%;
+
+        // Align
         display: flex;
         flex-direction: row;
         align-self: center;
         justify-self: center;
         justify-content: center;
+
+        // Transition
         transition: all 0.15s ease;
+
+        // Border Mask
+        border-radius: 6px;
+        overflow: hidden;
 
         &:hover {
             background-color: $background-darker;
 
+            // Hover Zoom Effect
+            transform: scale(1.03);
+            z-index: 2;
+
+            // More bright
             .part-preview * {
                 filter: none;
             }
@@ -33,10 +46,13 @@
         .part-preview {
             flex: 3;
 
+            // Align
             display: flex;
             flex-direction: column;
+            justify-content: center;
 
             width: 100%;
+            overflow: hidden;
 
             * {
                 transition: all 0.15s ease;
@@ -44,6 +60,7 @@
             }
 
             .part-thumbnail {
+                object-fit: cover;
                 width: 100%;
             }
 
@@ -51,7 +68,7 @@
                 width: 0;
                 height: 4px;
                 margin-top: -4px;
-                border-radius: 2px;
+                //border-radius: 2px;
                 background-color: $primary;
                 filter: brightness(0.75);
 
@@ -107,6 +124,25 @@
                     &:last-child {
                         margin-right: 0;
                     }
+                }
+            }
+        }
+    }
+
+    // LAPTOP VERSION (for devices with a MDPI Screen)
+    @media only screen and (max-height: $laptop-height) {
+        .part {
+            .part-preview {
+                flex: 4;
+            }
+
+            .part-info {
+                .part-title {
+                    font-size: 16px;
+                }
+
+                .part-description {
+                    font-size: 14px;
                 }
             }
         }
