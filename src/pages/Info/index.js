@@ -98,7 +98,6 @@ class Info extends Component {
                     <div className={'seasons'}>
                         <TabContainer>
                             {content.seasons.map((season) => {
-                                let partIndex = 0;
                                 return (
                                     <div key={season.name} label={season.name}>
                                         <SeasonList page={0} serieId={content.id} content={season.parts} />
