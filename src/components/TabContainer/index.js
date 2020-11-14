@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import './style.scss';
 
-import Icon from '../Elements/Icon';
-
 class TabContainer extends Component {
     state = {
         activeChild: this.props.children[0],
@@ -14,6 +12,8 @@ class TabContainer extends Component {
     }
 
     render() {
+        let tabIndex = 0;
+
         return (
             <div className={'tab-container' + ((this.props.className && ' ' + this.props.className) || '')}>
                 <div className={'tab-header'}>
@@ -26,10 +26,10 @@ class TabContainer extends Component {
                             );
                         })}
                     </span>
-                    <select className={'tab-header-select'}>
+                    <select className={'tab-header-select'} onChange={(event) => this.onTabClick(this.props.children[event.target.selectedOptions[0].value])}>
                         {this.props.children.map((child) => {
                             return (
-                                <option key={child.props.label} onClick={() => this.onTabClick(child)}>
+                                <option key={child.props.label} value={tabIndex++}>
                                     {child.props.label}
                                 </option>
                             );
