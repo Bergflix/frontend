@@ -12,6 +12,11 @@ class TabContainer extends Component {
     }
 
     render() {
+        /*
+        So you might think that we could just do a onClick on the options of the select menu. But that for some reason doesn't work
+        on mobile phones and tablets so I have come up with this rather interesting solution and it works. Please don't touch it. Thanks.
+         - LG LeXonJe
+        */
         let tabIndex = 0;
 
         return (
