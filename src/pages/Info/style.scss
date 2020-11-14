@@ -20,7 +20,7 @@
         width: 100%;
     }
 
-    @media only screen and (max-width: $handy-width) {
+    @media only screen and (max-width: $mobile-width) {
         margin-top: 100px;
 
         position: relative; // So scrolling is normal
@@ -42,7 +42,7 @@
         }
     }
 
-    @media only screen and (max-width: $handy-width) {
+    @media only screen and (max-width: $mobile-width) {
         top: 0%;
         left: 50%;
         transform: translate(-50%, 0%);
@@ -207,7 +207,7 @@
     }
 
     // MOBILE VERSION
-    @media only screen and (max-width: $handy-width) {
+    @media only screen and (max-width: $mobile-width) {
         .logo {
             width: 100%;
             font-size: 3em;
