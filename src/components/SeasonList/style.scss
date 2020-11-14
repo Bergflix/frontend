@@ -47,7 +47,7 @@
             flex: 3;
 
             // Align
-            display: flex;
+            display: inline-flex;
             flex-direction: column;
             justify-content: center;
 
@@ -79,7 +79,7 @@
         .part-info {
             flex: 5;
 
-            display: flex;
+            display: inline-flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
@@ -90,7 +90,9 @@
 
             .part-title {
                 font-size: 20px;
-                transition: all 0.15s ease;
+                font-weight: 500;
+                margin-top: 10px;
+                transition: color 0.15s ease;
             }
 
             .part-description {
@@ -103,6 +105,8 @@
             .part-tags {
                 display: flex;
                 align-items: center;
+
+                margin-bottom: 10px;
 
                 span {
                     padding-left: 0;
@@ -130,21 +134,43 @@
     }
 
     // LAPTOP VERSION (for devices with a MDPI Screen)
-    @media only screen and (max-height: $laptop-height) {
+    @media only screen and (max-width: $laptop-width) {
+        grid-template-columns: repeat(3, 1fr);
+
         .part {
+            height: 100%;
+            flex-direction: column;
+
             .part-preview {
-                flex: 4;
+                flex: none;
+
+                .part-thumbnail {
+                    object-fit: fill;
+                }
             }
 
             .part-info {
-                .part-title {
-                    font-size: 16px;
+                align-items: center;
+
+                * {
+                    padding-left: 0;
                 }
 
-                .part-description {
-                    font-size: 14px;
+                .part-title {
+                    text-align: center;
+                    font-size: 16px;
                 }
             }
         }
+    }
+
+    // TABLET VERSION
+    @media only screen and (max-width: $tablet-width) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    // MOBILE VERSION
+    @media only screen and (max-width: $handy-width) {
+        grid-template-columns: 1fr;
     }
 }
