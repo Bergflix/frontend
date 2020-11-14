@@ -34,8 +34,8 @@ class Info extends Component {
         let { title, age, type, genre } = content;
 
         let renderedType;
-        let hasBegun = true;
-        let renderSeasons = false;
+        let hasBegun = true; // Toggles whether the rewind button should be displayed
+        let renderSeasons = false; // Toggles whether the seasonlist should be rendered
         switch (type) {
             case 'movies':
                 renderedType = 'Film';
@@ -95,19 +95,16 @@ class Info extends Component {
                     )}
                 </div>
                 {renderSeasons && (
-                    <div className={'seasons'}>
-                        <TabContainer>
-                            {content.seasons.map((season) => {
-                                return (
-                                    <div key={season.name} label={season.name}>
-                                        <SeasonList page={0} serieId={content.id} content={season.parts} />
-                                    </div>
-                                );
-                            })}
-                        </TabContainer>
-                    </div>
+                    <TabContainer className={'seasons'}>
+                        {content.seasons.map((season) => {
+                            return (
+                                <div key={season.name} label={season.name}>
+                                    <SeasonList page={0} serieId={content.id} content={season.parts} />
+                                </div>
+                            );
+                        })}
+                    </TabContainer>
                 )}
-                <div></div>
             </div>
         );
     }
