@@ -27,8 +27,8 @@ class Pages extends React.Component {
                             <Route path={'/home'} component={() => <Home setBackground={setBackground} />} />
                             <Route path={'/signup'} component={() => <SignUp setBackground={setBackground} />} />
 
-                            <Route path={'/movies'} component={() => <Media type={'movie'} setBackground={setBackground} />} />
-                            <Route path={'/series'} component={() => <Media type={'serie'} setBackground={setBackground} />} />
+                            <Route path={'/movies'} component={() => <Media type={'movie'} browserTitle={'Bergflix - Filme'} setBackground={setBackground} />} />
+                            <Route path={'/series'} component={() => <Media type={'serie'} browserTitle={'Bergflix - Serien'} setBackground={setBackground} />} />
                             <Route path={'/media/:key'} component={() => <Info setBackground={setBackground} />} />
                             <Route path={'/media'} component={() => <Media setBackground={setBackground} />} />
 
