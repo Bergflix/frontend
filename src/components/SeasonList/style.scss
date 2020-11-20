@@ -113,6 +113,8 @@
                     padding-left: 0;
 
                     display: inline-block;
+
+                    font-size: 15px; // Fixes weird stretching when zoomed in
                     color: $text-secondary;
 
                     &:first-child {
