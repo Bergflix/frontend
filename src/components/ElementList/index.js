@@ -12,7 +12,6 @@ class ElementList extends React.Component {
                     {this.props.list.map((item) => (
                         <Link key={item.id} className={'list-item'} to={`/media/${item.id}`}>
                             <img className={'item-image'} alt={'Thumbnail'} src={item.thumbnail} />
-                            <span className={'item-title'}>{item.title}</span>
                         </Link>
                     ))}
                 </div>
