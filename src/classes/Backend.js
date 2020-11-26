@@ -2,21 +2,28 @@ import axios from "axios";
 
 class Backend {
 
+    static remoteURL = "https://europe-west1-bergflix.cloudfunctions.net/backend/";
+    static localURL = `http://${window.location.hostname}:5001/bergflix/europe-west1/backend/`;
+
     static axios;
     loaded = false;
     loadListeners = [];
 
     constructor() {
-        Backend.axios = axios.create({
-            baseURL: !process.env.NODE_ENV || process.env.NODE_ENV === "development"
-                ? "http://localhost:5001/bergflix/europe-west1/backend/"
-                : "https://europe-west1-bergflix.cloudfunctions.net/backend/"
-        });
+        let url = Backend.remoteURL;
+        if(!process.env.NODE_ENV || process.env.NODE_ENV === "development") url = Backend.localURL;
 
+        Backend.axios = axios.create({baseURL: url});
         Backend.axios.get("").then(() => {
             this.loaded = true;
             this.loadListeners.forEach(func => func.call(this));
-        }).catch(e => console.log("DB-ERROR", e));
+        }).catch(() => {
+            Backend.axios = axios.create({baseURL: Backend.remoteURL});
+            Backend.axios.get("").then(() => {
+                this.loaded = true;
+                this.loadListeners.forEach(func => func.call(this));
+            }).catch(e => console.log("DB-ERROR", e));
+        });
     }
 
     onLoad(func) {
