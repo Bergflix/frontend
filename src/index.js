@@ -9,7 +9,7 @@ import App from './App';
 import './style.scss';
 import * as serviceWorker from './serviceWorker';
 
-console.log(process.env);
+
 // Init Firebase
 firebase.initializeApp({
     apiKey: process.env.REACT_APP_API_KEY,

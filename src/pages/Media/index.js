@@ -32,8 +32,6 @@ class Search extends React.Component {
     render() {
         if (this.state.loading) return <Loading />;
 
-        console.log(this.state.list.length);
-
         return (
             <React.Fragment>
                 {this.props.browserTitle ? (

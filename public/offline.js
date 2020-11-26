@@ -34,9 +34,4 @@ self.addEventListener('fetch', e => {
 self.addEventListener("push", () => {
     //let data = e.data.json();
     console.log("Push received...");
-
-    self.registration.showNotification("Bergflix", {
-        body: "Bergflix test notification",
-        icon: "https://cdn.bergflix.de/logo/light.png"
-    });
 });
