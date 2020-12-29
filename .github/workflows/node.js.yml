@@ -35,4 +35,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         source: "build/.[!.]*,build/*"
-        target: "/bergflix.de/dev"
+        target: "/bergflix.de/dev/"
