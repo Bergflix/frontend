@@ -20,8 +20,8 @@ class Info extends Component {
         super(props);
 
         Backend.get(props.match.params.key).then((data) => {
-            this.setState({ media: data.response });
-            props.setBackground && props.setBackground(data.response.thumbnail);
+            this.setState({ media: data });
+            props.setBackground && props.setBackground(data.thumbnail);
         });
     }
 
@@ -31,7 +31,7 @@ class Info extends Component {
 
         let date = new Date(content.date);
         let year = date.getFullYear();
-        let { title, age, type, genre } = content;
+        let { _id, title, description, logo, age, type, genre, seasons } = content;
 
         let renderedType;
         let hasBegun = true; // Toggles whether the rewind button should be displayed
@@ -56,7 +56,7 @@ class Info extends Component {
                     </title>
                     <meta name={'description'} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
                 </Helmet>
-                <img className={'logo'} src={this.state.media.logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
+                <img className={'logo'} src={logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
                 <div className={'info'}>
                     <span>{year}</span>
                     <span>{age}+</span>
@@ -68,7 +68,7 @@ class Info extends Component {
                     <BOLogo />
                     {/*TODO: Make an if statement*/}
                 </div>
-                <div className={'description'}>{this.state.media.description}</div>
+                <div className={'description'}>{description}</div>
                 {!renderSeasons && (
                     <div className={'timeline'}>
                         <span />
@@ -78,17 +78,17 @@ class Info extends Component {
                 <div className={'controls'}>
                     {hasBegun ? (
                         <React.Fragment>
-                            <Link to={`/watch/${this.state.media.id}`}>
+                            <Link to={`/watch/${_id}`}>
                                 <Icon type={'play'} />
                                 <span>Weiterschauen</span>
                             </Link>
-                            <Link to={`/watch/${this.state.media.id}`}>
+                            <Link to={`/watch/${_id}`}>
                                 <Icon type={'refresh'} />
                                 <span>Neustarten</span>
                             </Link>
                         </React.Fragment>
                     ) : (
-                        <Link to={`/watch/${this.state.media.id}`}>
+                        <Link to={`/watch/${_id}`}>
                             <Icon type={'play'} />
                             <span>Abspielen</span>
                         </Link>
@@ -96,10 +96,10 @@ class Info extends Component {
                 </div>
                 {renderSeasons && (
                     <TabContainer className={'seasons'}>
-                        {content.seasons.map((season) => {
+                        {seasons.map(({ name, parts }) => {
                             return (
-                                <div key={season.name} label={season.name}>
-                                    <SeasonList page={0} serieId={content.id} content={season.parts} />
+                                <div key={name} label={name}>
+                                    <SeasonList page={0} serieId={_id} content={parts} />
                                 </div>
                             );
                         })}

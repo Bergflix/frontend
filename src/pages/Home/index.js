@@ -16,8 +16,8 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
 
-    Backend.getList('media', 5).then((data) => {
-      let featured = data.response[0];
+    Backend.getList('all', 'date', 1).then((data) => {
+      let featured = data[0];
       this.setState({ featured });
       props.setBackground && props.setBackground(featured.thumbnail);
     });
@@ -29,7 +29,7 @@ class Home extends React.Component {
 
     let date = new Date(featured.date);
     let year = date.getFullYear();
-    let { title, age, type, genre } = featured;
+    let { _id, title, description, logo, age, type, genre } = featured;
 
     let renderedType;
     switch(type) {
@@ -46,9 +46,9 @@ class Home extends React.Component {
         </Helmet>
         <img
           className={'logo'}
-          src={this.state.featured.logo}
+          src={logo}
           alt={'Element Logo'}
-          onError={(e) => e.target.outerHTML = `<p class="logo">${this.state.featured.title}</p>`}
+          onError={(e) => e.target.outerHTML = `<p class="logo">${title}</p>`}
         />
         <div className={'info'}>
           <span>{year}</span>
@@ -61,13 +61,13 @@ class Home extends React.Component {
           <BOLogo />
           {/*TODO: Make an if statement*/}
         </div>
-        <div className={'description'}>{this.state.featured.description}</div>
+        <div className={'description'}>{description}</div>
         <div className={'controls'}>
-          <Link to={`/watch/${this.state.featured.id}`}>
+          <Link to={`/watch/${_id}`}>
             <Icon type={'play'} />
             <span>Jetzt anschauen</span>
           </Link>
-          <Link to={`/media/${this.state.featured.id}`}>
+          <Link to={`/media/${_id}`}>
             <Icon type={'arrow'} />
             <span>Weitere Infos</span>
           </Link>

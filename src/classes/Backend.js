@@ -1,63 +1,66 @@
-import axios from "axios";
+import PouchDB from 'pouchdb';
+import PouchDBFind from 'pouchdb-find';
+PouchDB.plugin(PouchDBFind);
 
 class Backend {
 
-    static remoteURL = "https://europe-west1-bergflix.cloudfunctions.net/backend/";
-    static localURL = `http://${window.location.hostname}:5001/bergflix/europe-west1/backend/`;
-
-    static axios;
+    db;
     loaded = false;
     loadListeners = [];
 
     constructor() {
-        let url = Backend.remoteURL;
-        if(!process.env.NODE_ENV || process.env.NODE_ENV === "development") url = Backend.localURL;
-
-        Backend.axios = axios.create({baseURL: url});
-        Backend.axios.get("").then(() => {
+        this.db = new PouchDB('content');
+        this.db.replicate.from(process.env.REACT_APP_DB_PATH, {
+            live: true,
+            retry: true
+        }).on('paused', e => {
             this.loaded = true;
             this.loadListeners.forEach(func => func.call(this));
-        }).catch(() => {
-            Backend.axios = axios.create({baseURL: Backend.remoteURL});
-            Backend.axios.get("").then(() => {
-                this.loaded = true;
-                this.loadListeners.forEach(func => func.call(this));
-            }).catch(e => console.log("DB-ERROR", e));
+            console.log(`PouchDB replication paused - Cause: ${e ? e.message : 'Success'}`);
+        }).on('complete', () => {
+            this.loaded = true;
+            this.loadListeners.forEach(func => func.call(this));
+            console.log(`PouchDB repilcation successfully`);
+        }).on('error', ({message}) => {
+            this.loaded = true;
+            this.loadListeners.forEach(func => func.call(this));
+            console.log(`PouchDB replication error: ${message}`);
         });
     }
 
     onLoad(func) {
-        if(this.loaded) func.call();
+        if(this.loaded) func.call(this);
         else this.loadListeners.push(func);
     }
 
-    async get(key = "") {
-        try {
-            return (await Backend.axios.get(`media/${key}`)).data;
-        } catch(e) {
-            return {error: true, response: e};
-        }
+    async get(key = '') {
+        let ret = await this.db.get(key);
+        return ret;
     }
 
-    async getList(type, limit = 0, start = 0) {
-        try {
-            return (await Backend.axios.get(`${type}?sort=date${limit?`&limit=${limit}`:``}${start?`&start=${start}`:``}`)).data;
-        } catch(err) {
-            return {error: true, response: err};
+    async getList(type, orderBy = 'date', limit = 0, start = 0) {
+        const { rows } = await this.db.query(`media/${type}-by-${orderBy}`, {
+            reduce: false,
+            descending: true
+        });
+        let ret = [];
+        for(let i = 0; i < rows.length; i++) {
+            if(i < start) continue;
+            if(ret.length >= limit) break;
+            ret.push(rows[i].value);
         }
+        return ret;
     }
 
     async find(query = {}) {
-        let keys = Object.keys(query);
-        if(!keys.length) return [];
+        if(!Object.keys(query).length) return [];
 
-        let list = [];
-        keys.forEach(prop => query[prop] && list.push(prop + "=" + query[prop]));
-        try {
-            return (await Backend.axios.get(`media?${list.join("&")}`)).data;
-        } catch(err) {
-            return {error: true, response: err};
-        }
+        const selector = {};
+        if(query.type) selector.type = {"$eq": query.type};
+        if(query.q) selector.title = {"$regex": query.q};
+
+        const { docs } = await this.db.find({selector});
+        return docs;
     }
 }
 

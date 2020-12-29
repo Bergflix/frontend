@@ -21,7 +21,7 @@ class Search extends React.Component {
         Backend.find({
             title: urlParams.get('q') || this.props.title,
             type: urlParams.get('type') || this.props.type,
-        }).then(({ response }) => this.mounted && this.setState({ loading: false, list: response }));
+        }).then(data => this.mounted && this.setState({ loading: false, list: data }));
     }
 
     componentDidMount() {
