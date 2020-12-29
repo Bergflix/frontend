@@ -36,3 +36,5 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         source: "build/.[!.]*,build/*"
         target: "/bergflix.de/dev/"
+        rm: true
+        strip_components: 1
