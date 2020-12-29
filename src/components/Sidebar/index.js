@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
 import Icon from "../Elements/Icon";
-import { Link, NavLink } from "react-router-dom";
+import { Link, /* NavLink*/ } from "react-router-dom";
 import { v4 as uuid } from "uuid";
-import TextField from "../Controls/TextField";
+//import TextField from "../Controls/TextField";
 
 class Sidebar extends React.Component {
 
