@@ -9,23 +9,19 @@ class Watch extends React.Component {
     state = {
         loading: true,
         error: false,
-        key: "",
-        type: "",
-        ytid: "",
-        title: "",
-        date: {},
-        producer: "",
-        thumbnail: "",
-        description: "",
-        tags: [],
-        logo: "",
-        seasons: []
+        ytid: null
     };
 
     constructor(props) {
         super(props);
-        Backend.get(props.match.params.key)
-            .then(data => this.setState({ loading: false, ...data }))
+        const { key, part } = props.match.params;
+        Backend.get(key)
+            .then(data => {
+                let ytid;
+                if(data.type === 'movies') ytid = data.ytid;
+                if(data.type === 'series' && part) ytid = part;
+                this.setState({ loading: false, error: !ytid, ytid });
+            })
             .catch(() => this.setState({ loading: false, error: true }));
     }
 

@@ -14,16 +14,13 @@ class Backend {
             live: true,
             retry: true
         }).on('paused', e => {
-            this.loaded = true;
-            this.loadListeners.forEach(func => func.call(this));
+            this.callLoadListener();
             console.log(`PouchDB replication paused - Cause: ${e ? e.message : 'Success'}`);
         }).on('complete', () => {
-            this.loaded = true;
-            this.loadListeners.forEach(func => func.call(this));
+            this.callLoadListener();
             console.log(`PouchDB repilcation successfully`);
         }).on('error', ({message}) => {
-            this.loaded = true;
-            this.loadListeners.forEach(func => func.call(this));
+            this.callLoadListener();
             console.log(`PouchDB replication error: ${message}`);
         });
     }
@@ -31,6 +28,12 @@ class Backend {
     onLoad(func) {
         if(this.loaded) func.call(this);
         else this.loadListeners.push(func);
+    }
+
+    callLoadListener() {
+        this.loaded = true;
+        this.loadListeners.forEach(func => func.call(this));
+        this.loadListeners = [];
     }
 
     async get(key = '') {
