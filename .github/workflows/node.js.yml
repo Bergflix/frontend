@@ -18,7 +18,6 @@ jobs:
       uses: SpicyPizza/create-envfile@v1
       with:
         envkey_REACT_APP_DB_PATH: ${{ secrets.DATABASE }}
-        some_other_variable: foobar
         file_name: .env.production
 
     - name: Build react app
