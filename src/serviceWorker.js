@@ -6,7 +6,7 @@ export function register(config) {
     if (publicUrl.origin !== window.location.origin) return;
 
     window.addEventListener('load', async () => {
-        const swUrl = `${process.env.PUBLIC_URL}/offline.js`;
+        const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 
         if(isLocalhost) {
             await checkValidServiceWorker(swUrl, config);
