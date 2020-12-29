@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, Redirect } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Backend from '../../classes/Backend';
 
@@ -13,22 +13,27 @@ import Icon from '../../components/Elements/Icon';
 
 class Info extends Component {
     state = {
+        loading: true,
+        error: false,
         media: null,
     };
 
     constructor(props) {
         super(props);
 
-        Backend.get(props.match.params.key).then((data) => {
-            this.setState({ media: data });
-            props.setBackground && props.setBackground(data.thumbnail);
-        });
+        Backend.get(props.match.params.key)
+            .then((data) => {
+                this.setState({ loading: false, media: data });
+                props.setBackground && props.setBackground(data.thumbnail);
+            })
+            .catch(() => this.setState({ loading: false, error: true }));
     }
 
     render() {
-        let content = this.state.media;
-        if (!content) return <Loading />;
+        if(this.state.loading) return <Loading/>;
+        if(this.state.error) return <Redirect to={"/home"} />;
 
+        let content = this.state.media;
         let date = new Date(content.date);
         let year = date.getFullYear();
         let { _id, title, description, logo, age, type, genre, seasons } = content;

@@ -34,8 +34,7 @@ class Backend {
     }
 
     async get(key = '') {
-        let ret = await this.db.get(key);
-        return ret;
+        return await this.db.get(key);
     }
 
     async getList(type, orderBy = 'date', limit = 0, start = 0) {

@@ -24,7 +24,9 @@ class Watch extends React.Component {
 
     constructor(props) {
         super(props);
-        Backend.get(props.match.params.key).then(data => this.setState({loading: false, error: !!data.error, ...data.response}));
+        Backend.get(props.match.params.key)
+            .then(data => this.setState({ loading: false, ...data }))
+            .catch(() => this.setState({ loading: false, error: true }));
     }
 
     componentDidMount() {
