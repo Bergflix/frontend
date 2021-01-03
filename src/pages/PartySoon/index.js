@@ -37,8 +37,6 @@ class PartySoon extends React.Component {
     render() {
         if (this.state.loading) return <Loading />;
 
-        this.state.list.map((item) => console.log(item));
-
         return (
             <div id={'ps-container'}>
                 <span className={'ps-info'}>
