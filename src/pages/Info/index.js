@@ -24,11 +24,7 @@ class Info extends Component {
         Backend.get(props.match.params.key)
             .then((data) => {
                 this.setState({ loading: false, media: data });
-                if (!data.background) {
-                    props.setBackground && props.setBackground(data.thumbnail);
-                } else {
-                    props.setBackground && props.setBackground(data.background);
-                }
+                props.setBackground && props.setBackground(data.background || data.thumbnail);
             })
             .catch(() => this.setState({ loading: false, error: true }));
     }

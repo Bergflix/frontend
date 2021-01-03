@@ -19,11 +19,7 @@ class Home extends React.Component {
         Backend.getList('all', 'date', 1).then((data) => {
             let featured = data[0];
             this.setState({ featured });
-            if (!featured.background) {
-                props.setBackground && props.setBackground(featured.thumbnail);
-            } else {
-                props.setBackground && props.setBackground(featured.background);
-            }
+            props.setBackground && props.setBackground(featured.background || featured.thumbnail);
         });
     }
 
