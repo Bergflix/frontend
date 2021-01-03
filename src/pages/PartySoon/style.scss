@@ -2,51 +2,131 @@
 @import '../../styles/screensize.scss';
 
 #ps-container {
-
-  .ps-info {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    background-color: $background-darker-alpha;
-    padding: 0.4rem 20px 1rem 20px;
-    border-radius: 5px;
+    width: 80%;
 
-    .ps-title {
-      font-size: 5rem;
-      font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+    .ps-info {
+        .ps-title {
+            font-size: 60px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 40px;
+            font-weight: 300;
+            margin: 0;
+
+            span {
+                color: $primary;
+            }
+        }
     }
 
-    p {
-      font-size: 1rem;
-      margin: 0;
+    .ps-recommended {
+        width: 100%;
+        margin-top: 2rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(4, 1fr);
 
-      &.ops {
-        font-size: 2.5rem;
-        margin: 0;
-      }
+        .ps-item {
+            background: $background-dark;
 
-      span {
-        color: $primary;
-      }
+            display: flex;
+            flex-direction: column;
+
+            // Border Mask
+            border-radius: 5px;
+            overflow: hidden;
+
+            transition: all 0.4s ease;
+
+            .item-image {
+                width: 100%;
+                filter: brightness(0.75);
+                transition: all 0.4s ease;
+            }
+
+            .item-link {
+                background: $background-darker;
+                padding: 15px 0px;
+                transition: all 0.4s ease;
+            }
+
+            &:hover {
+                transform: scale(1.04);
+
+                .item-image {
+                    filter: none;
+                }
+
+                .item-link {
+                    background: $primary-alpha;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: $laptop-width) {
+        .ps-info {
+            .ps-title {
+                font-size: 45px;
+            }
+
+            p {
+                font-size: 35px;
+            }
+        }
     }
 
     @media only screen and (max-width: $tablet-width) {
-      width: 70%;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        margin-bottom: 80px;
+
+        .ps-info {
+            .ps-title {
+                font-size: 35px;
+            }
+
+            p {
+                font-size: 25px;
+            }
+        }
+
+        .ps-recommended {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     @media only screen and (max-width: $mobile-width) {
-      display: flex;
-      flex-direction: column;
+        .ps-info {
+            display: flex;
+            flex-direction: column;
 
-      .ps-title {
-        font-size: 2rem;
-      }
+            .ps-title {
+                font-size: 2rem;
+            }
 
-      p {
-        font-size: 1rem;
-      }
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        .ps-recommended {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
-  }
 }
