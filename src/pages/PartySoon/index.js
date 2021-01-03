@@ -12,6 +12,8 @@ class PartySoon extends React.Component {
         list: [],
     };
 
+    mounted = false;
+
     constructor(props) {
         super(props);
         // Choosing 5 random movies or series
@@ -26,12 +28,21 @@ class PartySoon extends React.Component {
                 data.splice(index, 1);
             }
             // Returning the list with 5 selected movies or series
-            this.setState({ loading: false, list: selectedList });
+            if (this.mounted) {
+                this.setState({ loading: false, list: selectedList });
+            } else {
+                this.state = { loading: false, list: selectedList };
+            }
         });
     }
 
     componentDidMount() {
+        this.mounted = true;
         this.props.setBackground && this.props.setBackground('https://cdn.bergflix.de/imgs/captain_pineapple.png');
+    }
+
+    componentWillUnmount() {
+        this.mounted = false;
     }
 
     render() {
