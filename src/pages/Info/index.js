@@ -24,14 +24,18 @@ class Info extends Component {
         Backend.get(props.match.params.key)
             .then((data) => {
                 this.setState({ loading: false, media: data });
-                props.setBackground && props.setBackground(data.thumbnail);
+                if (!data.background) {
+                    props.setBackground && props.setBackground(data.thumbnail);
+                } else {
+                    props.setBackground && props.setBackground(data.background);
+                }
             })
             .catch(() => this.setState({ loading: false, error: true }));
     }
 
     render() {
-        if(this.state.loading) return <Loading/>;
-        if(this.state.error) return <Redirect to={"/home"} />;
+        if (this.state.loading) return <Loading />;
+        if (this.state.error) return <Redirect to={'/home'} />;
 
         let content = this.state.media;
         let date = new Date(content.date);
@@ -61,7 +65,12 @@ class Info extends Component {
                     </title>
                     <meta name={'description'} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
                 </Helmet>
-                <img className={'logo'} src={logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
+                <img
+                    className={'logo'}
+                    src={logo}
+                    alt={'Element Logo'}
+                    onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)}
+                />
                 <div className={'info'}>
                     <span>{year}</span>
                     <span>{age}+</span>
