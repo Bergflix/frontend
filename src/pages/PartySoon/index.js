@@ -38,7 +38,7 @@ class PartySoon extends React.Component {
 
     componentDidMount() {
         this.mounted = true;
-        this.props.setBackground && this.props.setBackground('https://cdn.bergflix.de/imgs/captain_pineapple.png');
+        this.props.setBackground && this.props.setBackground('https://cdn.bergflix.de/thumbnails/Orion-Thumbnail.jpg');
     }
 
     componentWillUnmount() {
