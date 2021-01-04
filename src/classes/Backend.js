@@ -58,8 +58,8 @@ class Backend {
         if(!Object.keys(query).length) return [];
 
         const selector = {};
-        if(query.type) selector.type = {"$eq": query.type};
-        if(query.q) selector.title = {"$regex": query.q};
+        if(query.type) selector.type = {$eq: query.type};
+        if(query.title) selector.title = {$regex: RegExp(query.title, 'i')};
 
         const { docs } = await this.db.find({selector});
         return docs;
