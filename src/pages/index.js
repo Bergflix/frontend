@@ -11,8 +11,8 @@ import PartySoon from './PartySoon';
 import SinglePage from './SinglePage';
 import NotFound from './NotFound';
 import LinkOut from '../components/Elements/LinkOut';
-import Impressum from './static/Impressum';
-import PrivacyPolicy from './static/PrivacyPolicy';
+//import Impressum from './static/Impressum';
+//import PrivacyPolicy from './static/PrivacyPolicy';
 
 class Pages extends React.Component {
     render() {
