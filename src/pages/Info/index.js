@@ -39,7 +39,7 @@ class Info extends Component {
         let { _id, title, description, logo, age, type, genre, seasons } = content;
 
         let renderedType;
-        let hasBegun = true; // Toggles whether the rewind button should be displayed
+        let hasBegun = false; // Toggles whether the rewind button should be displayed
         let renderSeasons = false; // Toggles whether the seasonlist should be rendered
         switch (type) {
             case 'movies':
