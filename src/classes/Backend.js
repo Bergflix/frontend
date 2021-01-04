@@ -15,13 +15,13 @@ class Backend {
             retry: true
         }).on('paused', e => {
             this.callLoadListener();
-            console.log(`PouchDB replication paused - Cause: ${e ? e.message : 'Success'}`);
+            console.log(`DB replication paused${e && e.message ? ` - Cause: ${e.message}` : ''}`);
         }).on('complete', () => {
             this.callLoadListener();
-            console.log(`PouchDB repilcation successfully`);
+            console.log(`DB repilcation successfully`);
         }).on('error', ({message}) => {
             this.callLoadListener();
-            console.log(`PouchDB replication error: ${message}`);
+            console.log(`DB replication error: ${message}`);
         });
     }
 
