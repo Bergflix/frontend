@@ -47,12 +47,14 @@ class Sidebar extends React.Component {
         }, {
             href: "/spreadshirt",
             title: "Spreadshirt"
+        /*
         }, {
             href: "/impressum",
             title: "Impressum"
         }, {
             href: "/privacypolicy",
             title: "Datenschutz"
+        */
         }]
     };
 

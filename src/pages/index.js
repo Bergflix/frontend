@@ -41,8 +41,10 @@ class Pages extends React.Component {
 
                             <Route path={'/download'} component={() => <SinglePage page={{ title: 'Herunterladen', text: 'App installieren' }} />} />
                             <Route path={'/about'} component={() => <SinglePage page={{ title: 'Über Bergflix', text: 'Informativer Text folgt hier' }} />} />
+                            {/*
                             <Route path={'/impressum'} component={() => <Impressum setBackground={setBackground} />} />
                             <Route path={'/privacypolicy'} component={() => <PrivacyPolicy setBackground={setBackground} />} />
+                            */}
 
                             <Route path={'/discord'} component={() => <LinkOut to={'https://discord.gg/JP9UKrW'} />} />
                             <Route path={'/patreon'} component={() => <LinkOut to={'https://www.patreon.com/bergflix'} />} />
