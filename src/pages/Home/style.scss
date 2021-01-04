@@ -123,6 +123,14 @@
             display: none;
         }
 
+        .info {
+            span {
+                &:first-child {
+                    display: none;
+                }
+            }
+        }
+
         .controls {
             display: flex;
             flex-direction: column;
