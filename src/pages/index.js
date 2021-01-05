@@ -15,13 +15,27 @@ import LinkOut from '../components/Elements/LinkOut';
 //import PrivacyPolicy from './static/PrivacyPolicy';
 
 class Pages extends React.Component {
+    state = {
+        requestedPageId: '',
+    };
+
+    requestPageId = (id) => {
+        this.setState({ requestedPageId: id });
+    };
+
     render() {
         let { location, setBackground } = this.props;
+
+        let pageId = '';
+        if (this.state.requestedPageId !== '') {
+            pageId = this.state.requestedPageId;
+            this.state.requestedPageId = ''; // Clear pageId cache without forcing an update
+        }
 
         return (
             <TransitionGroup id={'page-container'}>
                 <CSSTransition appear={true} key={location.key} timeout={450} classNames={'fade'}>
-                    <div className={'page'}>
+                    <div className={'page'} id={pageId}>
                         <Switch className={'switch'} location={location}>
                             <Route path={'/'} exact component={() => <Redirect from={'*'} to={'/home'} />} />
                             <Route path={'/home'} component={() => <Home setBackground={setBackground} />} />
@@ -32,7 +46,7 @@ class Pages extends React.Component {
                             <Route path={'/media/:key'} component={() => <Info setBackground={setBackground} />} />
                             <Route path={'/media'} component={() => <Media setBackground={setBackground} />} />
 
-                            <Route path={['/watch/:key/:part', '/watch/:key']} component={() => <Watch setBackground={setBackground} />} />
+                            <Route path={['/watch/:key/:part', '/watch/:key']} component={() => <Watch setBackground={setBackground} pageId={pageId} requestPageId={this.requestPageId} />} />
                             <Route path={'/watch'} component={() => <Redirect from={'*'} to={'/home'} />} />
 
                             <Route path={['/upload', '/upload/:ytid']} component={() => <Redirect from={'*'} to={'/'} />} />
