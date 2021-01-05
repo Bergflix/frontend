@@ -38,7 +38,6 @@ class Watch extends React.Component {
                         break;
                     }
                 }
-                console.log(fallback);
                 this.setState({ loading: false, error: !ytid, fallback, ytid });
             })
             .catch(() => this.setState({ loading: false, error: true }));
