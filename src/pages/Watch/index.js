@@ -45,9 +45,6 @@ class Watch extends React.Component {
 
     componentDidMount() {
         this.props.setBackground && this.props.setBackground('');
-        if (this.props.pageId !== 'watch-page') {
-            this.props.requestPageId && this.props.requestPageId('watch-page');
-        }
     }
 
     render() {
