@@ -24,7 +24,6 @@ class Pages extends React.Component {
          */
         let pageId = '';
         let urlPath = window.location.pathname.split('/')[1];
-        console.log(urlPath);
         switch (urlPath) {
             case 'watch': {
                 pageId = 'watch-page';
