@@ -1,62 +1,61 @@
-@import "../../styles/colors";
-@import "../../styles/screensize.scss";
+@import '../../styles/colors';
+@import '../../styles/screensize.scss';
 
 #header-container {
-  padding: 1rem 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3rem;
-  line-height: 3rem;
-  vertical-align: middle;
-  z-index: 10;
-  background: transparent;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    vertical-align: middle;
+    z-index: 10;
+    background: transparent;
 
-  #head-nav {
-    margin-left: 2rem;
-    display: inline-flex;
-    height: 100%;
-    line-height: 100%;
-    font-size: 1.25rem;
-    width: calc(100% - 4rem);
-
-    .nav-item {
-      margin: 0;
-      padding: 0;
-      justify-content: center;
-      text-align: center;
-      display: flex;
-
-      @media only screen and (max-width: $tablet-width){
-        display: none;
-      }
-
-      .nav-link {
-        color: #aaa;
-        padding: 1rem 2rem;
-        border-radius: 5px;
-
-        &:hover {
-          color: $primary;
-        }
-        &.active {
-          color: $primary;
-        }
-      }
-
-
-      &.nav-logo {
-        display: flex !important;
-      }
-
-      &.nav-profile {
+    #head-nav {
         margin-left: 2rem;
+        display: inline-flex;
+        height: 100%;
+        line-height: 100%;
+        font-size: 1.25rem;
+        width: calc(100% - 4rem);
 
-        > i {
-          margin: auto;
+        .nav-item {
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+
+            @media only screen and (max-width: $tablet-width) {
+                display: none;
+            }
+
+            .nav-link {
+                color: #aaa;
+                padding: 1rem 2rem;
+                border-radius: 5px;
+
+                &:hover {
+                    color: $primary;
+                }
+                &.active {
+                    color: $primary;
+                }
+            }
+
+            &.nav-logo {
+                display: flex !important;
+            }
+
+            &.nav-profile {
+                margin-left: 2rem;
+
+                > i {
+                    margin: auto;
+                }
+            }
         }
-      }
     }
-  }
 }
