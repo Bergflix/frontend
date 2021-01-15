@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 #watch-page {
     top: 0 !important;
     padding: 0 !important;
@@ -12,13 +14,158 @@
     // For some reason the background produces a little bit overflow
     overflow: hidden;
 
-    .video-container {
+    display: flex;
+    flex-direction: column;
+
+    .controls {
+        flex: 1;
+        max-height: 80px;
+
+        display: flex;
+
+        .buttons {
+            position: absolute;
+            top: 29px;
+            right: 300px;
+            z-index: 11;
+
+            font-size: 1.25rem;
+
+            .button {
+                color: $nav-secondary;
+                padding: 1rem 2rem;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    .view {
+        flex: 1;
         width: inherit;
         height: inherit;
 
-        #video {
+        display: flex;
+        flex-direction: row;
+
+        .video-container {
+            flex: 1;
             width: inherit;
             height: inherit;
+
+            #video {
+                width: inherit;
+                height: inherit;
+            }
+        }
+
+        .playlist {
+            flex: 1;
+            max-width: 385px;
+
+            width: inherit;
+            height: inherit;
+
+            background: $background-dark;
+
+            display: flex;
+            flex-direction: column;
+
+            border: $background-darker-alpha solid 1px;
+
+            .info {
+                flex: 1;
+                max-height: 60px;
+
+                padding: 10px 20px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                .head {
+                    display: flex;
+                    flex-direction: row;
+
+                    margin-bottom: 5px;
+
+                    .icon {
+                        margin-right: 1rem;
+                    }
+
+                    .title {
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+                }
+
+                .tags {
+                    width: 100%;
+
+                    font-size: 16px;
+                    font-weight: 300;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .left {
+                        flex: 1;
+                        display: flex;
+
+                        span {
+                            margin-right: 15px;
+
+                            &:nth-child(2) {
+                                color: $primary;
+                            }
+
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+
+                    .right {
+                        text-align: right;
+                        flex: 1;
+                    }
+                }
+            }
+
+            .list {
+                flex: 1;
+
+                max-height: 783px;
+
+                overflow-y: scroll;
+                overflow-x: hidden;
+                background: $background-darker;
+
+                display: flex;
+                flex-direction: column;
+
+                .part {
+                    margin: 2px 0px;
+
+                    max-height: 800px;
+
+                    display: flex;
+                    flex-direction: row;
+
+                    &:hover {
+                        background-color: $background-lighter;
+                    }
+
+                    .part-thumbnail {
+                        width: 150px;
+                    }
+                }
+            }
         }
     }
 }

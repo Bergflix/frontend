@@ -39,6 +39,7 @@ class Info extends Component {
         let { _id, title, description, logo, age, type, genre, seasons } = content;
 
         let renderedType;
+        let seasonIndex = 0;
         let hasBegun = false; // Toggles whether the rewind button should be displayed
         let renderSeasons = false; // Toggles whether the seasonlist should be rendered
         switch (type) {
@@ -61,12 +62,7 @@ class Info extends Component {
                     </title>
                     <meta name={'description'} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
                 </Helmet>
-                <img
-                    className={'logo'}
-                    src={logo}
-                    alt={'Element Logo'}
-                    onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)}
-                />
+                <img className={'logo'} src={logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
                 <div className={'info'}>
                     <span>{year}</span>
                     <span>{age}+</span>
@@ -106,10 +102,10 @@ class Info extends Component {
                 </div>
                 {renderSeasons && (
                     <TabContainer className={'seasons'}>
-                        {seasons.map(({ name, parts }) => {
+                        {seasons.map((season) => {
                             return (
-                                <div key={name} label={name}>
-                                    <SeasonList page={0} serieId={_id} content={parts} />
+                                <div key={season.name} label={season.name}>
+                                    <SeasonList season={seasonIndex++} serie={content} />
                                 </div>
                             );
                         })}

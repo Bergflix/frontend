@@ -48,7 +48,7 @@ class Pages extends React.Component {
                             <Route path={'/media/:key'} component={() => <Info setBackground={setBackground} />} />
                             <Route path={'/media'} component={() => <Media setBackground={setBackground} />} />
 
-                            <Route path={['/watch/:key/:part', '/watch/:key']} component={() => <Watch setBackground={setBackground} />} />
+                            <Route path={['/watch/:key/:season/:part', '/watch/:key']} component={() => <Watch setBackground={setBackground} />} />
                             <Route path={'/watch'} component={() => <Redirect from={'*'} to={'/home'} />} />
 
                             <Route path={['/upload', '/upload/:ytid']} component={() => <Redirect from={'*'} to={'/'} />} />
