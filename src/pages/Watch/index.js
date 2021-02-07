@@ -124,6 +124,16 @@ class Watch extends React.Component {
                                 {data.seasons[0].parts.map((part) => (
                                     <NavLink key={part.ytid} className={'part'} to={`/watch/${data._id}/${season}/${partIndex++}`}>
                                         <img className={'part-thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
+                                        <span className={'part-info'}>
+                                            <span className={'part-title'}>{part.title}</span>
+                                            <span className={'part-tags'}>
+                                                <span>Folge {partIndex}</span>
+                                                <span className={'dot'} />
+                                                <span>12.01.2020</span>
+                                                <span className={'dot'} />
+                                                <span>25min</span>
+                                            </span>
+                                        </span>
                                     </NavLink>
                                 ))}
                             </span>
