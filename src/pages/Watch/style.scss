@@ -19,9 +19,8 @@
 
     .controls {
         flex: 1;
-        max-height: 80px;
 
-        display: flex;
+        min-height: 80px;
 
         .buttons {
             position: absolute;
@@ -44,8 +43,9 @@
 
     .view {
         flex: 1;
+
         width: inherit;
-        height: inherit;
+        height: calc(100% - 80px);
 
         display: flex;
         flex-direction: row;
@@ -53,7 +53,7 @@
         .video-container {
             flex: 1;
             width: inherit;
-            height: inherit;
+            height: 100%;
 
             #video {
                 width: inherit;
@@ -66,7 +66,7 @@
             max-width: 385px;
 
             width: inherit;
-            height: inherit;
+            height: 100%;
 
             background: $background-dark;
 
@@ -139,8 +139,6 @@
 
             .list {
                 flex: 1;
-
-                max-height: 783px;
 
                 overflow-y: scroll;
                 overflow-x: hidden;
