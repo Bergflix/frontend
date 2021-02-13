@@ -33,7 +33,6 @@ class Backend {
     callLoadListener() {
         this.loaded = true;
         this.loadListeners.forEach(func => func.call(this));
-        this.loadListeners = [];
     }
 
     async get(key = '') {
