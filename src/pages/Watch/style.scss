@@ -50,6 +50,8 @@
         .video-container {
             flex: 1;
             margin: 0 2rem 2rem;
+
+            background-color: $background-darker;
             border: solid $background-light 1px;
         }
 
