@@ -12,10 +12,11 @@ $nav-secondary: #aaa;
 
 // background
 $background-light: #262626;
+$background-light-alpha: rgba($background-light, .6);
 $background-lighter: lighten($background-light, 5);
 $background-dark: #151515;
 $background-darker: darken($background-dark, 5);
-$background-darker-alpha: rgba($background-darker, 0.5);
+$background-darker-alpha: rgba($background-darker, .75);
 
 // icon
 $icon-primary: #fff;

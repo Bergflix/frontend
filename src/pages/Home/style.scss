@@ -1,15 +1,11 @@
 @import '../../styles/colors';
 @import '../../styles/screensize.scss';
 
-.background {
-    filter: brightness(0.75);
-}
-
 #home-container {
     position: absolute;
     top: 40%;
     transform: translate(1rem, -50%);
-    width: calc(100% - 100px); //Fix for overflow which occurrs because 1rem to the right
+    width: 40rem;
 
     .logo {
         margin: 0;
@@ -62,7 +58,6 @@
 
     .description {
         color: $text-light;
-        width: 40%;
     }
 
     .controls {
