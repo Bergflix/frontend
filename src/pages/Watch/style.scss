@@ -50,14 +50,15 @@
         .video-container {
             flex: 1;
             margin: 0 2rem 2rem;
+            border: solid $background-light 1px;
         }
 
         .playlist {
             flex: 1;
             max-width: 385px;
             background: $background-darker;
+            border: solid $background-light 1px;
             margin: 0 2rem 2rem 0;
-            padding: 0 1rem;
 
             display: flex;
             flex-direction: column;
