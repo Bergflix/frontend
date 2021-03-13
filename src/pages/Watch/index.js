@@ -4,9 +4,9 @@ import Helmet from 'react-helmet';
 import YouTube from 'react-youtube';
 import './style.scss';
 
+import Playlist from '../../components/Playlist';
 import Backend from '../../classes/Backend';
 import Loading from '../../components/Loading';
-import Icon from '../../components/Elements/Icon';
 
 class Watch extends React.Component {
     state = {
@@ -70,8 +70,6 @@ class Watch extends React.Component {
         // If there isn't a fallback then we just redirect to home
         if (this.state.error) return <Redirect to={'/home'} />;
 
-        let partIndex = 0;
-
         return (
             <div id={'watch-container'}>
                 <Helmet>
@@ -98,47 +96,12 @@ class Watch extends React.Component {
                             origin: 'bergflix.de',
                             rel: 0,
                             showinfo: 0,
+                            playerVars: {
+                                autoplay: 1,
+                            },
                         }}
                     />
-                    {renderPlaylist && (
-                        <span className={'playlist'}>
-                            <span className={'info'}>
-                                <span className={'head'}>
-                                    <Icon className={'icon'} type={'video'} />
-                                    <div className={'title'}>{data.title}</div>
-                                </span>
-                                <div className={'tags'}>
-                                    <span className={'left'}>
-                                        <span>{new Date(data.date).getFullYear()}</span>
-                                        <span>{data.age}+</span>
-                                        <span>{data.genre}</span>
-                                    </span>
-                                    <span className={'right'}>
-                                        <span>
-                                            {Number(part) + 1}/{data.seasons[0].parts.length}
-                                        </span>
-                                    </span>
-                                </div>
-                            </span>
-                            <span className={'list'}>
-                                {data.seasons[0].parts.map((part) => (
-                                    <NavLink key={part.ytid} className={'part'} to={`/watch/${data._id}/${season}/${partIndex++}`}>
-                                        <img className={'part-thumbnail'} src={part.thumbnail} alt={'Thumbnail'} />
-                                        <span className={'part-info'}>
-                                            <span className={'part-title'}>{part.title}</span>
-                                            <span className={'part-tags'}>
-                                                <span>Folge {partIndex}</span>
-                                                <span className={'dot'} />
-                                                <span>12.01.2020</span>
-                                                <span className={'dot'} />
-                                                <span>25min</span>
-                                            </span>
-                                        </span>
-                                    </NavLink>
-                                ))}
-                            </span>
-                        </span>
-                    )}
+                    {renderPlaylist && <Playlist series={data} season={season} part={part} />}
                 </div>
             </div>
         );
