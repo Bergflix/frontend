@@ -50,7 +50,7 @@ class Search extends React.Component {
                     </Helmet>
                 ) : undefined}
                 {this.state.list.length ? (
-                    <ElementList list={this.state.list} />
+                    <ElementList type={this.props.type} list={this.state.list} />
                 ) : (
                     <div id={'no-result'}>
                         <div className={'dialog'}>

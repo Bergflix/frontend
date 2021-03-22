@@ -18,15 +18,24 @@ class Info extends Component {
         media: null,
     };
 
+    _mounted = false;
+
     constructor(props) {
         super(props);
 
-        Backend.get(props.match.params.key)
-            .then((data) => {
-                this.setState({ loading: false, media: data });
-                props.setBackground && props.setBackground(data.background || data.thumbnail);
-            })
-            .catch(() => this.setState({ loading: false, error: true }));
+        Backend.get(props.match.params.key).then((data) => {
+          if(!this._mounted) return;
+          this.setState({ loading: false, media: data });
+          props.setBackground && props.setBackground(data.background || data.thumbnail);
+        }).catch(() => this.setState({ loading: false, error: true }));
+    }
+
+    componentDidMount() {
+      this._mounted = true;
+    }
+
+    componentWillUnmount() {
+      this._mounted = false;
     }
 
     render() {
