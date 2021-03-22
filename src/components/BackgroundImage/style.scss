@@ -19,12 +19,11 @@ body {
 
     &:last-of-type {
         background: radial-gradient(
-                150% 180% at 100% 50%,
-                rgba(0, 0, 0, 0) 30%,
-                $background-darker 100%,
-                rgba(0, 0, 0, 0.8) 100%
+                100% 200% at 90% 50%,
+                rgba(0, 0, 0, 0) 10%,
+                rgba($background-darker, 0.8) 100%
             ),
-            linear-gradient(110deg, rgba($background-darker, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
+            linear-gradient(110deg, rgba($background-darker, 1) 0%, rgba(0, 0, 0, 0) 70%);
     }
 }
 
