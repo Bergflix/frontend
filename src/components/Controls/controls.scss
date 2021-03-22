@@ -1,26 +1,26 @@
-@import "../../styles/colors";
+@import '../../styles/colors';
 
 .control {
-  display: inline-block;
-  position: relative;
-  top: -0.75rem;
-  width: 100%;
-
-  > span {
-    display: block;
-    text-align: left;
-    font-size: .75rem;
-    font-weight: bold;
-    color: $text-secondary;
-  }
-
-  > input {
-    background: $background-light-alpha;
-    color: $text-primary;
-    border-radius: 6px;
-    border: none;
-    box-shadow: none;
-    padding: .5rem;
+    display: inline-block;
+    position: relative;
+    top: -0.75rem;
     width: 100%;
-  }
+
+    > span {
+        display: block;
+        text-align: left;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: $nav-secondary;
+    }
+
+    > input {
+        background: $background-darker-alpha;
+        color: $text-primary;
+        border-radius: 6px;
+        border: none;
+        box-shadow: none;
+        padding: 0.5rem;
+        width: 100%;
+    }
 }

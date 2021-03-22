@@ -1,50 +1,47 @@
-@import "../../styles/colors";
-@import "../../styles/screensize";
+@import '../../styles/colors';
+@import '../../styles/screensize';
 
 body {
-  background-color: $background-dark;
+    background-color: $background-dark;
 }
 
 .background {
-  background-size: cover;
-  background-position-x: center;
-  background-repeat: no-repeat;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -10;
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
 
-  &:last-of-type {
-    background-color: $background-darker-alpha;
-    rotate: 10deg;
-    top: -20rem;
-    left: -125rem;
-    width: 100rem;
-    height: 1000rem;
-
-    @media only screen and (max-width: $tablet-width) {
-      width: 1000rem;
+    &:last-of-type {
+        background: radial-gradient(
+                150% 180% at 100% 50%,
+                rgba(0, 0, 0, 0) 30%,
+                $background-darker 100%,
+                rgba(0, 0, 0, 0.8) 100%
+            ),
+            linear-gradient(110deg, rgba($background-darker, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
     }
-  }
 }
 
 /* Background Animation */
 .background-appear,
 .background-enter {
-  opacity: 0;
+    opacity: 0;
 }
 .background-appear-active,
 .background-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-out 150ms;
+    opacity: 1;
+    transition: opacity 300ms ease-out 150ms;
 }
 .background-exit {
-  opacity: 1;
+    opacity: 1;
 }
 .background-exit-active {
-  opacity: 0;
-  transition: opacity 150ms ease-in;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
 }
