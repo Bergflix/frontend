@@ -56,25 +56,14 @@ class Info extends Component {
 
         return (
             <>
-                <div
-                    id={'info-container'}
-                    className={renderSeasons ? 'serie-align' : 'movie-align'}
-                >
+                <div id={'info-container'} className={renderSeasons ? 'serie-align' : 'movie-align'}>
                     <Helmet>
                         <title>
                             Bergflix - {renderedType} - {title}
                         </title>
-                        <meta
-                            name={'description'}
-                            content={`Bergflix Startseite. Neuerscheinung: ${title}`}
-                        />
+                        <meta name={'description'} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
                     </Helmet>
-                    <img
-                        className={'logo'}
-                        src={logo}
-                        alt={'Element Logo'}
-                        onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)}
-                    />
+                    <img className={'logo'} src={logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
                     <div className={'info'}>
                         <span>{year}</span>
                         <span>{age}+</span>
@@ -112,18 +101,18 @@ class Info extends Component {
                             </Link>
                         )}
                     </div>
-                    {renderSeasons && (
-                        <TabContainer className={'seasons'}>
-                            {seasons.map((season) => {
-                                return (
-                                    <div key={season.name} label={season.name}>
-                                        <SeasonList season={seasonIndex++} serie={content} />
-                                    </div>
-                                );
-                            })}
-                        </TabContainer>
-                    )}
                 </div>
+                {renderSeasons && (
+                    <TabContainer className={'seasons'}>
+                        {seasons.map((season) => {
+                            return (
+                                <div key={season.name} label={season.name}>
+                                    <SeasonList season={seasonIndex++} serie={content} />
+                                </div>
+                            );
+                        })}
+                    </TabContainer>
+                )}
             </>
         );
     }
