@@ -3,7 +3,6 @@
 
 // POSITIONIERUNG FÜR SERIEN
 .serie-align {
-
     @media only screen and (max-width: $tablet-width) {
         margin-top: 200px;
         position: relative;
@@ -25,6 +24,9 @@
 
 // POSITIONIERUNG FÜR FILME
 .movie-align {
+    position: absolute;
+    top: 40%;
+    transform: translate(1rem, -50%);
 
     @media only screen and (max-width: $tablet-width) {
         .controls {
@@ -41,11 +43,6 @@
 
 // MAIN ATTRIBUTE
 #info-container {
-    position: fixed;
-    top: 40%;
-    width: 45rem;
-    transform: translate(1rem, -50%);
-
     .logo {
         margin: 0;
         padding: 0;
@@ -97,6 +94,7 @@
 
     .description {
         color: $text-light;
+        width: 40%;
     }
 
     .timeline {
@@ -155,10 +153,13 @@
         }
     }
 
+    .seasons {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
     // LAPTOP VERSION (for devices with a mdpi Screen)
     @media only screen and (max-width: $laptop-width) {
-        width: 92%;
-
         .logo {
             max-width: 30%;
             font-size: 4rem;
@@ -217,22 +218,5 @@
                 margin-right: 0;
             }
         }
-    }
-}
-
-.seasons {
-    position: absolute;
-    right: 0;
-    width: 45%;
-    margin-right: 2rem;
-    padding-bottom: 2rem;
-    
-    @media only screen and (max-width: $tablet-width) {
-        margin-bottom: 80px;
-    }
-    
-    @media only screen and (max-width: $mobile-width) {
-        display: flex;
-        flex-direction: column;
     }
 }
