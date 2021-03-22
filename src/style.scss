@@ -1,88 +1,112 @@
-@import "./styles/colors";
+@import './styles/colors';
 
 :root {
-  font-family: "Euclid Circular A", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+    font-family: 'Euclid Circular A', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
 }
 
-html, body, #root {
-  margin: 0;
-  padding: 0;
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
 }
 body {
-  color: $text-primary;
+    color: $text-primary;
 }
 
 *::selection {
-  background: $primary;
-  color: $text-primary;
+    background: $primary;
+    color: $text-primary;
 }
 *::-moz-selection {
-  background: $primary;
-  color: $text-primary;
+    background: $primary;
+    color: $text-primary;
 }
 
 #container {
-  width: 100%;
-  min-height: 100%;
+    width: 100%;
+    min-height: 100%;
 }
 
 a {
-  text-decoration: none;
-  color: $text-primary;
+    text-decoration: none;
+    color: $text-primary;
 }
 a:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 #page-container {
-  width: 100%;
-  min-height: fit-content;
+    width: 100%;
+    min-height: fit-content;
 
-  .page {
-    position: absolute;
-    top: 5rem;
-    padding: 0 2rem;
-    width: calc(100% - 4rem);
-    min-height: calc(100% - 5rem);
-  }
+    .page {
+        position: absolute;
+        top: 5rem;
+        padding: 0 2rem;
+        width: calc(100% - 4rem);
+        min-height: calc(100% - 5rem);
+    }
 }
 
 .dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: $background-darker-alpha;
-  padding: 2rem;
-  border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $background-darker-alpha;
+    padding: 2rem;
+    border-radius: 5px;
 }
 
 /* simple - enter transition */
 .fade-appear,
 .fade-enter {
-  opacity: 0;
-  z-index: 1;
+    opacity: 0;
+    z-index: 1;
 }
 .fade-appear-active,
 .fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms linear 150ms;
+    opacity: 1;
+    transition: opacity 300ms linear 150ms;
 }
 
 .fade-exit {
-  opacity: 1;
+    opacity: 1;
 }
 
 .fade-exit-active {
-  opacity: 0;
-  transition: opacity 150ms linear;
+    opacity: 0;
+    transition: opacity 150ms linear;
+}
+
+// Custom Scrollbar
+/* Works on Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: $scrollbar-foreground $scrollbar-background;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: auto;
+}
+
+*::-webkit-scrollbar-track {
+    background: $scrollbar-background;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-foreground;
+    border-radius: 20px;
+    border: 3px solid $scrollbar-background;
 }
