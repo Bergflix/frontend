@@ -23,19 +23,21 @@ class Info extends Component {
     constructor(props) {
         super(props);
 
-        Backend.get(props.match.params.key).then((data) => {
-          if(!this._mounted) return;
-          this.setState({ loading: false, media: data });
-          props.setBackground && props.setBackground(data.background || data.thumbnail);
-        }).catch(() => this.setState({ loading: false, error: true }));
+        Backend.get(props.match.params.key)
+            .then((data) => {
+                if (!this._mounted) return;
+                this.setState({ loading: false, media: data });
+                props.setBackground && props.setBackground(data.background || data.thumbnail);
+            })
+            .catch(() => this.setState({ loading: false, error: true }));
     }
 
     componentDidMount() {
-      this._mounted = true;
+        this._mounted = true;
     }
 
     componentWillUnmount() {
-      this._mounted = false;
+        this._mounted = false;
     }
 
     render() {
@@ -64,15 +66,23 @@ class Info extends Component {
         }
 
         return (
-            <>
-                <div id={'info-container'} className={renderSeasons ? 'serie-align' : 'movie-align'}>
+            <div id={'info-container'}>
+                <div className={'info-sector'}>
                     <Helmet>
                         <title>
                             Bergflix - {renderedType} - {title}
                         </title>
-                        <meta name={'description'} content={`Bergflix Startseite. Neuerscheinung: ${title}`} />
+                        <meta
+                            name={'description'}
+                            content={`Bergflix Startseite. Neuerscheinung: ${title}`}
+                        />
                     </Helmet>
-                    <img className={'logo'} src={logo} alt={'Element Logo'} onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)} />
+                    <img
+                        className={'logo'}
+                        src={logo}
+                        alt={'Element Logo'}
+                        onError={(e) => (e.target.outerHTML = `<p class="logo">${title}</p>`)}
+                    />
                     <div className={'info'}>
                         <span>{year}</span>
                         <span>{age}+</span>
@@ -122,7 +132,7 @@ class Info extends Component {
                         })}
                     </TabContainer>
                 )}
-            </>
+            </div>
         );
     }
 }

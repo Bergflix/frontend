@@ -138,7 +138,7 @@
 
     // LAPTOP VERSION (for devices with a MDPI Screen)
     @media only screen and (max-width: $laptop-width) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
 
         .part {
             height: 100%;
@@ -169,7 +169,6 @@
 
     // TABLET VERSION
     @media only screen and (max-width: $tablet-width) {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     // MOBILE VERSION
