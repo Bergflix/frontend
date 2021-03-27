@@ -7,14 +7,13 @@
     font-size: 16px;
 }
 
-html,
-body,
-#root {
-    margin: 0;
-    padding: 0;
-}
-body {
-    color: $text-primary;
+html, body, #root, #container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  color: $text-primary;
+  overflow: hidden auto;
 }
 
 *::selection {
@@ -24,11 +23,6 @@ body {
 *::-moz-selection {
     background: $primary;
     color: $text-primary;
-}
-
-#container {
-    width: 100%;
-    min-height: 100%;
 }
 
 a {
@@ -43,19 +37,6 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-#page-container {
-    width: 100%;
-    min-height: fit-content;
-
-    .page {
-        position: absolute;
-        top: 5rem;
-        padding: 0 2rem;
-        width: calc(100% - 4rem);
-        min-height: calc(100% - 5rem);
-    }
 }
 
 .dialog {

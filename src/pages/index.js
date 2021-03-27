@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import './style.scss';
 
 import Home from './Home';
 import SignUp from './SignUp';

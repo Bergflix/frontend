@@ -1,18 +1,21 @@
 @import '../../styles/colors';
-@import '../../styles/screensize.scss';
+@import '../../styles/screensize';
 
 #home-container {
-    position: absolute;
-    top: 40%;
-    transform: translate(1rem, -50%);
-    width: 40rem;
+  margin: auto;
+  width: auto;
+  height: auto;
 
-    .logo {
-        margin: 0;
-        padding: 0;
-        max-height: 15rem;
-        font-size: 5rem;
-    }
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media only screen and (min-width: $tablet-width) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo {
+      width: 100%;
+  }
 
     .info {
         margin: 0.5rem 0;
@@ -86,7 +89,7 @@
             }
         }
     }
-
+/*
     @media only screen and (max-width: $tablet-width) {
         left: 50%;
         top: 50%;
@@ -107,7 +110,8 @@
             text-align: center;
         }
     }
-
+//*/
+/*
     @media only screen and (max-width: $mobile-width) {
         .logo {
             max-width: 80%;
@@ -137,4 +141,5 @@
             }
         }
     }
+//*/
 }

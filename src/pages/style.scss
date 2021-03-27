@@ -1,0 +1,24 @@
+@import '../styles/screensize';
+
+#page-container {
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  .page {
+    position: absolute;
+
+    // padding-top: wird aus der Höhe der Kopfzeile (hier 5rem) und den zusätzlichen 2rem Platz berechnet
+    // padding-bottom: wird aus der Höhe der Fußleiste (hier 3.5rem) und den zusätzlichen 2rem Platz berechnet
+    padding: 7rem 2rem 5.5rem;
+
+    @media only screen and (min-width: $tablet-width) {
+      // hier ist die Kopfzeile 2rem höher und die Fußzeile verschwindet
+      padding: 9rem 6rem 2rem;
+    }
+
+  }
+
+}
