@@ -1,0 +1,48 @@
+/// DESKTOP ///
+
+// header
+$header-h: 3rem;
+$header-padding-h: 2rem;
+$header-total-h: calc(#{$header-h} + 2 * #{$header-padding-h});
+
+$header-padding-w: 6rem;
+
+// footer
+$footer-h: 0rem;
+$footer-padding-h: 2rem;
+$footer-total-h: calc(#{$footer-h} + 2 * #{$footer-padding-h});
+
+$footer-padding-w: 0rem;
+
+// page
+// hier ist die Kopfzeile 2rem höher und die Fußzeile verschwindet
+$page-padding-top: calc(#{$header-total-h} + 2rem);
+$page-padding-w: 6rem;
+$page-padding-bottom: calc(#{$footer-total-h} + 2rem);
+$page-fullscreen-h: calc(100vh - #{$page-padding-top} - #{$page-padding-bottom});
+$page-fullscreen-w: calc(100vw - 2 * #{$page-padding-w});
+
+/// MOBILE ///
+
+// m-header
+$m-header-h: 3rem;
+$m-header-padding-h: 1rem;
+$m-header-total-h: calc(#{$m-header-h} + 2 * #{$m-header-padding-h});
+
+$m-header-padding-w: 2rem;
+
+// m-footer
+$m-footer-h: 3.5rem;
+$m-footer-padding-h: 0rem;
+$m-footer-total-h: calc(#{$m-footer-h} + #{$m-footer-padding-h});
+
+$m-footer-padding-w: 0rem;
+
+// page
+// padding-top: wird aus der Höhe der Kopfzeile (hier 5rem) und den zusätzlichen 2rem Platz berechnet
+$m-page-padding-top: calc(#{$m-header-total-h} + 2rem);
+// padding-bottom: wird aus der Höhe der Fußleiste (hier 3.5rem) und den zusätzlichen 2rem Platz berechnet
+$m-page-padding-bottom: calc(#{$m-footer-total-h} + 2rem);
+$m-page-padding-w: 2rem;
+$m-page-fullscreen-h: calc(100vh - #{$m-page-padding-top} - #{$m-page-padding-bottom});
+$m-page-fullscreen-w: calc(100vw - 2 * #{$m-page-padding-w});
