@@ -1,64 +1,65 @@
 @import '../../styles/colors';
 @import '../../styles/screensize';
+@import '../../styles/proportions';
 
 #header-container {
-    height: 3rem;
-    line-height: 3rem;
-    z-index: 10;
+  height: $header-h;
+  line-height: $header-h;
+  z-index: 10;
 
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 
-    padding: 1rem 2rem;
+  padding: $m-header-padding-h $m-header-padding-w;
 
-    @media only screen and (min-width: $tablet-width) {
-      padding: 2rem 6rem;
-    }
+  @media only screen and (min-width: $tablet-width) {
+    padding: $header-padding-h $header-padding-w;
+  }
 
-    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .4) 70%, transparent);
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4) 70%, transparent);
 
-    #head-nav {
-        display: inline-flex;
-        width: 100%;
-        height: 100%;
-        line-height: 100%;
-        font-size: 1.25rem;
+  #head-nav {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    font-size: 1.25rem;
 
-        .nav-item {
-            justify-content: center;
-            text-align: center;
-            display: flex;
+    .nav-item {
+      justify-content: center;
+      text-align: center;
+      display: flex;
 
-            @media only screen and (max-width: $tablet-width) {
-                display: none;
-            }
+      @media only screen and (max-width: $tablet-width) {
+        display: none;
+      }
 
-            .nav-link {
-                color: $text-light;
-                padding: 1rem 2rem;
-                border-radius: 5px;
+      .nav-link {
+        color: $text-light;
+        padding: 1rem 2rem;
+        border-radius: 5px;
 
-                &:hover {
-                    color: $primary;
-                }
-                &.active {
-                    color: $primary;
-                }
-            }
-
-            &.nav-logo {
-                display: flex !important;
-            }
-
-            &.nav-profile {
-                margin-left: 2rem;
-
-                > i {
-                    margin: auto;
-                }
-            }
+        &:hover {
+          color: $primary;
         }
+        &.active {
+          color: $primary;
+        }
+      }
+
+      &.nav-logo {
+        display: flex !important;
+      }
+
+      &.nav-profile {
+        margin-left: 2rem;
+
+        > i {
+          margin: auto;
+        }
+      }
     }
+  }
 }
