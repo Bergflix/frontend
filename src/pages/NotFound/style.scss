@@ -1,10 +1,19 @@
+@import '../../styles/screensize';
+@import '../../styles/proportions';
+
 #nf-container {
+  display: grid;
+  place-items: center;
+
+  height: $m-page-fullscreen-h;
+  width: $m-page-fullscreen-w;
+
+  @media only screen and (min-width: $tablet-width) {
+    height: $page-fullscreen-h;
+    width: $page-fullscreen-w;
+  }
 
   .nf-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 5rem;
     text-align: center;
 
