@@ -9,7 +9,7 @@
   justify-content: center;
   text-align: center;
 
-  height: $page-fullscreen-h;
+  min-height: $page-fullscreen-h;
 
   .ps-info {
     text-shadow: 0px 0px 5px $background-dark;
@@ -107,8 +107,6 @@
   }
 
   @media only screen and (max-width: $mobile-width) {
-    height: 100%;
-
     .ps-info {
       display: flex;
       flex-direction: column;
