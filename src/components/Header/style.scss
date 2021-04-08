@@ -13,9 +13,11 @@
   left: 0;
 
   padding: $m-header-padding-h $m-header-padding-w;
+  width: $m-page-fullscreen-w;
 
   @media only screen and (min-width: $tablet-width) {
     padding: $header-padding-h $header-padding-w;
+    width: $page-fullscreen-w; //damit der Header die gleiche Größe behält, selbst wenn rechts eine Scrollbar sichtbar wird
   }
 
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4) 70%, transparent);

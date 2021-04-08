@@ -1,0 +1,68 @@
+@import '../../styles/colors';
+@import '../../styles/screensize';
+
+#sidebar-container {
+  position: absolute;
+  top: 5rem;
+  right: 6rem;
+
+  box-shadow: -2.87943px 0px 6.47872px -0.719858px rgba(0, 0, 0, 0.35);
+
+  width: 14.6rem;
+
+  background-color: $background-dark;
+  border-radius: 2px;
+
+  padding: 0.8rem;
+
+  &.hide {
+    display: none;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+
+    line-height: initial;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    border-top: solid $background-light 2px;
+
+    &:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .icon {
+        place-self: center;
+
+        svg {
+          $size: 20px;
+          width: $size;
+          height: $size;
+        }
+      }
+
+      span {
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+  }
+}
