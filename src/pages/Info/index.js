@@ -95,7 +95,7 @@ class Info extends Component {
                         {/*TODO: Make an if statement*/}
                     </div>
                     <div className={'description'}>{description}</div>
-                    {!renderSeasons && (
+                    {false /* komplett ausblenden */ && !renderSeasons && (
                         <div className={'timeline'}>
                             <span />
                             <span>150min</span>

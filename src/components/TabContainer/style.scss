@@ -1,84 +1,60 @@
 @import '../../styles/colors.scss';
 @import '../../styles/screensize.scss';
+@import '../../styles/proportions.scss';
 
 .tab-container {
-    .tab-header {
-        display: flex;
-        flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-        .tab-header-list {
-            .tab {
-                font-size: 20px;
-                font-weight: 500;
-                color: $text-secondary;
-                transition: color 0.2s ease;
-                margin-right: 20px;
-                padding: 5px 1px 1px 1px;
-                cursor: pointer;
+  .tab-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
 
-                // Remove Selection Option //
-                -webkit-touch-callout: none; // iOS Safari
-                -webkit-user-select: none; // Safari
-                -khtml-user-select: none; // Konqueror HTML
-                -moz-user-select: none; // Old versions of Firefox
-                -ms-user-select: none; // Internet Explorer/Edge
-                user-select: none; // Chrome, Edge, Opera and Firefox (Non-prefixed version)
+    .tab {
+      width: 2rem;
+      height: 2rem;
+      margin: .5rem;
 
-                &:hover {
-                    color: $text-primary;
-                }
-            }
+      background-color: $black;
+      cursor: pointer;
+      border-radius: 3px;
 
-            .tab-active {
-                color: $text-primary;
-                border-bottom: 2px solid $primary;
-            }
-        }
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: $text-secondary;
 
-        .tab-header-select {
-            display: none;
+      transition: color 0.2s ease;
 
-            flex-direction: column;
-
-            // Padding
-            padding: 5px 5px;
-
-            // Font
-            font-size: 20px;
-            font-weight: 500;
-            color: $text-primary;
-
-            // Border
-            border: 1px solid $background-dark;
-            border-radius: 5px;
-
-            // Remove default arrow
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-
-            // Custom arrow
-            background: url(down-arrow.svg) 96% / 25px no-repeat $background-dark;
-            transition: all 0.15s ease;
-
-            &:hover {
-                color: $primary;
-                background: url(down-arrow.svg) 96% / 25px no-repeat $background-darker;
-            }
-        }
-
-        @media only screen and (max-width: $tablet-width) {
-            .tab-header-list {
-                display: none;
-            }
-
-            .tab-header-select {
-                display: flex;
-            }
-        }
+      &:hover {
+        color: $text-primary;
+      }
     }
+
+    .tab-active {
+      color: $text-primary;
+      background-color: $primary;
+    }
+  }
+
+  @media only screen and (min-width: $tablet-width) {
+    flex-direction: row-reverse;
+
+    .tab-header {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+
+      .tab {
+        margin: .5rem 0;
+      }
+    }
+    
 
     .tab-content {
-        margin-top: 15px;
+      margin-right: 3rem;
     }
+  }
 }

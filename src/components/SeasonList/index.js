@@ -21,8 +21,11 @@ class NavigationList extends Component {
                                 <span className={'watch-indicator'} style={{ width: `${65}%` } /*TODO: Add length calculation*/} />
                             </span>
                             <span className={'part-info'}>
+                                <span className={'part-index'}>
+                                  Folge {partIndex}
+                                </span>
                                 <span className={'part-title'}>
-                                    {partIndex}. {part.title}
+                                  {part.title}
                                 </span>
                                 <p className={'part-description'}>
                                     Voluptatem quos ratione et perspiciatis et quos molestiae. Sint reprehenderit eum earum natus eius cupiditate itaque. Doloremque ab dolores nihil nihil. Molestias
