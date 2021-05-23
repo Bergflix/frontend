@@ -1,0 +1,139 @@
+@import '../../styles/colors.scss';
+@import '../../styles/screensize.scss';
+
+#ps-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+    .ps-info {
+        text-shadow: 0px 0px 5px $background-dark;
+
+        .ps-title {
+            font-size: 60px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 40px;
+            font-weight: 300;
+            margin: 0;
+
+            span {
+                color: $primary;
+            }
+        }
+    }
+
+    .ps-recommended {
+        width: 100%;
+        margin-top: 2rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(4, 1fr);
+
+        .ps-item {
+            background: $background-dark;
+
+            display: flex;
+            flex-direction: column;
+
+            // Border Mask
+            border-radius: 5px;
+            overflow: hidden;
+
+            transition: all 400ms ease;
+
+            .item-image {
+                width: 100%;
+                filter: brightness(0.75);
+                transition: all 600ms ease;
+            }
+
+            .item-link {
+                background: $background-darker;
+                padding: 15px 0px;
+                transition: all 400ms ease;
+
+                i {
+                    margin-right: 0.5rem;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.04);
+                transition: all 200ms ease;
+
+                .item-image {
+                    filter: none;
+                }
+
+                .item-link {
+                    background: $primary-alpha;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: $laptop-width) {
+        .ps-info {
+            .ps-title {
+                font-size: 45px;
+            }
+
+            p {
+                font-size: 35px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: $tablet-width) {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        margin-bottom: 80px;
+
+        .ps-info {
+            .ps-title {
+                font-size: 35px;
+            }
+
+            p {
+                font-size: 25px;
+            }
+        }
+
+        .ps-recommended {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+        .ps-info {
+            display: flex;
+            flex-direction: column;
+
+            .ps-title {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        .ps-recommended {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

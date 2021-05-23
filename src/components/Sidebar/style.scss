@@ -1,0 +1,87 @@
+@import "../../styles/colors";
+
+#sidebar-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 18rem;
+  background: $background-darker;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: right 300ms ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.69) 0 26px 30px -10px;
+
+  &.hide {
+    right: -20rem;
+  }
+
+  #sidebar-header {
+    height: 2rem;
+    display: flex;
+
+    .title {
+      h2 {
+        margin: 0;
+      }
+    }
+
+    .close {
+      padding-top: .25rem;
+      margin-left: auto;
+    }
+  }
+
+  #sidebar-menu {
+    margin-top: 1.5rem;
+
+    li {
+      line-height: 4rem;
+      cursor: pointer;
+
+      a {
+        display: inline-block;
+        width: 100%;
+        border-radius: 5px;
+
+        > * {
+          margin-left: 1rem;
+        }
+      }
+
+      &:hover a {
+        background: $background-light;
+      }
+
+      &:hover a, a.active {
+        * {
+          color: $primary;
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  #sidebar-footer {
+    margin: auto 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+
+    li {
+      min-width: 50%;
+      text-align: center;
+      line-height: 1.5rem;
+
+      a {
+        color: $text-secondary;
+
+        &:hover {
+          color: $text-primary;
+        }
+      }
+    }
+  }
+}

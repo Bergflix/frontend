@@ -1,0 +1,178 @@
+@import '../../styles/colors.scss';
+@import '../../styles/screensize.scss';
+
+.season-container {
+    display: inline-grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+
+    .part {
+        background-color: $background-dark;
+        width: 100%;
+        height: 100%;
+
+        // Align
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        justify-self: center;
+        justify-content: center;
+
+        // Transition
+        transition: all 0.15s ease;
+
+        // Border Mask
+        border-radius: 6px;
+        overflow: hidden;
+
+        &:hover {
+            background-color: $background-darker;
+
+            // Hover Zoom Effect
+            transform: scale(1.03);
+            z-index: 2;
+
+            // More bright
+            .part-preview * {
+                filter: none;
+            }
+
+            .part-info {
+                .part-title {
+                    color: $primary;
+                }
+            }
+        }
+
+        .part-preview {
+            flex: 3;
+
+            // Align
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+
+            overflow: hidden;
+
+            * {
+                transition: all 0.15s ease;
+                filter: brightness(0.75);
+            }
+
+            .part-thumbnail {
+                object-fit: cover;
+                width: 100%;
+            }
+
+            .watch-indicator {
+                display: none;
+                width: 0;
+                height: 4px;
+                margin-top: -4px;
+                //border-radius: 2px;
+                background-color: $primary;
+                filter: brightness(0.75);
+
+                z-index: 1;
+            }
+        }
+
+        .part-info {
+            flex: 5;
+
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            * {
+                padding-left: 20px;
+            }
+
+            .part-title {
+                font-size: 20px;
+                font-weight: 500;
+                margin-top: 10px;
+                transition: color 0.15s ease;
+            }
+
+            .part-description {
+                width: 90%;
+
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            .part-tags {
+                display: flex;
+                align-items: center;
+
+                margin-bottom: 10px;
+
+                span {
+                    padding-left: 0;
+
+                    display: inline-block;
+
+                    font-size: 15px; // Fixes weird stretching when zoomed in
+                    color: $text-secondary;
+
+                    &:first-child {
+                        font-weight: 500;
+                    }
+
+                    &:nth-child(2) {
+                        background-color: $text-secondary;
+                        margin: auto 0.5em;
+                        width: 1px;
+                        height: 1em;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // LAPTOP VERSION (for devices with a MDPI Screen)
+    @media only screen and (max-width: $laptop-width) {
+        grid-template-columns: repeat(2, 1fr);
+
+        .part {
+            height: 100%;
+            flex-direction: column;
+
+            .part-preview {
+                flex: none;
+
+                .part-thumbnail {
+                    object-fit: fill;
+                }
+            }
+
+            .part-info {
+                align-items: center;
+
+                * {
+                    padding-left: 0;
+                }
+
+                .part-title {
+                    text-align: center;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    // TABLET VERSION
+    @media only screen and (max-width: $tablet-width) {
+    }
+
+    // MOBILE VERSION
+    @media only screen and (max-width: $mobile-width) {
+        grid-template-columns: 1fr;
+    }
+}

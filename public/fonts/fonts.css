@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:900i&display=swap');
+
+@font-face {
+    font-family: "Novecento Wide UltraBold";
+    src: url("Novecento_Wide_UltraBold/0679be9f91b64bcfff1511e0f43d4ad3.eot");
+    src: url("Novecento_Wide_UltraBold/0679be9f91b64bcfff1511e0f43d4ad3.eot?#iefix") format("embedded-opentype"),
+    url("Novecento_Wide_UltraBold/0679be9f91b64bcfff1511e0f43d4ad3.woff2") format("woff2"),
+    url("Novecento_Wide_UltraBold/0679be9f91b64bcfff1511e0f43d4ad3.woff") format("woff"),
+    url("Novecento_Wide_UltraBold/0679be9f91b64bcfff1511e0f43d4ad3.ttf") format("truetype"),
+    url("Novecento_Wide_UltraBold/0679be9f91b64bcfff1511e0f43d4ad3.svg#Novecento Wide UltraBold") format("svg");
+}
+@font-face {
+    font-family: "Novecento Wide Book";
+    src: url("Novecento_Wide_Book/650e5597da4b5969c221e3becd70d84d.eot");
+    src: url("Novecento_Wide_Book/650e5597da4b5969c221e3becd70d84d.eot?#iefix") format("embedded-opentype"),
+    url("Novecento_Wide_Book/650e5597da4b5969c221e3becd70d84d.woff2") format("woff2"),
+    url("Novecento_Wide_Book/650e5597da4b5969c221e3becd70d84d.woff") format("woff"),
+    url("Novecento_Wide_Book/650e5597da4b5969c221e3becd70d84d.ttf") format("truetype"),
+    url("Novecento_Wide_Book/650e5597da4b5969c221e3becd70d84d.svg#Novecento Wide Book") format("svg");
+}
+@font-face {
+    font-family: "Novecento Wide Normal";
+    src: url("Novecento_Wide_Normal/4650cd390f041484c279d7298289a68f.eot");
+    src: url("Novecento_Wide_Normal/4650cd390f041484c279d7298289a68f.eot?#iefix") format("embedded-opentype"),
+    url("Novecento_Wide_Normal/4650cd390f041484c279d7298289a68f.woff2") format("woff2"),
+    url("Novecento_Wide_Normal/4650cd390f041484c279d7298289a68f.woff") format("woff"),
+    url("Novecento_Wide_Normal/4650cd390f041484c279d7298289a68f.ttf") format("truetype"),
+    url("Novecento_Wide_Normal/4650cd390f041484c279d7298289a68f.svg#Novecento Wide Normal") format("svg");
+}
+@font-face {
+    font-family: "Novecento Wide Medium";
+    src: url("Novecento_Wide_Medium/c2988552206031b82497c4a05a393759.eot");
+    src: url("Novecento_Wide_Medium/c2988552206031b82497c4a05a393759.eot?#iefix") format("embedded-opentype"),
+    url("Novecento_Wide_Medium/c2988552206031b82497c4a05a393759.woff2") format("woff2"),
+    url("Novecento_Wide_Medium/c2988552206031b82497c4a05a393759.woff") format("woff"),
+    url("Novecento_Wide_Medium/c2988552206031b82497c4a05a393759.ttf") format("truetype"),
+    url("Novecento_Wide_Medium/c2988552206031b82497c4a05a393759.svg#Novecento Wide Medium") format("svg");
+}
+@font-face {
+    font-family: "Novecento Wide Bold";
+    src: url("Novecento_Wide_Bold/67821e7ef9a2952d6e7757a6cae5a826.eot");
+    src: url("Novecento_Wide_Bold/67821e7ef9a2952d6e7757a6cae5a826.eot?#iefix") format("embedded-opentype"),
+    url("Novecento_Wide_Bold/67821e7ef9a2952d6e7757a6cae5a826.woff2") format("woff2"),
+    url("Novecento_Wide_Bold/67821e7ef9a2952d6e7757a6cae5a826.woff") format("woff"),
+    url("Novecento_Wide_Bold/67821e7ef9a2952d6e7757a6cae5a826.ttf") format("truetype"),
+    url("Novecento_Wide_Bold/67821e7ef9a2952d6e7757a6cae5a826.svg#Novecento Wide Bold") format("svg");
+}
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-Bold.eot');
+    src: local('Euclid Circular A Bold'), local('EuclidCircularA-Bold'),
+    url('EclidCircularA/EuclidCircularA-Bold.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-Bold.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-Bold.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-Light.eot');
+    src: local('Euclid Circular A Light'), local('EuclidCircularA-Light'),
+    url('EclidCircularA/EuclidCircularA-Light.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-Light.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-Light.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-BoldItalic.eot');
+    src: local('Euclid Circular A Bold Italic'), local('EuclidCircularA-BoldItalic'),
+    url('EclidCircularA/EuclidCircularA-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-BoldItalic.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-BoldItalic.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-LightItalic.eot');
+    src: local('Euclid Circular A Light Italic'), local('EuclidCircularA-LightItalic'),
+    url('EclidCircularA/EuclidCircularA-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-LightItalic.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-LightItalic.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-Regular.eot');
+    src: local('Euclid Circular A Regular'), local('EuclidCircularA-Regular'),
+    url('EclidCircularA/EuclidCircularA-Regular.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-Regular.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-Regular.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-SemiBold.eot');
+    src: local('Euclid Circular A SemiBold'), local('EuclidCircularA-SemiBold'),
+    url('EclidCircularA/EuclidCircularA-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-SemiBold.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-SemiBold.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-Medium.eot');
+    src: local('Euclid Circular A Medium'), local('EuclidCircularA-Medium'),
+    url('EclidCircularA/EuclidCircularA-Medium.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-Medium.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-Medium.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-Italic.eot');
+    src: local('Euclid Circular A Italic'), local('EuclidCircularA-Italic'),
+    url('EclidCircularA/EuclidCircularA-Italic.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-Italic.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-Italic.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-SemiBoldItalic.eot');
+    src: local('Euclid Circular A SemiBold Italic'), local('EuclidCircularA-SemiBoldItalic'),
+    url('EclidCircularA/EuclidCircularA-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-SemiBoldItalic.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-SemiBoldItalic.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('EclidCircularA/EuclidCircularA-MediumItalic.eot');
+    src: local('Euclid Circular A Medium Italic'), local('EuclidCircularA-MediumItalic'),
+    url('EclidCircularA/EuclidCircularA-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('EclidCircularA/EuclidCircularA-MediumItalic.woff2') format('woff2'),
+    url('EclidCircularA/EuclidCircularA-MediumItalic.woff') format('woff'),
+    url('EclidCircularA/EuclidCircularA-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}

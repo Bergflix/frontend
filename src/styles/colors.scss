@@ -1,0 +1,26 @@
+// primary
+$primary: #f40f3a;
+$primary-alpha: rgba($primary, 0.8);
+
+// text
+$text-primary: #fff;
+$text-secondary: #868686;
+$text-light: darken($text-primary, 25);
+
+// navigation
+$nav-secondary: #aaa;
+
+// background
+$background-light: #262626;
+$background-light-alpha: rgba($background-light, 0.6);
+$background-lighter: lighten($background-light, 5);
+$background-dark: #151515;
+$background-darker: darken($background-dark, 5);
+$background-darker-alpha: rgba($background-darker, 0.75);
+
+// scrollbar
+$scrollbar-foreground: $background-light-alpha;
+$scrollbar-background: $background-dark;
+
+// icon
+$icon-primary: #fff;

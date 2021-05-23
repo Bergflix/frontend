@@ -1,0 +1,46 @@
+@import "../../styles/colors";
+
+#loading-container {
+  filter: brightness(1);
+  animation-play-state: running;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 40px;
+
+  @keyframes spinner {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+  }
+
+  &.-paused {
+    animation-play-state: paused;
+    opacity: 0.2;
+    transition: opacity linear 0.1s;
+  }
+
+  &::before {
+    animation: 1.5s linear infinite spinner;
+    animation-play-state: inherit;
+    border: solid 3px $background-lighter;
+    border-bottom-color: $primary;
+    border-radius: 50%;
+    content: "";
+    height: inherit;
+    left: inherit;
+    opacity: inherit;
+    position: absolute;
+    top: inherit;
+    transform: inherit;
+    width: inherit;
+    will-change: transform;
+  }
+}

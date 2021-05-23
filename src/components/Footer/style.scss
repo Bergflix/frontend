@@ -1,0 +1,59 @@
+@import "../../styles/colors";
+@import "../../styles/screensize.scss";
+
+#footer-container {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5rem;
+  z-index: 10;
+  background: $background-dark;
+
+  @media only screen and (max-width: $tablet-width + 1) { //max-width because else if a device is exactly the width and 'min-width' would be used, then no navigation would be displayed at all
+    display: block;
+  }
+
+  #foot-nav {
+    display: flex;
+    height: 100%;
+    line-height: 100%;
+    width: 100%;
+
+    .nav-item {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+
+      .nav-link {
+        flex-grow: 1;
+        display: flex;
+        color: $text-primary;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &.active {
+          .nav-icon svg path {
+              fill: $primary;
+          }
+        }
+
+        i {
+          font-size: 1.3rem;
+        }
+
+        span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  #mobile-nav {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+  }
+}

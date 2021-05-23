@@ -1,0 +1,17 @@
+/* TEAM from Bergflix */
+Lead Designer: Nikasukee
+Location: Germany
+
+Lead Developer: Maxi
+Location: Germany
+
+Developer: LeXonJe
+Location: Germany
+
+/* THANKS goes to */
+Name: HerrBergmann
+
+/* SITE was made with */
+Standards: HTML5, CSS3, JavaScript, Progressive Web App (PWA)
+Components: ReactJS
+Software: node.js, npm, git, GitHub, Discord, PhpStorm, Sublime
