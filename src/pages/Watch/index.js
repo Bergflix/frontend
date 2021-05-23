@@ -17,6 +17,7 @@ class Watch extends React.Component {
 
     constructor(props) {
         super(props);
+
         const { key } = props.match.params;
         Backend.get(key)
             .then((data) => {
@@ -75,6 +76,28 @@ class Watch extends React.Component {
                 <Helmet>
                     <title>Bergflix - Videoplayer - {data.title}</title>
                 </Helmet>
+                <div className={'view'}>
+                    <YouTube
+                      containerClassName={'video-container'}
+                      id={'video'}
+                      videoId={ytid}
+                      opts={{
+                        enablejsapi: 1,
+                        width: '100%',
+                        height: '100%',
+                        iv_load_policy: 3,
+                        modestbranding: 1,
+                        origin: 'bergflix.de',
+                        rel: 0,
+                        showinfo: 0,
+                        playerVars: {
+                          autoplay: 1,
+                          controls: 0
+                        },
+                      }}
+                      onPlay={this._onPlay}
+                    />
+                </div>
                 <div className={'controls'}>
                     <span className={'buttons'}>
                         <NavLink className={'button'} to={`/media/${data._id}`}>
@@ -82,29 +105,19 @@ class Watch extends React.Component {
                         </NavLink>
                     </span>
                 </div>
-                <div className={'view'}>
-                    <YouTube
-                        containerClassName={'video-container'}
-                        id={'video'}
-                        videoId={ytid}
-                        opts={{
-                            enablejsapi: 1,
-                            width: '100%',
-                            height: '100%',
-                            iv_load_policy: 3,
-                            modestbranding: 1,
-                            origin: 'bergflix.de',
-                            rel: 0,
-                            showinfo: 0,
-                            playerVars: {
-                                autoplay: 1,
-                            },
-                        }}
-                    />
-                    {renderPlaylist && <Playlist series={data} season={season} part={part} />}
-                </div>
             </div>
         );
+    }
+
+    _onPlay(e) {
+      const element = document.getElementById('video');
+      element.requestFullscreen && !document.fullscreenEnabled && element.requestFullscreen();
+
+      requestAnimationFrame(() => {
+        document.addEventListener('fullscreenchange', e => {
+          console.log(this);
+        }, false);
+      });
     }
 }
 

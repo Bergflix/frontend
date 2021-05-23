@@ -1,62 +1,53 @@
 @import '../../styles/colors';
 @import '../../styles/screensize';
+@import '../../styles/proportions.scss';
 
 #watch-page {
-    top: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+  z-index: 10;
 }
 
 #watch-container {
-    width: 100%;
-    height: 100%;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 
-    // For some reason the background produces a little bit overflow
-    overflow: hidden;
+  .view {
+    width: inherit;
+    height: inherit;
 
-    display: flex;
-    flex-direction: column;
-
-    .controls {
-        min-height: 80px;
-
-        .buttons {
-            position: absolute;
-            top: 29px;
-            right: 300px;
-            z-index: 11;
-
-            font-size: 1.25rem;
-
-            .button {
-                color: $nav-secondary;
-                padding: 1rem 2rem;
-
-                &:hover {
-                    color: $primary;
-                }
-            }
-        }
+    .video-container {
+      overflow: hidden;
+      height: inherit;
+      width: inherit;
+      background-color: $background-darker;
     }
+  }
 
-    .view {
-        width: inherit;
-        height: calc(100% - 80px);
+  .controls {
+    width: inherit;
+    height: inherit;
 
-        display: flex;
-        flex-direction: row;
+    .buttons {
+      position: absolute;
+      top: 29px;
+      right: 300px;
+      z-index: 11;
 
-        .video-container {
-            flex: 1;
-            margin: 0 2rem 2rem;
+      font-size: 1.25rem;
 
-            background-color: $background-darker;
-            border: solid $background-light 1px;
+      .button {
+        color: $nav-secondary;
+        padding: 1rem 2rem;
+
+        &:hover {
+          color: $primary;
         }
-
-        @media only screen and (max-width: $tablet-width) {
-            flex-direction: column;
-        }
+      }
     }
+  }
+
 }

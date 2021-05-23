@@ -12,6 +12,7 @@
 
     padding: $m-page-padding-top $m-page-padding-w $m-page-padding-bottom;
     width: $m-page-fullscreen-w;
+    height: 100%;
 
     @media only screen and (min-width: $tablet-width) {
       padding: $page-padding-top $page-padding-w $page-padding-bottom;

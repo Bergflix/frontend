@@ -82,6 +82,7 @@
           background-color: $background-darker-alpha;
 
           border-radius: 8px;
+
           &::before {
             width: 20px;
             height: 2px;
@@ -125,6 +126,7 @@
     @media only screen and (max-width: $laptop-width) {
       .logo {
         font-size: 4.5rem;
+        word-wrap: break-word;
       }
     }
   }
@@ -169,10 +171,6 @@
   @media only screen and (max-width: $mobile-width) {
     .info-sector {
       width: 100%;
-
-      .logo {
-        width: 100%;
-      }
 
       .info {
         span {
