@@ -51,9 +51,9 @@ const Sidebar = (props) => {
     }]
   };
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [name, setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
   const isOpener = (target) => {
     if (!target || target.tagName === "BODY") return false;

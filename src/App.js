@@ -13,7 +13,7 @@ const App = () => {
   const [loading, setLoading] = useState(Backend.loaded);
   const [background, setBg] = useState('');
   const setBackground = src => background !== src && setBg(src);
-  const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
+  const [userIsLoggedIn] = useState(false);
 
   useEffect(() => Backend.onLoad(() => setLoading(false)));
   if (loading) return <Loading />;
