@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import './style.scss';
@@ -8,8 +8,10 @@ import ElementList from '../../components/ElementList';
 import { useEffect } from 'react';
 
 const Search = (props) => {
-  const [loading, setLoading] = useState(true);
-  const [list, setList] = useState([]);
+  const [{ loading, list }, setState] = useState({ loading: true, list: [] });
+
+  const m = useRef(true); // Mounted
+  useEffect(() => () => m.current = false); // Unmounted
 
   useEffect(() => {
     let urlParams = new URLSearchParams(props.location.search);
@@ -17,8 +19,11 @@ const Search = (props) => {
       title: urlParams.get('q') || props.title,
       type: urlParams.get('type') || props.type,
     }).then((data) => {
-      setLoading(false);
-      setList(data);
+      if (!m.current) return;
+      setState({
+        loading: false,
+        list: data
+      });
     });
   });
 

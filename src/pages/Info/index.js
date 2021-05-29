@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Backend from '../../classes/Backend';
@@ -13,20 +13,25 @@ import Icon from '../../components/Elements/Icon';
 import { useEffect } from 'react';
 
 const Info = (props) => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [media, setMedia] = useState(null);
+  const [{ loading, error, media }, setState] = useState({ loading: true, error: false, media: null });
 
-  useEffect(() => {
-    Backend.get(props.match.params.key).then((data) => {
-      setLoading(false);
-      setMedia(data);
-      props.setBackground && props.setBackground(data.background || data.thumbnail);
-    }).catch(() => {
-      setLoading(false);
-      setError(true);
+  const m = useRef(true); // Mounted
+  useEffect(() => () => m.current = false); // Unmounted
+
+  useEffect(() => Backend.get(props.match.params.key).then((data) => {
+    if (!m.current) return;
+    setState({
+      loading: false,
+      media: data
     });
-  });
+    props.setBackground && props.setBackground(data.background || data.thumbnail);
+  }).catch(() => {
+    if (!m.current) return;
+    setState({
+      loading: false,
+      error: true
+    });
+  }));
 
   if (loading) return <Loading />;
   if (error) return <Redirect to={'/home'} />;

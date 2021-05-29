@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Backend from '../../classes/Backend';
@@ -11,16 +11,17 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 const Home = (props) => {
-
   const [featured, setFeatured] = useState(null);
 
-  useEffect(() => {
-    Backend.getList('all', 'date', 1).then((data) => {
-      let featured = data[0];
-      setFeatured(featured);
-      props.setBackground && props.setBackground(featured.background || featured.thumbnail);
-    });
-  });
+  const m = useRef(true); // Mounted
+  useEffect(() => () => m.current = false); // Unmounted
+
+  useEffect(() => Backend.getList('all', 'date', 1).then((data) => {
+    if (!m.current) return;
+    let f = data[0];
+    setFeatured(f);
+    props.setBackground && props.setBackground(f.background || f.thumbnail);
+  }));
 
   if (!featured) return <Loading />;
 

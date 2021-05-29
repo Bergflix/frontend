@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { withRouter, Redirect, NavLink } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import YouTube from 'react-youtube';
@@ -10,21 +10,25 @@ import Loading from '../../components/Loading';
 import { useEffect } from 'react';
 
 const Watch = (props) => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [data, setData] = useState(null);
+  const [{ loading, error, data }, setState] = useState({ loading: true, error: false, data: null });
 
-  useEffect(() => {
-    Backend.get(props.match.params.key).then((data) => {
-      // Instead of just loading the ytid we get the whole data because of playlists
-      this.setState({ loading: false, error: false, data });
-      setLoading(false);
-      setData(data);
-    }).catch(() => {
-      setLoading(false);
-      setError(false);
+  const m = useRef(true); // Mounted
+  useEffect(() => () => m.current = false); // Unmounted
+
+  useEffect(() => Backend.get(props.match.params.key).then((data) => {
+    if (!m.current) return;
+    // Instead of just loading the ytid we get the whole data because of playlists
+    setState({
+      loading: false,
+      data
     });
-  });
+  }).catch(() => {
+    if (!m.current) return;
+    setState({
+      loading: false,
+      error: true
+    });
+  }));
 
   useEffect(() => props.setBackground && props.setBackground(''));
 

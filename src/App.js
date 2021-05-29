@@ -16,7 +16,7 @@ const App = () => {
   const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
 
   useEffect(() => Backend.onLoad(() => setLoading(false)));
-  if (!loading) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <div id={"container"}>
