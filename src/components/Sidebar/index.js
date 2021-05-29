@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "./style.scss";
 import Icon from "../Elements/Icon";
 import { Link, /* NavLink*/ } from "react-router-dom";

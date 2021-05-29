@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
