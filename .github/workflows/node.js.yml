@@ -24,9 +24,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
-    - run: npm ci
+    - run: yarn install --frozen-lockfile
     - run: rm -rf build
-    - run: npm run build
+    - run: yarn build
 
     - name: copy file via ssh
       uses: appleboy/scp-action@master
