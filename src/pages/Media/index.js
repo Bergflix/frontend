@@ -1,66 +1,54 @@
-import React from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import './style.scss';
 import Backend from '../../classes/Backend';
 import Loading from '../../components/Loading';
 import ElementList from '../../components/ElementList';
+import { useEffect } from 'react';
 
-class Search extends React.Component {
-    state = {
-        loading: true,
-        list: [],
-    };
+const Search = (props) => {
+  const [{ loading, list }, setState] = useState({ loading: true, list: [] });
 
-    mounted = false;
+  const m = useRef(true); // Mounted
+  useEffect(() => () => m.current = false); // Unmounted
 
-    constructor(props) {
-        super(props);
+  useEffect(() => {
+    let urlParams = new URLSearchParams(props.location.search);
+    Backend.find({
+      title: urlParams.get('q') || props.title,
+      type: urlParams.get('type') || props.type,
+    }).then((data) => {
+      if (!m.current) return;
+      setState({
+        loading: false,
+        list: data
+      });
+    });
+  });
 
-        let urlParams = new URLSearchParams(this.props.location.search);
-        Backend.find({
-            title: urlParams.get('q') || this.props.title,
-            type: urlParams.get('type') || this.props.type,
-        }).then((data) => {
-            if (this.mounted) {
-                this.setState({ loading: false, list: data });
-            } else {
-                this.state = { loading: false, list: data };
-            }
-        });
-    }
+  useEffect(() => props.setBackground && props.setBackground(''));
 
-    componentDidMount() {
-        this.mounted = true;
-        this.props.setBackground && this.props.setBackground('');
-    }
+  if (loading) return <Loading />;
 
-    componentWillUnmount() {
-        this.mounted = false;
-    }
-
-    render() {
-        if (this.state.loading) return <Loading />;
-
-        return (
-            <React.Fragment>
-                {this.props.browserTitle ? (
-                    <Helmet>
-                        <title>{this.props.browserTitle}</title>
-                    </Helmet>
-                ) : undefined}
-                {this.state.list.length ? (
-                    <ElementList type={this.props.type} list={this.state.list} />
-                ) : (
-                    <div id={'no-result'}>
-                        <div className={'dialog'}>
-                            <h3>Kein Ergebnis</h3>
-                        </div>
-                    </div>
-                )}
-            </React.Fragment>
-        );
-    }
-}
+  return (
+    <Fragment>
+      {props.browserTitle ? (
+        <Helmet>
+          <title>{props.browserTitle}</title>
+        </Helmet>
+      ) : undefined}
+      {list.length ? (
+        <ElementList type={props.type} list={list} />
+      ) : (
+        <div id={'no-result'}>
+          <div className={'dialog'}>
+            <h3>Kein Ergebnis</h3>
+          </div>
+        </div>
+      )}
+    </Fragment>
+  );
+};
 
 export default withRouter(Search);

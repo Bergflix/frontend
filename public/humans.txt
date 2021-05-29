@@ -2,10 +2,10 @@
 Lead Designer: Nikasukee
 Location: Germany
 
-Lead Developer: Lyxt
-Location: Austria
-
 Lead Developer: Maxi
+Location: Germany
+
+Developer: LeXonJe
 Location: Germany
 
 /* THANKS goes to */

@@ -1,17 +1,15 @@
-import React from "react";
+import { Fragment, useEffect } from "react";
 
-class LinkOut extends React.Component {
+const LinkOut = (props) => {
 
-    componentDidMount() {
-        if(this.props.to) {
-            window.open(this.props.to,'_blank');
-            window.history.back();
-        }
-    }
+  useEffect(() => {
+    if(props.to) {
+      window.open(props.to, '_blank');
+      window.history.back();
+    };
+  });
 
-    render() {
-        return (<React.Fragment/>);
-    }
-}
+  return <Fragment />;
+};
 
 export default LinkOut;

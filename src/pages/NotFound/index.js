@@ -1,23 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./style.scss";
 
-class NotFound extends React.Component {
+const NotFound = (props) => {
 
-    componentDidMount() {
-        this.props.setBackground && this.props.setBackground("https://cdn.bergflix.de/imgs/bergi.png");
-    }
+  useEffect(() => props.setBackground && props.setBackground('https://cdn.bergflix.de/imgs/bergi.png'));
 
-    render() {
-        return (
-            <div id={"nf-container"}>
-                <span className={"nf-title"}>
-                    404
-                    <p className={"ops"}>Ooops!</p>
-                    <p>Diese Seite wurde nicht gefunden.</p>
-                </span>
-            </div>
-        );
-    }
-}
+  return (
+    <div id={"nf-container"}>
+      <span className={"nf-title"}>
+        404
+        <p className={"ops"}>Ooops!</p>
+        <p>Diese Seite wurde nicht gefunden.</p>
+      </span>
+    </div>
+  );
+};
 
 export default NotFound;

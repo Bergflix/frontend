@@ -1,5 +1,5 @@
-import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,36 +9,25 @@ import Loading from "./components/Loading";
 import Backend from "./classes/Backend";
 import Pages from "./pages";
 
+const App = () => {
+  const [loading, setLoading] = useState(Backend.loaded);
+  const [background, setBg] = useState('');
+  const setBackground = src => background !== src && setBg(src);
+  const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
 
-class App extends React.Component {
+  useEffect(() => Backend.onLoad(() => setLoading(false)));
+  if (loading) return <Loading />;
 
-    state = {
-        background: "",
-        userIsLoggedIn: false
-    };
-
-    componentDidMount() {
-        let app = this;
-        // Load the Database for the Video-Elements
-        Backend.onLoad(() => app.forceUpdate());
-    }
-
-    render() {
-        if(!Backend.loaded) return <Loading />;
-
-        return (
-            <div id={"container"}>
-                <Router>
-                    <BackgroundImage image={this.state.background} />
-                    <Header userIsLoggedIn={this.state.userIsLoggedIn} />
-                    <Route render={({location}) => <Pages location={location} setBackground={this.setBackground} />} />
-                    <Footer />
-                </Router>
-            </div>
-        );
-    }
-
-    setBackground = src => this.state.background !== src && this.setState({background: src});
-}
+  return (
+    <div id={"container"}>
+      <Router>
+        <BackgroundImage image={background} />
+        <Header userIsLoggedIn={userIsLoggedIn} />
+        <Route render={({ location }) => <Pages location={location} setBackground={setBackground} />} />
+        <Footer />
+      </Router>
+    </div>
+  );
+};
 
 export default App;
